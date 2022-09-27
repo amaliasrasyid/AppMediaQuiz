@@ -6,9 +6,17 @@ import android.graphics.Rect
 import android.util.Log
 import android.view.MotionEvent
 import android.view.SurfaceView
+import com.kontrakanprojects.appgamequiz.data.model.Question
+import com.kontrakanprojects.appgamequiz.view.game.component.Background
+import com.kontrakanprojects.appgamequiz.view.game.component.Bullet
+import com.kontrakanprojects.appgamequiz.view.game.component.Flight
+import com.kontrakanprojects.appgamequiz.view.game.component.fish.Fish
+import com.kontrakanprojects.appgamequiz.view.game.component.question.GameQuestion
 import java.util.*
+import kotlin.collections.ArrayList
 
-class GameView internal constructor(context: Context, screenX: Int, screenY: Int) :
+
+class GameView internal constructor(context: Context, screenX: Int, screenY: Int, questions: ArrayList<Question>) :
     SurfaceView(context), Runnable {
 
     private var screenX = 0f
@@ -19,18 +27,30 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
     private var isGameOver = false
     private var paint: Paint
     private var flight: Flight
-    private var birds: Array<Bird?>
+    private var fishs: Array<Fish?>
     private var random: Random
     private var bullets: ArrayList<Bullet>
     private var background1: Background
     private var background2: Background
+    private var currentAnswerKey: Int = 0
+    private var indexGameQ: Int = 0
+
+    private var questionCmp = ArrayList<GameQuestion>()
+    private var listQuestion = ArrayList<Question>()
+
+    private val TAG = GameView::class.java.simpleName
+
+//    private var reduce
 
     companion object {
+        //making compatible with other devices (on different screen sizes)
         var screenRatioX = 0f
         var screenRatioY = 0f
     }
 
     init {
+        this.listQuestion = questions
+
         this.screenX = screenX.toFloat()
         this.screenY = screenY.toFloat()
         screenRatioX = 1920f / screenX
@@ -39,22 +59,30 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
         background1 = Background(screenX, screenY, resources)
         background2 = Background(screenX, screenY, resources)
 
-        flight = Flight(this, screenY, resources)
-
+        flight = Flight(this, screenX, screenY, resources)
         bullets = arrayListOf()
 
         background2.x = screenX.toFloat()
         paint = Paint()
 
-        // birds syntax
-        birds = arrayOfNulls(4)
-
-        for (i in birds.indices) {
-            val bird = Bird(resources)
-            birds[i] = bird
+        // fishs syntax
+        fishs = arrayOfNulls(4)
+        for (i in fishs.indices) {
+            val fish = Fish(resources)
+            fish.textNumber = (i + 1).toString()
+            fishs[i] = fish
         }
 
+        //question syntax
+        //initialize all game Question
+        //TODO: BUG data list ini kosong tp pas draw ada (dugaan pas initialisasi tdk ada datanya blm
+        for(question in questions){
+            val gameQuestion = GameQuestion(question.text,screenX,screenY,question,resources)
+            questionCmp.add(gameQuestion)
+        }
         random = Random()
+
+        if(questions.isNotEmpty()) currentAnswerKey = questions.get(0).answerKey  //SHOW NO DATA QUESTION
     }
 
     override fun run() {
@@ -100,50 +128,61 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
             }
             bullet.x += 50 * screenRatioX
 
-            for (bird in birds) {
-                if (bird != null) {
+            for (fish in fishs) {
+                if (fish != null) {
                     // jika bersentuhan peluru dan burung maka burung mati
-                    if (Rect.intersects(bird.getCollisionShape(), bullet.getCollisionShape())) {
-                        bird.x = (-500).toFloat()
+                    if (Rect.intersects(fish.getCollisionShape(), bullet.getCollisionShape())) {
+                        fish.x = (-500).toFloat()
                         bullet.x = screenX + 500
-                        bird.wasShot = true
+                        fish.wasShot = true
+
+                        //cek yg ditembak benar/tidak
+                        if(fish.textNumber == currentAnswerKey.toString()){
+                            //Todo: next question
+                            if(listQuestion.size != 1 && indexGameQ < listQuestion.size ) {
+                                indexGameQ++
+                            }
+                            else {
+                                isPlaying = false
+                                Log.d(TAG,"GAME SELESAI,Good job!")
+                            }
+
+                        }else if(fish.textNumber != currentAnswerKey.toString()){
+                            flight.reduceHp()
+                        }
                     }
                 }
             }
         }
 
+        //delete all bullets
         for (bullet in trash) {
             bullets.remove(bullet)
         }
 
-        // birds syntax line
-        for (bird in birds) {
-            if (bird != null) {
-                bird.x -= bird.speed
+        // movement fish (like moving it to the flight)
+        for (fish in fishs) {
+            if (fish != null) {
+                fish.x -= fish.speed
 
-                if (bird.x + bird.width < 0) {
+                if (fish.x + fish.width < 0) {
                     // jika burung melewati lebar
-                    if (!bird.wasShot) {
-                        isGameOver = true
-                        return
-                    }
+//                    if (!fish.wasShot) {
+//                        flight.reduceHp()
+//                    }
 
                     val bound = (30 * screenRatioX).toInt()
-                    bird.speed = random.nextInt(bound)
+                    fish.speed = random.nextInt(bound)
 
-                    if (bird.speed < 10 * screenRatioX) {
-                        bird.speed = (10 * screenRatioX).toInt()
+                    if (fish.speed < 10 * screenRatioX) {
+                        fish.speed = (10 * screenRatioX).toInt()
                     }
 
-                    bird.x = screenX
-                    bird.y = random.nextInt((screenY - bird.height).toInt()).toFloat()
+                    fish.x = screenX
+                    fish.y = random.nextInt((screenY - fish.height).toInt()).toFloat()
 
-                    bird.wasShot = false
-                }
-
-                if (Rect.intersects(bird.getCollisionShape(), flight.getCollisionShape())) {
-                    isGameOver = true
-                    return
+//                    // jika burung melewati lebar
+                    fish.wasShot = false
                 }
             }
         }
@@ -165,16 +204,53 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
                 paint
             )
 
-            if (isGameOver) {
+            val listHp = flight.healthPoints.getHealthPoints()
+            for (hp in listHp){
+                if(hp != null) {
+                    if(hp.isBroken){
+                        canvas.drawBitmap(hp.getBrokenHealthPoint(), hp.x, hp.y, paint)
+                    }else{
+                        canvas.drawBitmap(hp.getHealthPoint(), hp.x, hp.y, paint)
+                    }
+                }
+            }
+
+            //draw question and its option imgs
+            Log.d(TAG,"indexGameQ = ${indexGameQ}")
+            if(listQuestion.isNotEmpty()){
+                if(indexGameQ < listQuestion.size ){
+                    currentAnswerKey = listQuestion.get(indexGameQ).answerKey
+                    val questionComponent = questionCmp.get(indexGameQ)
+                    canvas.drawBitmap(questionComponent.getQuestionLayout(),questionComponent.x,questionComponent.y,paint)
+                    val listOptions = questionComponent.getOptions()
+                    for((index,option) in listOptions.withIndex()){
+                        if(option != null){
+                            option.textNumber = index + 1
+                            canvas.drawBitmap(option.getOption(),option.x,option.y,paint)
+
+                            //draw number (string) over it
+                            option.drawTextOnTop(canvas,resources)
+                        }
+                    }
+                }
+
+            }
+
+            if (flight.isDead) {
                 isPlaying = false
                 canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint)
                 holder.unlockCanvasAndPost(canvas)
                 return
             }
 
-            for (bird in birds) {
-                if (bird != null) {
-                    canvas.drawBitmap(bird.getBird(), bird.x, bird.y, paint)
+            for (fish in fishs) {
+                if (fish != null) {
+                    canvas.drawBitmap(fish.getFish(), fish.x, fish.y, paint)
+
+                    //draw text on top fish
+                    fish.drawTextOnTop(canvas,resources)
+
+                    Log.d(TAG,"bitmap w:${fish.width};h:${fish.height}")
                 }
             }
 
@@ -203,7 +279,6 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
         thread.join()
     }
 
-    private val TAG = GameView::class.simpleName
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when (event?.action) {

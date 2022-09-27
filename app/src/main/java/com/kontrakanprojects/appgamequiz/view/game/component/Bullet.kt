@@ -1,4 +1,4 @@
-package com.kontrakanprojects.appgamequiz.view.game
+package com.kontrakanprojects.appgamequiz.view.game.component
 
 import android.content.res.Resources
 import android.graphics.Bitmap

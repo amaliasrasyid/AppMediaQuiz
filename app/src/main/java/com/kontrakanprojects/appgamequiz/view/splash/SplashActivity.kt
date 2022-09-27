@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
     private val activityScope = CoroutineScope(Dispatchers.Main)
 
     companion object {
-        private const val DELAY = 5000L
+//        private const val DELAY = 5000L
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,7 @@ class SplashActivity : AppCompatActivity() {
         }
 
         activityScope.launch {
-            delay(DELAY)
+            delay(200)
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
             finish()
         }
