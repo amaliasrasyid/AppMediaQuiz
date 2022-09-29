@@ -9,8 +9,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.entity.OptionEntity
 import com.kontrakanprojects.appgamequiz.data.entity.QuestionEntity
@@ -20,6 +23,7 @@ import com.kontrakanprojects.appgamequiz.data.repository.QuestionRepository
 import com.kontrakanprojects.appgamequiz.data.request.StoreOption
 import com.kontrakanprojects.appgamequiz.data.request.StoreQuestion
 import com.kontrakanprojects.appgamequiz.data.room.MyDatabase
+import com.kontrakanprojects.appgamequiz.util.Move
 
 class GameActivity : AppCompatActivity() {
 
@@ -32,21 +36,9 @@ class GameActivity : AppCompatActivity() {
         val point = Point()
         windowManager.defaultDisplay.getSize(point)
 
-//        var question = Question(
-//            "Bagian tumbuhan yang fungsinya menyangga tumbuhan dan tempat tumbuhnya daun, buah dan bunga.",
-//            1
-//        )
-//        var question2 = Question(
-//            "Tumbuhan yang dimanfaatkan untuk diambil kayu yang digunakan untuk perabot",
-//            4
-//        )
         viewModel = GameViewModel(QuestionRepository(MyDatabase.getDatabase(this)))
         createData()
         var questions = ArrayList<Question>()
-//        viewModel.getQuestions().observe(this) {
-//            //mapping result
-//
-//        }
         val it = viewModel.getQuestions()
         Log.d("GameActivity",it.toString())
         for (result in it) {
@@ -66,9 +58,11 @@ class GameActivity : AppCompatActivity() {
             )
             questions.add(question)
         }
-        gameView = GameView(this, point.x, point.y,questions)
+        gameView = GameView(this,this, point.x, point.y,questions)
 
         setContentView(gameView)
+        val move = Move(this@GameActivity)
+        move.moveToResult()
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -79,10 +73,6 @@ class GameActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-//        var questions = ArrayList<Question>()
-//        questions.add(question)
-//        questions.add(question2)
-
     }
 
     private fun createData() {

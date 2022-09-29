@@ -12,7 +12,7 @@ import com.kontrakanprojects.appgamequiz.data.request.StoreQuestion
 @Dao
 interface QuestionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertQuestion(questionEntity: QuestionEntity)
+    fun insertQuestion(vararg questionEntity: QuestionEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertOptions(vararg optionEntity: OptionEntity)

@@ -1,12 +1,18 @@
 package com.kontrakanprojects.appgamequiz.view.game
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Rect
 import android.util.Log
 import android.view.MotionEvent
 import android.view.SurfaceView
+import androidx.core.content.ContextCompat.startActivity
 import com.kontrakanprojects.appgamequiz.data.model.Question
+import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_OVER
+import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_SUCCESS
+import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_RESULT
 import com.kontrakanprojects.appgamequiz.view.game.component.Background
 import com.kontrakanprojects.appgamequiz.view.game.component.Bullet
 import com.kontrakanprojects.appgamequiz.view.game.component.Flight
@@ -16,14 +22,16 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class GameView internal constructor(context: Context, screenX: Int, screenY: Int, questions: ArrayList<Question>) :
+class GameView internal constructor(activity: Activity,context: Context, screenX: Int, screenY: Int, questions: ArrayList<Question>) :
     SurfaceView(context), Runnable {
+    private var activity: Activity
 
     private var screenX = 0f
     private var screenY = 0f
 
     private lateinit var thread: Thread
-    private var isPlaying = false
+    var isPlaying = false
+    var isFinish = false
     private var isGameOver = false
     private var paint: Paint
     private var flight: Flight
@@ -49,6 +57,7 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
     }
 
     init {
+        this.activity = activity
         this.listQuestion = questions
 
         this.screenX = screenX.toFloat()
@@ -76,8 +85,8 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
         //question syntax
         //initialize all game Question
         //TODO: BUG data list ini kosong tp pas draw ada (dugaan pas initialisasi tdk ada datanya blm
-        for(question in questions){
-            val gameQuestion = GameQuestion(question.text,screenX,screenY,question,resources)
+        for((index,question) in questions.withIndex()){
+            val gameQuestion = GameQuestion(question.text,screenX,screenY,question,index + 1, resources)
             questionCmp.add(gameQuestion)
         }
         random = Random()
@@ -91,6 +100,18 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
             draw()
             sleep()
         }
+//        Toast.makeText(context,"Pindah Ke halaman result", Toast.LENGTH_LONG).show()
+    }
+
+    private fun moveToResult(isGameOver: Boolean = false) {
+        val intent = Intent(activity,EndGameActivity::class.java)
+        if(!isGameOver){
+            intent.putExtra(TYPE_RESULT, TYPE_GAME_SUCCESS)
+        }else{
+            intent.putExtra(TYPE_RESULT, TYPE_GAME_OVER)
+
+        }
+        startActivity(context,intent,null)
     }
 
     private fun update() {
@@ -144,15 +165,25 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
                             }
                             else {
                                 isPlaying = false
-                                Log.d(TAG,"GAME SELESAI,Good job!")
+                                moveToResult()
+                                Log.d(TAG,"Game finished,Good job!")
                             }
 
                         }else if(fish.textNumber != currentAnswerKey.toString()){
                             flight.reduceHp()
+                            Log.d(TAG,"Salah Tembak,Good job!")
+
                         }
                     }
                 }
             }
+        }
+
+        //CEk apa soal udah habis?
+        if(!(listQuestion.size != 1 && indexGameQ < listQuestion.size)) {
+            isPlaying = false
+            moveToResult()
+            Log.d(TAG,"Game finished,Good job!")
         }
 
         //delete all bullets
@@ -219,9 +250,12 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
             Log.d(TAG,"indexGameQ = ${indexGameQ}")
             if(listQuestion.isNotEmpty()){
                 if(indexGameQ < listQuestion.size ){
+                    //draw question component
                     currentAnswerKey = listQuestion.get(indexGameQ).answerKey
-                    val questionComponent = questionCmp.get(indexGameQ)
+                    var questionComponent = questionCmp.get(indexGameQ)
                     canvas.drawBitmap(questionComponent.getQuestionLayout(),questionComponent.x,questionComponent.y,paint)
+
+                    //draw options component
                     val listOptions = questionComponent.getOptions()
                     for((index,option) in listOptions.withIndex()){
                         if(option != null){
@@ -232,6 +266,11 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
                             option.drawTextOnTop(canvas,resources)
                         }
                     }
+
+                    //draw level component
+                    val levelBitmap = questionComponent.getLevelComponent().getLevel()
+                    val levelComponent = questionComponent.getLevelComponent()
+                    canvas.drawBitmap(levelBitmap,levelComponent.x,levelComponent.y,paint)
                 }
 
             }
@@ -240,6 +279,8 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
                 isPlaying = false
                 canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint)
                 holder.unlockCanvasAndPost(canvas)
+                moveToResult(true)
+                Log.d(TAG,"GAME OVER")
                 return
             }
 
@@ -250,12 +291,11 @@ class GameView internal constructor(context: Context, screenX: Int, screenY: Int
                     //draw text on top fish
                     fish.drawTextOnTop(canvas,resources)
 
-                    Log.d(TAG,"bitmap w:${fish.width};h:${fish.height}")
+//                    Log.d(TAG,"bitmap w:${fish.width};h:${fish.height}")
                 }
             }
 
             canvas.drawBitmap(flight.getFlight(), flight.x, flight.y, paint)
-
             for (bullet in bullets) {
                 canvas.drawBitmap(bullet.bullet, bullet.x, bullet.y, paint)
             }

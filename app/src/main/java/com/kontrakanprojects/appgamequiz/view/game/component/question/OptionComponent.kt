@@ -20,7 +20,7 @@ class OptionComponent constructor(qX: Float, qY: Float, marginX: Float, res: Res
 
     init{
         //option position on screen (question bitmap)
-        x = qX + marginX //lokasi di seperempat screen size
+        x = qX + marginX
         y = qY
 
         Log.d("option component","x = ${x};y = ${y}")
@@ -28,32 +28,21 @@ class OptionComponent constructor(qX: Float, qY: Float, marginX: Float, res: Res
         width = bitmap.width.toFloat()
         height = bitmap.height.toFloat()
 
-        //resize img
-        //TODO: tp ini klu tahu ukuran pastinya (bukan beragam gambar
-//        width /= 3
-//        height /= 3
-//
-//        width *= screenRatioX
-//        height *= screenRatioY
-
         optionImg = Bitmap.createScaledBitmap(bitmap,120,120,false)
 
-//
-
-
-//
-//
-
-//        Log.d("option component","width = ${width};height = ${height}")
     }
     
     fun drawTextOnTop(canvas: Canvas,res: Resources){
         val captionString = textNumber.toString()
-        val paintText = Paint()
-
         val density =res.displayMetrics.density
-        paintText.textSize = 28 * density
-        paintText.typeface = Typeface.DEFAULT_BOLD
+
+        val paintText = Paint().apply {
+            textSize = 28 * density
+            typeface = Typeface.DEFAULT_BOLD
+            color = Color.WHITE
+        }
+
+
 
         val startPosition = x + (optionImg.width) - 25
         val endPosition = y + 30
@@ -82,7 +71,6 @@ class OptionComponent constructor(qX: Float, qY: Float, marginX: Float, res: Res
 //        canvas.restore()
     }
 
-    fun getOption(): Bitmap{
-        return optionImg
-    }
+    fun getOption() = optionImg
+
 }

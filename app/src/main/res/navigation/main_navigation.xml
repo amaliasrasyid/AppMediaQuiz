@@ -9,5 +9,62 @@
         android:id="@+id/mainFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_competencyFragment"
+            app:destination="@id/competencyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_guideFragment"
+            app:destination="@id/guideFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_materyFragment"
+            app:destination="@id/materyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_startGameFragment"
+            app:destination="@id/startGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/competencyFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.competency.CompetencyFragment"
+        android:label="fragment_competency"
+        tools:layout="@layout/fragment_competency" />
+    <fragment
+        android:id="@+id/guideFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.guide.GuideFragment"
+        android:label="fragment_guide"
+        tools:layout="@layout/fragment_guide" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.profile.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <activity
+        android:id="@+id/gameActivity"
+        android:name="com.kontrakanprojects.appgamequiz.view.game.GameActivity"
+        android:label="GameActivity" />
+    <fragment
+        android:id="@+id/materyFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.matery.MateryFragment"
+        android:label="fragment_matery"
+        tools:layout="@layout/fragment_matery" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.quiz.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
+    <fragment
+        android:id="@+id/startGameFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.game.StartGameFragment"
+        android:label="fragment_start_game"
+        tools:layout="@layout/fragment_start_game" />
+    <fragment
+        android:id="@+id/endGameFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.game.EndGameActivity"
+        android:label="EndGameFragment" />
 </navigation>

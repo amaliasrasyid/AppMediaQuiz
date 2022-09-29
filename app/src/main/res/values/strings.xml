@@ -2,4 +2,41 @@
     <string name="app_name">AppMediaQuiz</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_page_competency">KI &amp; KD</string>
+    <string name="title_page_guide">Petunjuk Penggunaan</string>
+    <string name="subtitle_page_guide_explaination">Penjelasan Tampilan Fitur Game</string>
+    <string name="text_page_guide_explaination">1.Di bagian ini merupakan bagian soal yang terdiri atas teks soal yang perlu dijawab oleh siswa, level, dan gambar yang menjadi opsi pilihan\n
+    2.Di bagian ini merupakan nyawa yang dimiliki pemain (siswa), jika semua nyawa habis maka game akan “Game Over”.\n
+    3.Di Bagian ini berisi gambar-gambar ikan yang mewakili dari pilihan pada soal (nomor pada ikan mewakili nomor yang ada di opsi jawaban soal)\n
+    4.Gambar ini merupakan karakter ‘pilot’ yang digerakkan oleh pemain (siswa) untuk dapat menembak ikan berdasarkan opsi pilihan jawaban yang diinginkan\n
+    </string>
+    <string name="subtitle_page_guide_play_game">Cara Bermain</string>
+    <string name="text_page_guide_play_game">1.	Siswa membaca soal yang muncul pada layar gawai dan memperhatikan gambar yang terletak di bawah teks soal. Gambar-gambar tersebut merupakan opsi pilihan jawaban yang harus dipilih oleh siswa\n
+    2.	Untuk menjawab soal atau memilih opsi pilihan jawaban, siswa menggerakkan karakter ‘pilot’ dan menembak ikan yang mewakili jawaban soal.\n
+    3.	Pergerakan karakter dapat dilakukan ke atas dan ke bawah. Gerakan itu dilakukan dengan menyentuh layar gawai di sebelah kiri secara vertikal\n
+    4.	Lalu untuk menembak dapat dilakukan dengan menyentuh layar gawai pada daerah sebelah kiri\n
+    5.	Jika ikan yang ditembak adalah opsi yang benar, maka akan lanjut ke level selanjutnya dengan soal baru.\n
+    6.	Proses tersebut diulang hingga semua level permainan berhasil diselesaikan.\n
+    7.	Jika selama proses tersebut, pemain menembak salah sebanyak 4x, maka permainan akan berhenti atau “Game Over”.\n
+    </string>
+    <string name="description_game_touch_screen">Daerah layar untuk fungsi bergerak (1) dan menembak (2) dapat dilihat pada gambar di atas</string>
+
+
+    <string name="title_core_competency">KOMPETENSI INTI KELAS 4 (KI)</string>
+    <string name="title_basic_competency">KOMPETENSI DASAR (KD)</string>
+    <string name="text_core_competency">1. Menerima, menjalankan, dan menghargai ajaran agama yang dianutnya.\n2.Memiliki perilaku jujur, disiplin, tanggung jawab, santun,peduli, dan percaya diridalam berinteraksi dengan keluarga, teman, guru, dan tetangganya\n3.Memahami pengetahuan faktual dengan cara mengamati [mendengar, melihat, membaca] dan menanya berdasarkan rasa ingin tahu tentang dirinya, makhluk ciptaan Tuhan dan kegiatannya, dan benda-benda yang dijumpainya di rumah,sekolah, dan tempat bermain.\n4.Menyajikan pengetahuan faktual dalam bahasa yang jelas,sistematis, dan logis, dalam karya yang estetis, dalam gerakan yang mencerminkan anak sehat, dan dalam tindakan yang mencerminkan perilaku anak beriman dan berakhlak mulia.
+    </string>
+    <string name="text_basic_competency">3.1 Menganalisis hubungan antara bentuk dan fungsi bagian tubuh pada hewan dan tumbuhan.\n
+    3.8 Menjelaskan pentingnya upaya keseimbangan dan pelestarian sumber daya alam di lingkungannya.\n
+    4.1 Menyajikan laporan hasil pengamatan tentang bentuk dan fungsi bagian tubuh hewan dan tumbuhan.\n
+    4.8 Melakukan kegiatan upaya pelestarian sumber daya alam bersama orang-orang di lingkungannya.\n
+        3.8 Menjelaskan pentingnya upaya keseimbangan dan pelestarian sumber daya alam di lingkungannya.\n
+    4.1 Menyajikan laporan hasil pengamatan tentang bentuk dan fungsi bagian tubuh hewan dan tumbuhan.\n
+    4.8 Melakukan kegiatan upaya pelestarian sumber daya alam bersama orang-orang di lingkungannya.\n
+    </string>
+    <string name="text_start_game">Mulai Permainan</string>
+    <string name="text_winning">Kamu Menang!</string>
+    <string name="text_your_score">Skor Kamu</string>
+    <string name="text_failing">Kamu Kalah!</string>
+    <string name="text_OK">OK</string>
 </resources>
