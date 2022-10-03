@@ -100,7 +100,6 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
             draw()
             sleep()
         }
-//        Toast.makeText(context,"Pindah Ke halaman result", Toast.LENGTH_LONG).show()
     }
 
     private fun moveToResult(isGameOver: Boolean = false) {

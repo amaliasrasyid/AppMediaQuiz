@@ -116,9 +116,15 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="ThemeEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_50</item>
+    </style>
+
     <style name="ThemeGameEditText" parent="ThemeOverlay.Material3.TextInputEditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/height_50</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="ContextScrollPage">
@@ -128,6 +134,15 @@
         <item name="android:layout_marginEnd">80dp</item>
         <item name="android:layout_marginTop">66dp</item>
         <item name="android:layout_marginBottom">45dp</item>
+    </style>
+
+    <style name="AuthScrollPage">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginStart">@dimen/margin_24</item>
+        <item name="android:layout_marginEnd">@dimen/margin_24</item>
+        <item name="android:layout_marginTop">@dimen/margin_16</item>
+        <item name="android:layout_marginBottom">@dimen/margin_24</item>
     </style>
 
 </resources>

@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.kontrakanprojects.appgamequiz.R
+import com.kontrakanprojects.appgamequiz.data.session.GamePreference
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMainBinding
+import com.kontrakanprojects.appgamequiz.util.mySnackBar
 import com.kontrakanprojects.appgamequiz.view.game.GameActivity
 
 class MainFragment : Fragment(),View.OnClickListener {
@@ -43,8 +45,20 @@ class MainFragment : Fragment(),View.OnClickListener {
                 btnProfile -> moveToProfile()
                 btnKiKd -> moveToKiKd()
                 btnGame -> moveToGame()
+                btnQuiz -> moveToQuiz()
                 btnPetunjuk -> moveToGuide()
             }
+        }
+
+    }
+
+    private fun moveToQuiz() {
+        //check if game state is true (have finished the game)
+        val isGameFinished = GamePreference(requireContext()).getGameState()
+        if(isGameFinished){
+            findNavController().navigate(R.id.action_mainFragment_to_quizFragment)
+        }else{
+            view?.mySnackBar("Selesaikan Game terlebih dahulu sebelum akses menu Quiz")
         }
 
     }

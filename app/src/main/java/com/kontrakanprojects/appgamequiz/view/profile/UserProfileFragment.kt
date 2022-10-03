@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.FragmentUserProfileBinding
 import com.kontrakanprojects.appgamequiz.util.Role
 
-class UserProfileFragment : Fragment() {
+class UserProfileFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentUserProfileBinding
 
@@ -29,10 +30,20 @@ class UserProfileFragment : Fragment() {
         val user = sharedPrefs.getUser()
 
         with(binding){
+            btnExit.setOnClickListener(this@UserProfileFragment)
             val role = if(user.role == Role.GURU.id) "GURU" else "SISWA"
             edtName.setText(user.name)
             edtEmail.setText(user.email)
             edtRole.setText(role)
+        }
+    }
+
+    override fun onClick(view: View?) {
+        with(binding){
+            when(view){
+                btnExit -> findNavController().navigateUp()
+                else -> {}
+            }
         }
     }
 }

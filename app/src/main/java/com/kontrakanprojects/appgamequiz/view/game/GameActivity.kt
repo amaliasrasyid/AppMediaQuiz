@@ -53,8 +53,6 @@ class GameActivity : AppCompatActivity() {
         gameView = GameView(this,this, point.x, point.y,questions)
 
         setContentView(gameView)
-        val move = Move(this@GameActivity)
-        move.moveToResult()
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

@@ -43,10 +43,10 @@
                         android:layout_width="match_parent">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            style="@style/ThemeEditText"
                             android:id="@+id/edt_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
                             android:hint="@string/hint_name"
+                            android:textColor="@color/primaryTextColor"
                             android:imeOptions="actionNext"
                             android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -57,9 +57,9 @@
                         android:layout_width="match_parent">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            style="@style/ThemeEditText"
                             android:id="@+id/edt_email"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:textColor="@color/primaryTextColor"
                             android:hint="@string/hint_email"
                             android:imeOptions="actionNext"
                             android:inputType="text" />
@@ -71,9 +71,9 @@
                         android:layout_width="match_parent">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            style="@style/ThemeEditText"
                             android:id="@+id/edt_role"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:textColor="@color/primaryTextColor"
                             android:hint="Role"
                             android:imeOptions="actionNext"
                             android:inputType="text" />

@@ -24,12 +24,12 @@
         style="@style/ThemeInputField"
         app:layout_constraintEnd_toEndOf="@+id/modal_login"
         app:layout_constraintStart_toStartOf="@+id/modal_login"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/ThemeEditText"
             android:id="@+id/edt_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:textColor="@color/primaryTextColor"
             android:hint="@string/hint_email"
             android:imeOptions="actionNext"
             android:inputType="text" />
@@ -44,9 +44,9 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/ThemeEditText"
             android:id="@+id/edt_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:textColor="@color/primaryTextColor"
             android:hint="@string/hint_password"
             android:imeOptions="actionNext"
             android:inputType="textPassword"
@@ -54,7 +54,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_title"
         style="@style/TextTitlePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

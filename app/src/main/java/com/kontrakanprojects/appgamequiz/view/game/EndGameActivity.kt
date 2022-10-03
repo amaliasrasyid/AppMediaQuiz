@@ -8,16 +8,17 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.kontrakanprojects.appgamequiz.R
-import com.kontrakanprojects.appgamequiz.databinding.FragmentEndGameBinding
+import com.kontrakanprojects.appgamequiz.data.session.GamePreference
+import com.kontrakanprojects.appgamequiz.databinding.ActivityEndGameBinding
 import com.kontrakanprojects.appgamequiz.view.MainActivity
 
 class EndGameActivity :AppCompatActivity() {
-    private lateinit var binding: FragmentEndGameBinding
+    private lateinit var binding: ActivityEndGameBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = FragmentEndGameBinding.inflate(layoutInflater)
+        binding = ActivityEndGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         @Suppress("DEPRECATION")
@@ -47,6 +48,8 @@ class EndGameActivity :AppCompatActivity() {
                         imgStar.setImageDrawable(getDrawable(R.drawable.star_success))
                         tvScoreResult.text = "100"
                         tvBannerText.text = getString(R.string.text_winning)
+
+                        GamePreference(this@EndGameActivity).setGameState(true)
                     }
                     TYPE_GAME_OVER -> {
                         imgStar.setImageDrawable(getDrawable(R.drawable.fail_star))
