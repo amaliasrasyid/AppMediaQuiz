@@ -20,6 +20,7 @@ class AuthRemoteResource() {
     fun login(request: LoginRequest): LiveData<Resource<UserDTO>>{
         val client = ApiConfig.create().login(request)
         val result = MutableLiveData<Resource<UserDTO>>()
+        result.value = Resource.loading(null)
         client.enqueue(object :Callback<AuthResponse>{
             override fun onResponse(call: Call<AuthResponse>, _response: Response<AuthResponse>) {
                 val response = _response.body()
@@ -38,7 +39,6 @@ class AuthRemoteResource() {
                 Log.d(TAG,t.message ?: "")
             }
         })
-
         return result
     }
 }

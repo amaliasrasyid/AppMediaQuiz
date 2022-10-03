@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.session.GamePreference
+import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMainBinding
 import com.kontrakanprojects.appgamequiz.util.mySnackBar
+import com.kontrakanprojects.appgamequiz.view.auth.AuthActivity
 import com.kontrakanprojects.appgamequiz.view.game.GameActivity
 
 class MainFragment : Fragment(),View.OnClickListener {
@@ -36,6 +38,7 @@ class MainFragment : Fragment(),View.OnClickListener {
             btnPetunjuk.setOnClickListener(this@MainFragment)
             btnMateri.setOnClickListener(this@MainFragment)
             btnQuiz.setOnClickListener(this@MainFragment)
+            btnExit.setOnClickListener(this@MainFragment)
         }
     }
 
@@ -47,6 +50,7 @@ class MainFragment : Fragment(),View.OnClickListener {
                 btnGame -> moveToGame()
                 btnQuiz -> moveToQuiz()
                 btnPetunjuk -> moveToGuide()
+                btnExit -> logOut()
             }
         }
 
@@ -78,6 +82,15 @@ class MainFragment : Fragment(),View.OnClickListener {
 
     private fun moveToGame() {
         findNavController().navigate(R.id.action_mainFragment_to_startGameFragment)
+    }
+
+    private fun logOut() {
+        UserPreference(requireContext()).logout()
+        val intent = Intent(activity, AuthActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        activity?.finish()
     }
 
     override fun onDestroy() {

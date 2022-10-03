@@ -40,6 +40,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ti_name"
                         style="@style/ThemeInputField"
+                        android:enabled="false"
                         android:layout_width="match_parent">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -54,6 +55,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ti_email"
                         style="@style/ThemeInputField"
+                        android:enabled="false"
                         android:layout_width="match_parent">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -68,6 +70,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ti_role"
                         style="@style/ThemeInputField"
+                        android:enabled="false"
                         android:layout_width="match_parent">
 
                         <com.google.android.material.textfield.TextInputEditText

@@ -19,6 +19,7 @@ class UserRemoteResource {
     fun storeUser(request: RegisterRequest): LiveData<Resource<UserDTO>>{
         val client = ApiConfig.create().register(request)
         val result = MutableLiveData<Resource<UserDTO>>()
+        result.value = Resource.loading(null)
         client.enqueue(object: Callback<UserResponse>{
             override fun onResponse(call: Call<UserResponse>, _response: Response<UserResponse>) {
                 val response = _response.body()

@@ -110,6 +110,14 @@
         app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal2"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageButton
+        style="@style/ThemeButtonExit"
+        android:id="@+id/btn_exit"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gd_menu_vertical"
         android:layout_width="wrap_content"
