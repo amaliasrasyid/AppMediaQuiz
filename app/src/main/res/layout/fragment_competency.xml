@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_texture_wood"
+    android:background="@drawable/bg_page"
     tools:context=".view.competency.CompetencyFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout

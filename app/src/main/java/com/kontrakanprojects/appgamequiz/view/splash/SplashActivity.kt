@@ -8,7 +8,9 @@ import android.view.Window
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.kontrakanprojects.appgamequiz.R
+import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.view.MainActivity
+import com.kontrakanprojects.appgamequiz.view.auth.AuthActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -18,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
     private val activityScope = CoroutineScope(Dispatchers.Main)
 
     companion object {
-//        private const val DELAY = 5000L
+        private const val DELAY = 200L
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +40,16 @@ class SplashActivity : AppCompatActivity() {
         }
 
         activityScope.launch {
-            delay(200)
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            delay(DELAY)
+
+            //check session
+            val sharedPrefs = UserPreference(this@SplashActivity)
+            if(sharedPrefs.getLogin()){
+                //TODO: logika view guru & siswa berdasarkan ROLE-nya
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            }else{
+                startActivity(Intent(this@SplashActivity, AuthActivity::class.java))
+            }
             finish()
         }
     }

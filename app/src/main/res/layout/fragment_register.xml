@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_page"
+    tools:context=".view.auth.RegisterFragment">
+
+    <ImageView
+        android:id="@+id/modal_register"
+        style="@style/ThemeAuthPage"
+        android:tooltipText="Mulai Permainan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.514" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_name"
+        style="@style/ThemeInputField"
+        app:layout_constraintEnd_toEndOf="@+id/modal_register"
+        app:layout_constraintStart_toStartOf="@+id/modal_register"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/hint_name"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_email"
+        style="@style/ThemeInputField"
+        app:layout_constraintEnd_toEndOf="@+id/modal_register"
+        app:layout_constraintStart_toStartOf="@+id/modal_register"
+        app:layout_constraintTop_toBottomOf="@+id/ti_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/hint_email"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_password"
+        style="@style/ThemeInputField"
+        app:layout_constraintEnd_toEndOf="@+id/modal_register"
+        app:layout_constraintStart_toStartOf="@+id/modal_register"
+        app:layout_constraintTop_toBottomOf="@+id/ti_email"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_password"
+            style="@style/ThemeGameEditText"
+            android:hint="@string/hint_password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup_role"
+        style="@style/ThemeInputField"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/modal_register"
+        app:layout_constraintTop_toBottomOf="@+id/ti_password">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/rb_guru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_teacher"
+            android:textColor="@color/white" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/rb_siswa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_student"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_back_to_login"
+        style="@style/ThemeTextAuthNote"
+        android:layout_marginStart="@dimen/margin_8"
+        android:text="@string/text_having_account"
+        app:layout_constraintEnd_toStartOf="@+id/btn_register"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup_role"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup_role" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/TextTitlePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/title_register"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/modal_register"
+        app:layout_constraintStart_toStartOf="@+id/modal_register"
+        app:layout_constraintTop_toTopOf="@+id/modal_register" />
+
+    <ImageButton
+        android:id="@+id/btn_register"
+        style="@style/ButtonModalAuth"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="@+id/ti_password"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup_role" />
+
+    <TextView
+        android:id="@+id/text_Ok"
+        style="@style/TextTitlePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_OK"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_register"
+        app:layout_constraintEnd_toEndOf="@+id/btn_register"
+        app:layout_constraintStart_toStartOf="@+id/btn_register"
+        app:layout_constraintTop_toTopOf="@+id/btn_register" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

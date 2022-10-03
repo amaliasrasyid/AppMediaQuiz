@@ -28,28 +28,29 @@ class MainFragment : Fragment(),View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            btnGame.setOnClickListener(this@MainFragment)
+            btnProfile.setOnClickListener(this@MainFragment)
             btnKiKd.setOnClickListener(this@MainFragment)
+            btnGame.setOnClickListener(this@MainFragment)
             btnPetunjuk.setOnClickListener(this@MainFragment)
             btnMateri.setOnClickListener(this@MainFragment)
             btnQuiz.setOnClickListener(this@MainFragment)
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
     override fun onClick(view: View?) {
         with(binding){
             when(view){
-                btnGame -> moveToGame()
+                btnProfile -> moveToProfile()
                 btnKiKd -> moveToKiKd()
+                btnGame -> moveToGame()
                 btnPetunjuk -> moveToGuide()
             }
         }
 
+    }
+
+    private fun moveToProfile() {
+        findNavController().navigate(R.id.action_mainFragment_to_userProfileFragment)
     }
 
     private fun moveToGuide() {
@@ -63,5 +64,10 @@ class MainFragment : Fragment(),View.OnClickListener {
 
     private fun moveToGame() {
         findNavController().navigate(R.id.action_mainFragment_to_startGameFragment)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

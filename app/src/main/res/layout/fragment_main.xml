@@ -7,15 +7,15 @@
     tools:context=".view.main.MainFragment">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_ki_kd"
+        android:id="@+id/btn_profile"
         style="@style/PrimaryTextStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_menu"
-        android:text="KI KD"
+        android:text="Profil"
         android:textSize="32sp"
+        android:background="@drawable/bg_buton"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal2"
         app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical2"
@@ -24,57 +24,72 @@
         app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ki_kd"
+        style="@style/PrimaryTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_buton"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="KI,KD"
+        android:textSize="32sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal2"
+        app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical3"
+        app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical2"
+        app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_materi"
         style="@style/PrimaryTextStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_menu"
+        android:background="@drawable/bg_buton"
         android:text="Materi"
-        android:textSize="32sp"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal2"
-        app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical2"
-        app:layout_constraintTop_toTopOf="@+id/btn_ki_kd" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_petunjuk"
-        style="@style/PrimaryTextStyle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_menu"
-        android:text="Petunjuk"
         android:textSize="32sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal2"
         app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical3"
-        app:layout_constraintTop_toTopOf="@+id/btn_ki_kd" />
+        app:layout_constraintTop_toTopOf="@+id/btn_profile" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_petunjuk"
+        style="@style/PrimaryTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_buton"
+        android:text="Petunjuk"
+        android:textSize="32sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal3"
+        app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical"
+        app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_game"
         style="@style/PrimaryTextStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_menu"
+        android:background="@drawable/bg_buton"
         android:text="Game"
         android:textSize="32sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal3"
-        app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical3"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical"
+        app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical2"
         app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal2" />
 
     <com.google.android.material.button.MaterialButton
@@ -83,18 +98,17 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_menu"
+        android:background="@drawable/bg_buton"
         android:text="Quiz"
         android:textSize="32sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal3"
-        app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical2"
-        app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal2" />
+        app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gd_menu_vertical3"
+        app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gd_menu_vertical"

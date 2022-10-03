@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_texture_wood"
+    android:background="@drawable/bg_page"
     tools:context=".view.game.StartGameFragment">
 
     <ImageView
@@ -19,13 +19,8 @@
         tools:layout_editor_absoluteY="256dp" />
 
     <ImageView
+        style="@style/ThemeResultPage"
         android:id="@+id/btn_start_game"
-        android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_16"
-        android:scaleType="fitXY"
-        android:src="@drawable/modal_result"
         android:tooltipText="Mulai Permainan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,15 +78,12 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
+        style="@style/ButtonResultOk"
         android:id="@+id/btn_Ok"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
         android:layout_marginBottom="@dimen/margin_24"
-        android:background="@null"
         android:paddingStart="@dimen/margin_16"
         android:paddingEnd="@dimen/margin_16"
-        android:scaleType="fitXY"
-        android:src="@drawable/btn_games_nonstop"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/btn_start_game"
         app:layout_constraintEnd_toEndOf="@+id/tv_banner_text"
         app:layout_constraintStart_toStartOf="@+id/tv_banner_text" />
@@ -121,12 +113,5 @@
         app:layout_constraintStart_toStartOf="@+id/imageView_front_banner"
         app:layout_constraintTop_toTopOf="@+id/imageView_front_banner" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_32"
-        app:constraint_referenced_ids="btn_start_game"
-        app:barrierDirection="right" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

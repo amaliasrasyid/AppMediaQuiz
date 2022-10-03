@@ -8,7 +8,7 @@ import com.kontrakanprojects.appgamequiz.R
 class Background internal constructor(screenX: Int, screenY: Int, res: Resources?) {
     var x = 0f
     var y = 0f
-    var background: Bitmap = BitmapFactory.decodeResource(res, R.drawable.bg)
+    var background: Bitmap = BitmapFactory.decodeResource(res, R.drawable.bg_underwater)
 
     init {
         background = Bitmap.createScaledBitmap(background, screenX, screenY, false)

@@ -39,4 +39,20 @@
     <string name="text_your_score">Skor Kamu</string>
     <string name="text_failing">Kamu Kalah!</string>
     <string name="text_OK">OK</string>
+    <string name="hint_password">Kata Sandi</string>
+    <string name="hint_email">email</string>
+    <string name="text_having_account">sudah punya akun, silahkan login</string>
+    <string name="text_teacher">Guru</string>
+    <string name="text_student">Siswa</string>
+    <string name="text_dont_have_account">belum punya akun, silahkan register</string>
+    <string name="title_register">Register</string>
+    <string name="title_login">Login</string>
+
+    <string name="msg_name_not_null">Nama tidak boleh kosong!</string>
+    <string name="msg_role_not_null">Role harus dipilih, tidak boleh kosong!</string>
+    <string name="msg_email_not_null">Email tidak boleh kosong!</string>
+    <string name="msg_psw_not_null">Kata Sandi tidak boleh kosong!</string>
+    <string name="msg_psw_min_character">Minimal 6 karakter kata sandi</string>
+    <string name="hint_name">Nama Pengguna</string>
+    <string name="title_page_profile">Profil</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.kontrakanprojects.appgamequiz.view.game
 
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.os.Build
@@ -9,19 +8,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.entity.OptionEntity
 import com.kontrakanprojects.appgamequiz.data.entity.QuestionEntity
 import com.kontrakanprojects.appgamequiz.data.model.Option
 import com.kontrakanprojects.appgamequiz.data.model.Question
 import com.kontrakanprojects.appgamequiz.data.repository.QuestionRepository
-import com.kontrakanprojects.appgamequiz.data.request.StoreOption
-import com.kontrakanprojects.appgamequiz.data.request.StoreQuestion
 import com.kontrakanprojects.appgamequiz.data.room.MyDatabase
 import com.kontrakanprojects.appgamequiz.util.Move
 

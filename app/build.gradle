@@ -40,6 +40,11 @@ android {
 
 ext{
     room_version = "2.4.3"
+    retrofit_version = "2.9.0"
+    converter_gson_version= "2.9.0"
+    gson_version = "2.9.0"
+    okhttp_version = "4.9.3"
+    logging_interceptor_version = "4.9.0"
 }
 
 dependencies {
@@ -72,5 +77,22 @@ dependencies {
 
     //debug Room db (CRUD outside app)
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    // lib retrofit dan gson
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$converter_gson_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    // lib logging okhttp request and response data
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:30.4.0')
+
+    // Add the dependencies for the Crashlytics and Analytics libraries
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
 }
