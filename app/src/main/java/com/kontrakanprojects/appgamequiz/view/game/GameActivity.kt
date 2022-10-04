@@ -1,5 +1,6 @@
 package com.kontrakanprojects.appgamequiz.view.game
 
+import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.os.Build
@@ -15,7 +16,8 @@ import com.kontrakanprojects.appgamequiz.data.model.Option
 import com.kontrakanprojects.appgamequiz.data.model.Question
 import com.kontrakanprojects.appgamequiz.data.repository.QuestionRepository
 import com.kontrakanprojects.appgamequiz.data.room.MyDatabase
-import com.kontrakanprojects.appgamequiz.util.Move
+import com.kontrakanprojects.appgamequiz.util.DataLocalDb
+import com.kontrakanprojects.appgamequiz.util.converToBitmap
 
 class GameActivity : AppCompatActivity() {
 
@@ -28,28 +30,7 @@ class GameActivity : AppCompatActivity() {
         val point = Point()
         windowManager.defaultDisplay.getSize(point)
 
-        viewModel = GameViewModel(QuestionRepository(MyDatabase.getDatabase(this)))
-        createData()
-        var questions = ArrayList<Question>()
-        val it = viewModel.getQuestions()
-        Log.d("GameActivity",it.toString())
-        for (result in it) {
-            val entityQ = result.question
-            var resultOptions = ArrayList<Option>()
-            for (opt in result.options) {
-                val option = Option(
-                    opt.image,
-                    opt.numberSequence
-                )
-                resultOptions.add(option)
-            }
-            val question = Question(
-                entityQ.text,
-                entityQ.answerKey,
-                resultOptions
-            )
-            questions.add(question)
-        }
+        var questions = DataLocalDb.getArrQuestions(resources)
         gameView = GameView(this,this, point.x, point.y,questions)
 
         setContentView(gameView)
@@ -65,48 +46,6 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun createData() {
-        val question = QuestionEntity(
-            1,
-            "Temasuk bagian tumbuhan dan terletak dibawah tanah",
-            3
-        )
-
-        val question2 = QuestionEntity(
-            2,
-            "Bagian tumbuhan yang fungsinya menyangga tumbuhan dan tempat tumbuhnya daun, buah dan bunga.",
-            2
-        )
-        val option1 = OptionEntity(
-            1,
-            BitmapFactory.decodeResource(resources, R.drawable.fly1),
-            1,
-            1
-        )
-        val option2 = OptionEntity(
-            2,
-            BitmapFactory.decodeResource(resources, R.drawable.akar),
-            2,
-            1
-        )
-
-        val option3 = OptionEntity(
-            3,
-            BitmapFactory.decodeResource(resources, R.drawable.ufo),
-            1,
-            2
-        )
-        val option4 = OptionEntity(
-            4,
-            BitmapFactory.decodeResource(resources, R.drawable.akar),
-            2,
-            2
-        )
-        viewModel.insertQuestion(question)
-        viewModel.insertQuestion(question2)
-        viewModel.insertOptions(option1,option2,option3,option4)
-
-    }
 
     override fun onResume() {
         super.onResume()

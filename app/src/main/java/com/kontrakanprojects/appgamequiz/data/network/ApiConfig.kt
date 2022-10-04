@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
     const val URL = "http://192.168.100.215:8000" //WIFI OFFICE
-//    const val URL = "http://192.168.1.8:8000" //WIFI HOME
+//    const val URL = "http://192.168.1.7:8000" //WIFI HOME
     const val ENDPOINT = "$URL/api/"
 
     var allowedClient = Interceptor{chain: Interceptor.Chain ->

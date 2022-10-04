@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.SurfaceView
 import androidx.core.content.ContextCompat.startActivity
 import com.kontrakanprojects.appgamequiz.data.model.Question
+import com.kontrakanprojects.appgamequiz.util.converToBitmap
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_OVER
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_SUCCESS
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_RESULT
