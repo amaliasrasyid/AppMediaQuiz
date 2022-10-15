@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.AppMediaQuiz" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+<!--        <item name="colorPrimaryVariant">@color/purple_700</item>-->
+<!--        <item name="colorOnPrimary">@color/white</item>-->
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+<!--        <item name="colorSecondaryVariant">@color/teal_700</item>-->
+<!--        <item name="colorOnSecondary">@color/black</item>-->
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
@@ -21,12 +21,27 @@
         <item name="android:textColor">@color/primaryTextColor</item>
     </style>
     <style name="SecondaryTextStyle" parent="Widget.MaterialComponents.TextView">
-<!--        <item name="android:fontFamily">@font/wonder_boys</item>-->
-<!--        <item name="android:textColor">@color/primaryTextColor</item>-->
+        <item name="android:fontFamily">@font/francois_one_regular</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
     <style name="ThemeTitlePage">
 
     </style>
+    <style name="ThemeTextCompetencyQuiz" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/francois_one_regular</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+    <style name="ThemeTextOption" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="fontFamily">@font/francois_one_regular</item>
+    </style>
+    <style name="ThemeSecondaryTextOption" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="fontFamily">@font/francois_one_regular</item>
+        <item name="background">@drawable/bg_quiz_option</item>
+    </style>
+
     <style name="TextTitlePage" parent="PrimaryTextStyle">
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_width">0dp</item>
@@ -119,6 +134,7 @@
     <style name="ThemeEditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/height_50</item>
+        <item name="android:fontFamily">@font/francois_one_regular</item>
     </style>
 
     <style name="ThemeGameEditText" parent="ThemeOverlay.Material3.TextInputEditText">

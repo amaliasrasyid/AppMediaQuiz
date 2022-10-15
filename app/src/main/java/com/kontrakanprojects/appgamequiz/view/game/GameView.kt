@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.SurfaceView
 import androidx.core.content.ContextCompat.startActivity
 import com.kontrakanprojects.appgamequiz.data.model.Question
+import com.kontrakanprojects.appgamequiz.util.DataLocalDb
 import com.kontrakanprojects.appgamequiz.util.converToBitmap
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_OVER
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_SUCCESS
@@ -23,7 +24,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class GameView internal constructor(activity: Activity,context: Context, screenX: Int, screenY: Int, questions: ArrayList<Question>) :
+class GameView internal constructor(activity: Activity,context: Context, screenX: Int, screenY: Int) :
     SurfaceView(context), Runnable {
     private var activity: Activity
 
@@ -37,17 +38,20 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
     private var paint: Paint
     private var flight: Flight
     private var fishs: Array<Fish?>
-    private var random: Random
+    private lateinit var random: Random
     private var bullets: ArrayList<Bullet>
     private var background1: Background
     private var background2: Background
     private var currentAnswerKey: Int = 0
     private var indexGameQ: Int = 0
 
-    private var questionCmp = ArrayList<GameQuestion>()
-    private var listQuestion = ArrayList<Question>()
+    private lateinit var question: Question
+    private lateinit var questionCmp: GameQuestion
+
+    private var isDataHaveLoaded = false
 
     private val TAG = GameView::class.java.simpleName
+    private val SIZE_QUESTION = 20
 
 //    private var reduce
 
@@ -59,10 +63,9 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 
     init {
         this.activity = activity
-        this.listQuestion = questions
-
         this.screenX = screenX.toFloat()
         this.screenY = screenY.toFloat()
+
         screenRatioX = 1920f / screenX
         screenRatioY = 1080f / screenY
 
@@ -71,7 +74,6 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 
         flight = Flight(this, screenX, screenY, resources)
         bullets = arrayListOf()
-
         background2.x = screenX.toFloat()
         paint = Paint()
 
@@ -82,17 +84,21 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
             fish.textNumber = (i + 1).toString()
             fishs[i] = fish
         }
+        random = Random()
+        prepareQuestions()
+    }
+
+    fun prepareQuestions(){
+        isDataHaveLoaded = true
+        this.question = DataLocalDb.getQuestion(indexGameQ,resources)
 
         //question syntax
-        //initialize all game Question
-        //TODO: BUG data list ini kosong tp pas draw ada (dugaan pas initialisasi tdk ada datanya blm
-        for((index,question) in questions.withIndex()){
-            val gameQuestion = GameQuestion(question.text,screenX,screenY,question,index + 1, resources)
-            questionCmp.add(gameQuestion)
-        }
-        random = Random()
+        val index = indexGameQ
+        val gameQuestion = GameQuestion(question.text,this.screenX.toInt(),this.screenY.toInt(),question,index + 1, resources)
+        questionCmp = gameQuestion
+        currentAnswerKey = question.answerKey
 
-        if(questions.isNotEmpty()) currentAnswerKey = questions.get(0).answerKey  //SHOW NO DATA QUESTION
+//        Log.d(TAG,"prepared soal:${questions.size}")
     }
 
     override fun run() {
@@ -101,17 +107,6 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
             draw()
             sleep()
         }
-    }
-
-    private fun moveToResult(isGameOver: Boolean = false) {
-        val intent = Intent(activity,EndGameActivity::class.java)
-        if(!isGameOver){
-            intent.putExtra(TYPE_RESULT, TYPE_GAME_SUCCESS)
-        }else{
-            intent.putExtra(TYPE_RESULT, TYPE_GAME_OVER)
-
-        }
-        startActivity(context,intent,null)
     }
 
     private fun update() {
@@ -160,8 +155,9 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
                         //cek yg ditembak benar/tidak
                         if(fish.textNumber == currentAnswerKey.toString()){
                             //Todo: next question
-                            if(listQuestion.size != 1 && indexGameQ < listQuestion.size ) {
+                            if( indexGameQ < SIZE_QUESTION ) {
                                 indexGameQ++
+                                prepareQuestions()
                             }
                             else {
                                 isPlaying = false
@@ -180,7 +176,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         }
 
         //CEk apa soal udah habis?
-        if(!(listQuestion.size != 1 && indexGameQ < listQuestion.size)) {
+        if(!(indexGameQ < SIZE_QUESTION)) {
             isPlaying = false
             moveToResult()
             Log.d(TAG,"Game finished,Good job!")
@@ -202,12 +198,11 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 //                        flight.reduceHp()
 //                    }
 
-                    val bound = (30 * screenRatioX).toInt()
+                    val bound = (20 * screenRatioX).toInt()
                     fish.speed = random.nextInt(bound)
 
-                    if (fish.speed < 10 * screenRatioX) {
-                        fish.speed = (10 * screenRatioX).toInt()
-                    }
+                    if (fish.speed < 10 * screenRatioX) fish.speed = (10 * screenRatioX).toInt()
+
 
                     fish.x = screenX
                     fish.y = random.nextInt((screenY - fish.height).toInt()).toFloat()
@@ -222,87 +217,84 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
     private fun draw() {
         if (holder.surface.isValid) {
             val canvas = holder.lockCanvas()
-            canvas.drawBitmap(
-                background1.background,
-                background1.x,
-                background1.y,
-                paint
-            )
-            canvas.drawBitmap(
-                background2.background,
-                background2.x,
-                background2.y,
-                paint
-            )
+            canvas.drawBitmap(background1.background, background1.x,background1.y,paint)
+            canvas.drawBitmap(background2.background, background2.x,background2.y,paint)
 
-            val listHp = flight.healthPoints.getHealthPoints()
-            for (hp in listHp){
-                if(hp != null) {
-                    if(hp.isBroken){
-                        canvas.drawBitmap(hp.getBrokenHealthPoint(), hp.x, hp.y, paint)
-                    }else{
-                        canvas.drawBitmap(hp.getHealthPoint(), hp.x, hp.y, paint)
-                    }
-                }
-            }
-
-            //draw question and its option imgs
-            Log.d(TAG,"indexGameQ = ${indexGameQ}")
-            if(listQuestion.isNotEmpty()){
-                if(indexGameQ < listQuestion.size ){
-                    //draw question component
-                    currentAnswerKey = listQuestion.get(indexGameQ).answerKey
-                    var questionComponent = questionCmp.get(indexGameQ)
-                    canvas.drawBitmap(questionComponent.getQuestionLayout(),questionComponent.x,questionComponent.y,paint)
-
-                    //draw options component
-                    val listOptions = questionComponent.getOptions()
-                    for((index,option) in listOptions.withIndex()){
-                        if(option != null){
-                            option.textNumber = index + 1
-                            canvas.drawBitmap(option.getOption(),option.x,option.y,paint)
-
-                            //draw number (string) over it
-                            option.drawTextOnTop(canvas,resources)
+            if(isDataHaveLoaded){
+                val listHp = flight.healthPoints.getHealthPoints()
+                for (hp in listHp){
+                    if(hp != null) {
+                        if(hp.isBroken){
+                            canvas.drawBitmap(hp.getBrokenHealthPoint(), hp.x, hp.y, paint)
+                        }else{
+                            canvas.drawBitmap(hp.getHealthPoint(), hp.x, hp.y, paint)
                         }
                     }
-
-                    //draw level component
-                    val levelBitmap = questionComponent.getLevelComponent().getLevel()
-                    val levelComponent = questionComponent.getLevelComponent()
-                    canvas.drawBitmap(levelBitmap,levelComponent.x,levelComponent.y,paint)
                 }
 
-            }
+                //draw question and its option imgs
+                //draw question component
+                var questionComponent = questionCmp
+                canvas.drawBitmap(questionComponent.getQuestionLayout(),questionComponent.x,questionComponent.y,paint)
 
-            if (flight.isDead) {
-                isPlaying = false
-                canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint)
-                holder.unlockCanvasAndPost(canvas)
-                moveToResult(true)
-                Log.d(TAG,"GAME OVER")
-                return
-            }
+                //draw options component
+                val listOptions = questionComponent.getOptions()
+                Log.d(TAG,"size option soal-${indexGameQ} = ${listOptions.size}")
+                for((index,option) in listOptions.withIndex()){
+                    if(option != null){
+                        option.textNumber = index + 1
+                        canvas.drawBitmap(option.getOption(),option.x,option.y,paint)
 
-            for (fish in fishs) {
-                if (fish != null) {
-                    canvas.drawBitmap(fish.getFish(), fish.x, fish.y, paint)
+                        //draw number (string) over it
+                        option.drawTextOnTop(canvas,resources)
+                    }
+                }
 
-                    //draw text on top fish
-                    fish.drawTextOnTop(canvas,resources)
+                //draw level component
+                val levelBitmap = questionComponent.getLevelComponent().getLevel()
+                val levelComponent = questionComponent.getLevelComponent()
+                canvas.drawBitmap(levelBitmap,levelComponent.x,levelComponent.y,paint)
+
+                if (flight.isDead) {
+                    isPlaying = false
+                    canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint)
+                    holder.unlockCanvasAndPost(canvas)
+                    moveToResult(true)
+                    Log.d(TAG,"GAME OVER")
+                    return
+                }
+
+                for (fish in fishs) {
+                    if (fish != null) {
+                        canvas.drawBitmap(fish.getFish(), fish.x, fish.y, paint)
+
+                        //draw text on top fish
+                        fish.drawTextOnTop(canvas,resources)
 
 //                    Log.d(TAG,"bitmap w:${fish.width};h:${fish.height}")
+                    }
+                }
+
+                canvas.drawBitmap(flight.getFlight(), flight.x, flight.y, paint)
+                for (bullet in bullets) {
+                    canvas.drawBitmap(bullet.bullet, bullet.x, bullet.y, paint)
                 }
             }
-
-            canvas.drawBitmap(flight.getFlight(), flight.x, flight.y, paint)
-            for (bullet in bullets) {
-                canvas.drawBitmap(bullet.bullet, bullet.x, bullet.y, paint)
-            }
-
             holder.unlockCanvasAndPost(canvas)
         }
     }
+
+    private fun moveToResult(isGameOver: Boolean = false) {
+        val intent = Intent(activity,EndGameActivity::class.java)
+        if(!isGameOver){
+            intent.putExtra(TYPE_RESULT, TYPE_GAME_SUCCESS)
+        }else{
+            intent.putExtra(TYPE_RESULT, TYPE_GAME_OVER)
+
+        }
+        startActivity(context,intent,null)
+    }
+
 
     private fun sleep() {
         Thread.sleep(17)

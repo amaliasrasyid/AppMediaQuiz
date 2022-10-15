@@ -5,7 +5,7 @@ import com.kontrakanprojects.appgamequiz.data.model.User
 
 class GamePreference(context: Context) {
     companion object{
-        private const val PREFS_NAME = "prefs_name"
+        private const val PREFS_NAME = "game_prefs"
         private const val GAME_STATE = "game_state"
     }
 

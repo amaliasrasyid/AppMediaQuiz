@@ -6,7 +6,6 @@ import com.kontrakanprojects.appgamequiz.util.Role
 class RegisterRequest(
     val id: Int,
     val nama: String,
-    val email: String,
     val kata_sandi: String,
     val role: Int
 )

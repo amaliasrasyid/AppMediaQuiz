@@ -47,27 +47,12 @@
                         tools:text="Amalia S. Rasyid"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_email"
-                    style="@style/ThemeInputField"
-                    android:layout_width="match_parent"
-                    android:layout_below="@id/ti_name">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/ThemeEditText"
-                        android:textColor="@color/primaryTextColor"
-                        android:id="@+id/edt_email"
-                        android:hint="@string/hint_email"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        tools:text="am@mail.com" />
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ti_password"
                     style="@style/ThemeInputField"
                     android:layout_width="match_parent"
-                    android:layout_below="@id/ti_email"
+                    android:layout_below="@id/ti_name"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText

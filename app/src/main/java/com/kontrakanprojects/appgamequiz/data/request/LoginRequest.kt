@@ -1,6 +1,6 @@
 package com.kontrakanprojects.appgamequiz.data.request
 
 class LoginRequest(
-    val email: String,
+    val nama: String,
     val kata_sandi: String
 )

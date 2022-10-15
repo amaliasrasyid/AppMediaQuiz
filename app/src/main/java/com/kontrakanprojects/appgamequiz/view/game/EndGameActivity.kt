@@ -33,10 +33,9 @@ class EndGameActivity :AppCompatActivity() {
 
         //listener button
         binding.btnOk.setOnClickListener{
-            val intent = Intent(this,MainActivity::class.java).apply {
-                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            }
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         val intentExtra = intent.extras

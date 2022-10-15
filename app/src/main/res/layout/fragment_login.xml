@@ -30,7 +30,7 @@
             style="@style/ThemeEditText"
             android:id="@+id/edt_email"
             android:textColor="@color/primaryTextColor"
-            android:hint="@string/hint_email"
+            android:hint="@string/hint_fullname"
             android:imeOptions="actionNext"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>

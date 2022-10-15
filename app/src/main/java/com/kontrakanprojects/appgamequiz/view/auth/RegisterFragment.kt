@@ -40,19 +40,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
             }
         }
     }
-    private val textWatcherEmail = object: TextWatcher {
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-        override fun afterTextChanged(input: Editable?) {
-            if(input.isNullOrEmpty()){
-                binding.tiEmail.error = getString(R.string.msg_email_not_null)
-            }else{
-                binding.tiEmail.error = null
-            }
-        }
-    }
     private val textWatcherPsw = object: TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
@@ -93,7 +81,6 @@ class RegisterFragment : Fragment(), View.OnClickListener {
             when(view){
                 btnRegister -> {
                     edtName.addTextChangedListener(textWatcherName)
-                    edtEmail.addTextChangedListener(textWatcherEmail)
                     edtPassword.addTextChangedListener(textWatcherPsw)
                     if(!rbGuru.isChecked && !rbSiswa.isChecked) {
                         view?.mySnackBar(getString(R.string.msg_role_not_null))
@@ -131,10 +118,9 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     private fun getRequest(): RegisterRequest {
         with(binding){
             val name = edtName.textTrim()
-            val email = edtEmail.textTrim()
             val password = edtPassword.textTrim()
             val role = checkedRole()
-            return RegisterRequest(0,name,email,password,role)
+            return RegisterRequest(0,name,password,role)
         }
     }
 

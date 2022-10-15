@@ -55,4 +55,5 @@
     <string name="msg_psw_min_character">Minimal 6 karakter kata sandi</string>
     <string name="hint_name">Nama Pengguna</string>
     <string name="title_page_profile">Profil</string>
+    <string name="hint_fullname">Nama Lengkap</string>
 </resources>

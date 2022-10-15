@@ -1,14 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_page"
     tools:context=".view.quiz.QuizFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <FrameLayout
+            style="@style/ThemePage"
+            android:id="@+id/framelayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top_page">
+
+            <androidx.core.widget.NestedScrollView
+                style="@style/ContextScrollPage"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/ThemeTextCompetencyQuiz"
+                        android:id="@+id/tv_competency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="3.1	Menganalisis hubungan antara bentuk dan fungsi bagian tubuh pada hewan dan tumbuhan." />
+
+                    <TextView
+                        style="@style/SecondaryTextStyle"
+                        android:id="@+id/tv_pay_attention"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:text="Perhatikan Gambar di bawah Ini!!!"
+                        android:visibility="gone"
+                        android:textColor="@color/white" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_container_images_questions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_marginVertical="@dimen/margin_16"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/img_q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_24"
+                            android:src="@drawable/landak"/>
+                        <ImageView
+                            android:id="@+id/img_q2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cacin"/>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/SecondaryTextStyle"
+                        android:id="@+id/tv_quiz_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_16"
+                        tools:text="Akar tunggang dan akar serabut sangat sering kita jumpai dalam kehidupan sehari-hari. Kelompokkanlah tumbuhan dibawah ini berdasarkan jenis akarnya.\n Mangga, Bayam, Matoa, , Kangkung, Manggis, Padi, Rumput, Rambutan"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        style="@style/SecondaryTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Klik Salah satu Gambar/Teks Jawaban:"
+                        android:textColor="@color/white" />
+                    <LinearLayout
+                        android:id="@+id/ll_text_options"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/ThemeTextOption"
+                            android:id="@+id/tv_option1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_quiz_option"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="@dimen/padding_16"
+                            android:layout_marginVertical="@dimen/margin_8"
+                            tools:text="A.\tHewan dapat dijadikan sebagai sumber makanan bagi hewan lain"/>
+                        <TextView
+                            style="@style/ThemeTextOption"
+                            android:id="@+id/tv_option2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_quiz_option"
+                            android:layout_marginVertical="@dimen/margin_8"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="@dimen/padding_16"
+                            tools:text="B.\tHewan dapat dijadikan sebagai sumber makanan bagi hewan lain"/>
+                        <TextView
+                            style="@style/ThemeTextOption"
+                            android:id="@+id/tv_option3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_quiz_option"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="@dimen/padding_16"
+                            android:layout_marginVertical="@dimen/margin_8"
+                            tools:text="C.\tHewan dapat dijadikan sebagai sumber makanan bagi hewan lain"/>
+                        <TextView
+                            style="@style/ThemeTextOption"
+                            android:id="@+id/tv_option4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_quiz_option"
+                            android:paddingVertical="8dp"
+                            android:paddingHorizontal="@dimen/padding_16"
+                            android:layout_marginVertical="@dimen/margin_8"
+                            tools:text="D.\tHewan dapat dijadikan sebagai sumber makanan bagi hewan lain"/>
+                    </LinearLayout>
+                   <GridLayout
+                       android:id="@+id/gl_options"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:useDefaultMargins="true"
+                       android:visibility="gone"
+                       android:columnCount="2"
+                       android:rowCount="2">
+                       <ImageView
+                           android:id="@+id/img_option1"
+                           android:layout_width="200dp"
+                           android:layout_height="200dp"
+                           android:scaleType="fitXY"
+                           android:layout_margin="@dimen/margin_16"
+                           android:background="@drawable/bg_quiz_img_option"
+                           android:src="@drawable/kitten"/>
+                       <ImageView
+                           android:id="@+id/img_option2"
+                           android:layout_width="200dp"
+                           android:layout_height="200dp"
+                           android:scaleType="fitXY"
+                           android:layout_margin="@dimen/margin_16"
+                           android:background="@drawable/bg_quiz_img_option"
+                           android:src="@drawable/ikan_quiz"/>
+                       <ImageView
+                           android:id="@+id/img_option3"
+                           android:layout_width="200dp"
+                           android:layout_height="200dp"
+                           android:scaleType="fitXY"
+                           android:layout_margin="@dimen/margin_16"
+                           android:background="@drawable/bg_quiz_img_option"
+                           android:src="@drawable/badak_quiz"/>
+                       <ImageView
+                           android:id="@+id/img_option4"
+                           android:layout_width="200dp"
+                           android:layout_height="200dp"
+                           android:scaleType="fitXY"
+                           android:layout_margin="@dimen/margin_16"
+                           android:background="@drawable/bg_quiz_img_option"
+                           android:src="@drawable/ayam"/>
+                   </GridLayout>
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="24dp" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="68dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

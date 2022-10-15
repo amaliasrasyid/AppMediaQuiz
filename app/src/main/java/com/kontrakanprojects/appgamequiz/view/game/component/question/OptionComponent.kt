@@ -21,14 +21,14 @@ class OptionComponent constructor(qX: Float, qY: Float, marginX: Float, res: Res
     init{
         //option position on screen (question bitmap)
         x = qX + marginX
-        y = qY
+        y = qY - 30
 
-        Log.d("option component","x = ${x};y = ${y}")
+//        Log.d("option component","x = ${x};y = ${y}")
 
         width = bitmap.width.toFloat()
         height = bitmap.height.toFloat()
 
-        optionImg = Bitmap.createScaledBitmap(bitmap,120,120,false)
+        optionImg = Bitmap.createScaledBitmap(bitmap,200,200,false)
 
     }
     

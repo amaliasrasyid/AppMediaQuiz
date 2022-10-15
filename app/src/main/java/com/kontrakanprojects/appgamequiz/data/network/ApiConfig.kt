@@ -11,7 +11,8 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
     const val URL = "http://192.168.100.215:8000" //WIFI OFFICE
-//    const val URL = "http://192.168.1.7:8000" //WIFI HOME
+//    const val URL = "http://192.168.1.10:8000" //WIFI HOME
+//    const val URL = "https://appgamequiz.rproject-dev.com" //RELEASE
     const val ENDPOINT = "$URL/api/"
 
     var allowedClient = Interceptor{chain: Interceptor.Chain ->
@@ -30,9 +31,9 @@ object ApiConfig {
         val loggingInterceptor =  HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val builder = OkHttpClient.Builder().apply {
-            readTimeout(200,TimeUnit.SECONDS)
-            writeTimeout(600,TimeUnit.SECONDS)
-            connectTimeout(600,TimeUnit.SECONDS)
+            readTimeout(20,TimeUnit.SECONDS)
+            writeTimeout(30,TimeUnit.SECONDS)
+            connectTimeout(30,TimeUnit.SECONDS)
             addInterceptor(loggingInterceptor)
             addInterceptor(allowedClient)
         }

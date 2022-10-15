@@ -37,10 +37,12 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/PrimaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="20sp"
                         android:text="@string/subtitle_page_guide_explaination"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/secondaryColor" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -49,6 +51,7 @@
                         android:src="@drawable/guide_pict"/>
 
                     <TextView
+                        style="@style/SecondaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_16"
@@ -56,11 +59,13 @@
                         android:textColor="@color/white" />
 
                     <TextView
+                        style="@style/PrimaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_24"
                         android:text="@string/subtitle_page_guide_play_game"
-                        android:textColor="@color/white" />
+                        android:textSize="20sp"
+                        android:textColor="@color/secondaryColor" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -73,6 +78,7 @@
                         android:layout_height="200dp"
                         android:src="@drawable/screen_section_touch"/>
                     <TextView
+                        style="@style/SecondaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
@@ -99,6 +105,7 @@
             style="@style/TextTitlePage"
             android:id="@+id/textView"
             android:text="@string/title_page_guide"
+            android:textColor="@color/secondaryTextColor"
             app:layout_constraintBottom_toBottomOf="@+id/view_bg_title"
             app:layout_constraintEnd_toEndOf="@+id/view_bg_title"
             app:layout_constraintStart_toStartOf="@+id/view_bg_title"

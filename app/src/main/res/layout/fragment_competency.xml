@@ -38,25 +38,31 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/PrimaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="20sp"
                         android:text="@string/title_core_competency"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/secondaryColor" />
 
                     <TextView
+                        style="@style/SecondaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/text_core_competency"
                         android:textColor="@color/white" />
 
                     <TextView
+                        style="@style/PrimaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_24"
+                        android:textSize="20sp"
                         android:text="@string/title_basic_competency"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/secondaryColor" />
 
                     <TextView
+                        style="@style/SecondaryTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/text_basic_competency"
@@ -79,11 +85,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/PrimaryTextStyle"
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
             android:text="@string/title_page_competency"
+            android:textColor="@color/secondaryTextColor"
             android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="@+id/view_bg_title"
             app:layout_constraintEnd_toEndOf="@+id/view_bg_title"

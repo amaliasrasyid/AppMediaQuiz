@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.lifecycle.lifecycleScope
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.entity.OptionEntity
 import com.kontrakanprojects.appgamequiz.data.entity.QuestionEntity
@@ -18,11 +19,15 @@ import com.kontrakanprojects.appgamequiz.data.repository.QuestionRepository
 import com.kontrakanprojects.appgamequiz.data.room.MyDatabase
 import com.kontrakanprojects.appgamequiz.util.DataLocalDb
 import com.kontrakanprojects.appgamequiz.util.converToBitmap
+import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.flow.collect
 
 class GameActivity : AppCompatActivity() {
 
     private lateinit var gameView: GameView
     private lateinit var viewModel: GameViewModel
+    private val TAG = GameActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +35,10 @@ class GameActivity : AppCompatActivity() {
         val point = Point()
         windowManager.defaultDisplay.getSize(point)
 
-        var questions = DataLocalDb.getArrQuestions(resources)
-        gameView = GameView(this,this, point.x, point.y,questions)
-
+        var questions = ArrayList<Question>()
+        gameView = GameView(this,this, point.x, point.y)
         setContentView(gameView)
+
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -45,6 +50,12 @@ class GameActivity : AppCompatActivity() {
             )
         }
     }
+
+//    suspend fun loadData(): ArrayList<Question> {
+//        withContext(IO){
+//            return DataLocalDb.getArrQuestions(resources)
+//        }
+//    }
 
 
     override fun onResume() {

@@ -9,5 +9,10 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#532929</color>
+
     <color name="blueSkyColor">#AAF7FF</color>
+    <color name="secondaryColor">#FBCD66</color>
+    <color name="primaryColor">#532929</color>
+    <color name="variantSecondaryColor">#CE3F2D</color>
 </resources>

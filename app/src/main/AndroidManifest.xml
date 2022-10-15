@@ -8,12 +8,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AppMediaQuiz">
+        android:theme="@style/Theme.AppMediaQuiz"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".EndQuizActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".view.auth.AuthActivity"
-            android:screenOrientation="landscape"
-            android:exported="true"/>
+            android:exported="true"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".view.game.EndGameActivity"
             android:exported="true"

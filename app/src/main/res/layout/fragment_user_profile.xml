@@ -100,12 +100,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/PrimaryTextStyle"
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
             android:text="@string/title_page_profile"
             android:textSize="28sp"
+            android:textColor="@color/secondaryTextColor"
             app:layout_constraintBottom_toBottomOf="@+id/view_bg_title"
             app:layout_constraintEnd_toEndOf="@+id/view_bg_title"
             app:layout_constraintStart_toStartOf="@+id/view_bg_title"

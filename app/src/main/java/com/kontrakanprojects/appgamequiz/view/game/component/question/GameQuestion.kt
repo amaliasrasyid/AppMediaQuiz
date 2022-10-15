@@ -30,7 +30,7 @@ class GameQuestion internal constructor(text: String, screenX: Int, screenY: Int
         questionComponent = BitmapFactory.decodeResource(res, R.drawable.bg_question_game)
 
         width = (screenX/1.7).toFloat() + 200
-        height = screenY/4.toFloat() + 100
+        height = screenY/4.toFloat() + 130
         questionComponent = Bitmap.createScaledBitmap(questionComponent, width.toInt(), height.toInt(), false)
 
         //posisi section questionComponent on game view
@@ -47,9 +47,9 @@ class GameQuestion internal constructor(text: String, screenX: Int, screenY: Int
         optionImgs = arrayOfNulls(listOption.size)
         for((i,option) in listOption.withIndex()){
 //            y+height
-            val optionImg = OptionComponent(x+200,y+(questionWithTextCmpnt.height/2).toInt(),marginX,res,option.image)
+            val optionImg = OptionComponent(x+200,y+(questionWithTextCmpnt.height/2).toInt(),marginX,res,option.image!!)
             optionImgs[i] = optionImg
-            marginX += 100f + 120
+            marginX += 100f + 160
         }
 
         //create level component
