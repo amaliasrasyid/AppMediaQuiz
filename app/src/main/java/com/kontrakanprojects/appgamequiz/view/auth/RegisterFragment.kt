@@ -16,10 +16,7 @@ import com.kontrakanprojects.appgamequiz.data.request.LoginRequest
 import com.kontrakanprojects.appgamequiz.data.request.RegisterRequest
 import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.FragmentRegisterBinding
-import com.kontrakanprojects.appgamequiz.util.Role
-import com.kontrakanprojects.appgamequiz.util.Status
-import com.kontrakanprojects.appgamequiz.util.mySnackBar
-import com.kontrakanprojects.appgamequiz.util.textTrim
+import com.kontrakanprojects.appgamequiz.util.*
 import com.kontrakanprojects.appgamequiz.view.profile.ProfileViewModel
 
 class RegisterFragment : Fragment(), View.OnClickListener {
@@ -127,8 +124,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     private fun checkedRole(): Int {
         with(binding){
             when{
-                rbGuru.isChecked -> return Role.GURU.id
-                else -> return Role.SISWA.id
+                rbGuru.isChecked -> return TEACHER
+                else -> return STUDENT
             }
         }
     }

@@ -10,9 +10,9 @@ import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 object ApiConfig {
-    const val URL = "http://192.168.100.215:8000" //WIFI OFFICE
-//    const val URL = "http://192.168.1.10:8000" //WIFI HOME
-//    const val URL = "https://appgamequiz.rproject-dev.com" //RELEASE
+//    const val URL = "http://192.168.100.215:8000" //WIFI OFFICE
+//    const val URL = "http://192.168.1.5:8000" //WIFI HOME
+    const val URL = "https://appgamequiz.rproject-dev.com" //RELEASE
     const val ENDPOINT = "$URL/api/"
 
     var allowedClient = Interceptor{chain: Interceptor.Chain ->

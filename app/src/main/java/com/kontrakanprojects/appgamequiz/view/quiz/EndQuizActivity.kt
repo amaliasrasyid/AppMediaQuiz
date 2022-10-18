@@ -4,14 +4,25 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.activity.viewModels
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.viewModels
 import com.kontrakanprojects.appgamequiz.R
+import com.kontrakanprojects.appgamequiz.data.model.User
+import com.kontrakanprojects.appgamequiz.data.request.StoreStudentScoreRequest
+import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.ActivityEndQuizBinding
+import com.kontrakanprojects.appgamequiz.util.Status
+import com.kontrakanprojects.appgamequiz.util.mySnackBar
 import com.kontrakanprojects.appgamequiz.view.MainActivity
+import com.kontrakanprojects.appgamequiz.view.auth.AuthViewModel
 
 class EndQuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEndQuizBinding
+    private val viewModel: QuizViewModel by viewModels()
     private var score = 0
 
     companion object {
@@ -37,10 +48,7 @@ class EndQuizActivity : AppCompatActivity() {
 
 //        listener button
         binding.btnOk.setOnClickListener{
-            saveScore(score)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            saveScore()
         }
 
         val intentExtra = intent.extras
@@ -64,9 +72,36 @@ class EndQuizActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveScore(score: Int) {
-//        val request = getRequest()
-//        obs
+    private fun saveScore() {
+        val request = getRequest()
+        observableViewModel(request)
+    }
+
+    private fun observableViewModel(request: StoreStudentScoreRequest) {
+        viewModel.storeStudentScore(request).observe(this){ response ->
+            when(response.status){
+                Status.LOADING -> loader(true)
+                Status.SUCCESS -> {
+                    loader(false)
+                    moveToMainActivity()
+                }
+                Status.ERROR -> {
+                    loader(false)
+                }
+            }
+        }
+    }
+
+    private fun moveToMainActivity() {
+        startActivity(Intent(this@EndQuizActivity,MainActivity::class.java))
+        finish()
+    }
+
+    private fun getRequest(): StoreStudentScoreRequest {
+        val id = 0
+        val studentId = UserPreference(this@EndQuizActivity).getUser().id
+        val nilai = score
+        return StoreStudentScoreRequest(id,studentId!!,nilai)
     }
 
     private fun calculateScore(correctAnswer: Int, sizeQuizQ: Int,): Int {
@@ -74,5 +109,15 @@ class EndQuizActivity : AppCompatActivity() {
         val point = 100/maxQ
 
         return point * correctAnswer as (Int)
+    }
+
+    private fun loader(state: Boolean) {
+        with(binding) {
+            if (state) {
+                progressBar.visibility = View.VISIBLE
+            } else {
+                progressBar.visibility = View.GONE
+            }
+        }
     }
 }

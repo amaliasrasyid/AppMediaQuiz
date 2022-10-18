@@ -198,10 +198,12 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 //                        flight.reduceHp()
 //                    }
 
-                    val bound = (20 * screenRatioX).toInt()
+                    val bound = (30 * screenRatioX).toInt()
                     fish.speed = random.nextInt(bound)
 
-                    if (fish.speed < 10 * screenRatioX) fish.speed = (10 * screenRatioX).toInt()
+                    if (fish.speed < 10 * screenRatioX) {
+                        fish.speed = (10 * screenRatioX).toInt()
+                    }
 
 
                     fish.x = screenX

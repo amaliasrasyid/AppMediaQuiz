@@ -180,7 +180,10 @@ object DataQuiz {
                     answerKey = 2,
                     options = ArrayList<Option>(
                         listOf(
-//                            Option
+                            Option(BitmapFactory.decodeResource(res, R.drawable.kitten),1),
+                            Option(BitmapFactory.decodeResource(res, R.drawable.ikan_quiz),2),
+                            Option(BitmapFactory.decodeResource(res, R.drawable.badak_quiz),3),
+                            Option(BitmapFactory.decodeResource(res, R.drawable.ayam),4),
                         )
                     ),
                     competencyName = getCompetency(3.8)

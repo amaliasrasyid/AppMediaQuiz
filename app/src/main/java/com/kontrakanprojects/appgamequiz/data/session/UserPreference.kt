@@ -8,7 +8,6 @@ class UserPreference(context: Context) {
         private const val PREFS_NAME = "prefs_name"
         private const val ID = "id"
         private const val NAME = "name"
-        private const val EMAIL = "email"
         private const val PASSWORD = "password"
         private const val ROLE = "role"
         private const val LOGIN = "login"
@@ -20,7 +19,6 @@ class UserPreference(context: Context) {
         val editor = prefs.edit()
         editor.putInt(ID, data.id!!)
         editor.putString(NAME, data.name)
-        editor.putString(EMAIL, data.email)
         editor.putString(PASSWORD, data.password)
         editor.putInt(ROLE, data.role!!)
         editor.apply()
@@ -30,7 +28,6 @@ class UserPreference(context: Context) {
         User(
             id = prefs.getInt(ID, 0),
             name = prefs.getString(NAME, "").toString(),
-            email = prefs.getString(EMAIL, "").toString(),
             password = prefs.getString(PASSWORD, "").toString(),
             role = prefs.getInt(ROLE, 0)
         )

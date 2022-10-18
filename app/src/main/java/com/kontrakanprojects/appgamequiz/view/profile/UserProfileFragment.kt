@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.FragmentUserProfileBinding
-import com.kontrakanprojects.appgamequiz.util.Role
+import com.kontrakanprojects.appgamequiz.util.TEACHER
 
 class UserProfileFragment : Fragment(), View.OnClickListener {
 
@@ -31,9 +31,8 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
 
         with(binding){
             btnExit.setOnClickListener(this@UserProfileFragment)
-            val role = if(user.role == Role.GURU.id) "GURU" else "SISWA"
+            val role = if(user.role == TEACHER) "GURU" else "SISWA"
             edtName.setText(user.name)
-            edtEmail.setText(user.email)
             edtRole.setText(role)
         }
     }

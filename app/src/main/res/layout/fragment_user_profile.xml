@@ -53,21 +53,6 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/ti_email"
-                        style="@style/ThemeInputField"
-                        android:enabled="false"
-                        android:layout_width="match_parent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            style="@style/ThemeEditText"
-                            android:id="@+id/edt_email"
-                            android:textColor="@color/primaryTextColor"
-                            android:hint="@string/hint_email"
-                            android:imeOptions="actionNext"
-                            android:inputType="text" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ti_role"
                         style="@style/ThemeInputField"
                         android:enabled="false"

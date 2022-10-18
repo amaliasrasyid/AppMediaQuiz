@@ -1,6 +1,7 @@
 package com.kontrakanprojects.appgamequiz.view.quiz
 
 import android.app.ActionBar.LayoutParams
+import android.content.Intent
 import android.graphics.Bitmap
 import android.opengl.Visibility
 import android.os.Bundle
@@ -15,13 +16,17 @@ import android.view.ViewGroup
 import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.marginBottom
+import com.google.android.material.card.MaterialCardView
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.model.Option
 import com.kontrakanprojects.appgamequiz.data.model.Question
 import com.kontrakanprojects.appgamequiz.databinding.FragmentQuizBinding
 import com.kontrakanprojects.appgamequiz.databinding.FragmentRegisterBinding
 import com.kontrakanprojects.appgamequiz.util.DataQuiz
+import com.kontrakanprojects.appgamequiz.view.quiz.EndQuizActivity.Companion.COUNT_CORRECT_ANSWER
+import com.kontrakanprojects.appgamequiz.view.quiz.EndQuizActivity.Companion.QUIZ_Q_SIZE
 
 class QuizFragment : Fragment(),View.OnClickListener {
     private lateinit var binding: FragmentQuizBinding
@@ -30,7 +35,7 @@ class QuizFragment : Fragment(),View.OnClickListener {
     private var currentAnswerKey = 0
     private var score = 0
     private var indexLevel = 0
-    private val DELAY_TIME = 500L
+    private val DELAY_TIME = 1000L
     private val TAG = QuizFragment::class.java.simpleName
 
     override fun onCreateView(
@@ -70,9 +75,7 @@ class QuizFragment : Fragment(),View.OnClickListener {
 
         with(binding){
             tvCompetency.text = currentQuizQ.competencyName
-            if(currentQuizQ.images == null){
-                tvQuizQuestion.text = currentQuizQ.text
-            }else{
+            if(currentQuizQ.images != null){
                 llContainerImagesQuestions.visibility = View.VISIBLE
                 tvPayAttention.visibility = View.VISIBLE
                 val countImagesQ = currentQuizQ.images.size
@@ -83,6 +86,7 @@ class QuizFragment : Fragment(),View.OnClickListener {
                     imgQ1.setImageBitmap(currentQuizQ.images.get(0))
                 }
             }
+            tvQuizQuestion.text = currentQuizQ.text
             //options
             val isImage = if(currentQuizQ.options.get(0).image is Bitmap) true else false
             if(isImage){
@@ -103,7 +107,29 @@ class QuizFragment : Fragment(),View.OnClickListener {
             //clear images in question
             imgQ1.setImageBitmap(null)
             imgQ2.setImageBitmap(null)
+
+            //default options view
+            defaultOptionsView()
         }
+    }
+
+    private fun defaultOptionsView() {
+        with(binding){
+            val textOptions = ArrayList<TextView>(
+                listOf(tvOption1,tvOption2,tvOption3,tvOption4)
+            )
+            for (tOpt in textOptions) {
+                tOpt.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option)
+            }
+
+            val imgOptions = ArrayList<ImageView>(
+                listOf(imgOption1,imgOption2,imgOption3,imgOption4)
+            )
+            for (imgOpt in imgOptions) {
+                imgOpt.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
+            }
+        }
+
     }
 
     private fun prepareOptionsText(options: List<Option>) {
@@ -140,52 +166,71 @@ class QuizFragment : Fragment(),View.OnClickListener {
         }
     }
 
-    private fun checkAnswer(selectedAnswer: Int) {
+    private fun checkAnswer(selectedAnswer: Int,isText :Boolean = false, isImage: Boolean = false) {
         score = if(selectedAnswer == currentAnswerKey) score + 1 else score
 
         //show right and wrong answer
         if(selectedAnswer != currentAnswerKey){
-//            answerView(selectedAnswer,false)
+            if(isText){
+                changeStyleOptionView(selectedAnswer,"text")
+            }else{
+                changeStyleOptionView(selectedAnswer,"image")
+            }
         }
-//        answerView(selectedAnswer,true)
         Handler(Looper.getMainLooper()).postDelayed({
             if(indexQuizQ != listQuizQ.size-1 && indexQuizQ < listQuizQ.size){
                 ++indexQuizQ
                 ++indexLevel
                 prepareQuiz()
             }else{
-                //MOVE TO RESULT (END QUIZ)
+                moveToResult()
             }
         },DELAY_TIME)
     }
 
-//    private fun answerView(selectedAnswer: Int, condition: Boolean) {
-//        with(binding){
-//            when(selectedAnswer){
-//                1 -> changeViewSelectedOption(cardOpsi1,condition)
-//                2 -> changeViewSelectedOption(cardOpsi2,condition)
-//                3 -> changeViewSelectedOption(cardOpsi3,condition)
-//                4 -> changeViewSelectedOption(cardOpsi3,condition)
-//            }
-//        }
-//    }
+    private fun moveToResult() {
+        val intent = Intent(activity,EndQuizActivity::class.java).apply{
+            putExtra(COUNT_CORRECT_ANSWER,score)
+            putExtra(QUIZ_Q_SIZE,listQuizQ.size)
+        }
+        startActivity(intent)
+    }
 
-    private fun determineIdOption(numberSequence: Int): Int {
-        when(numberSequence){
-            1 -> return R.id.option_1
-            2 -> return R.id.option_2
-            3 -> return R.id.option_3
-            else -> return R.id.option_4
+    private fun changeStyleOptionView(selectedAnswer: Int, type: String) {
+        with(binding){
+            when(type){
+                "text" -> {
+                    when(selectedAnswer){
+                        1 -> tvOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                        2 -> tvOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                        3 -> tvOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                        4 -> tvOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                    }
+                }
+                else -> {
+                    when(selectedAnswer){
+                        1 -> imgOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
+                        2 -> imgOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
+                        3 -> imgOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
+                        4 -> imgOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
+                    }
+                }
+            }
         }
     }
+
 
     override fun onClick(view: View?) {
         with(binding){
             when(view){
-                tvOption1,imgOption1 -> checkAnswer(1)
-                tvOption2,imgOption2 -> checkAnswer(2)
-                tvOption3,imgOption3 -> checkAnswer(3)
-                tvOption4,imgOption4 -> checkAnswer(4)
+                tvOption1 -> checkAnswer(1,true)
+                imgOption1 -> checkAnswer(1,false,true)
+                tvOption2 -> checkAnswer(2,true)
+                imgOption2 -> checkAnswer(2,false,true)
+                tvOption3 -> checkAnswer(3,true)
+                imgOption3 -> checkAnswer(3,false,true)
+                tvOption4 -> checkAnswer(4,true)
+                imgOption4 -> checkAnswer(4,false,true)
             }
         }
     }

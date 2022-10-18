@@ -1,7 +1,5 @@
 package com.kontrakanprojects.appgamequiz.data.request
 
-import com.kontrakanprojects.appgamequiz.util.Role
-
 //NOTE! harus sama nama var dg nama param request di laravel
 class RegisterRequest(
     val id: Int,

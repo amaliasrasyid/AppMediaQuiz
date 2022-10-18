@@ -15,7 +15,6 @@ interface ApiService {
     @POST("user/store")
     fun register(@Body request: RegisterRequest): Call<UserResponse>
 
-    @FormUrlEncoded
     @GET("student/all")
     fun getAllStudents(): Call<StudentResponse> //TODO: blm diganti class response-nya
 

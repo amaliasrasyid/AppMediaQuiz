@@ -11,6 +11,7 @@ import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.session.GamePreference
 import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMainBinding
+import com.kontrakanprojects.appgamequiz.util.TEACHER
 import com.kontrakanprojects.appgamequiz.util.mySnackBar
 import com.kontrakanprojects.appgamequiz.view.auth.AuthActivity
 import com.kontrakanprojects.appgamequiz.view.game.GameActivity
@@ -31,13 +32,20 @@ class MainFragment : Fragment(),View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val role = UserPreference(requireContext()).getUser().role
         with(binding) {
+            if(role == TEACHER){
+                btnStudentScores.visibility = View.VISIBLE
+                btnQuiz.visibility = View.INVISIBLE
+            }
+
             btnProfile.setOnClickListener(this@MainFragment)
             btnKiKd.setOnClickListener(this@MainFragment)
             btnGame.setOnClickListener(this@MainFragment)
             btnPetunjuk.setOnClickListener(this@MainFragment)
             btnMateri.setOnClickListener(this@MainFragment)
             btnQuiz.setOnClickListener(this@MainFragment)
+            btnStudentScores.setOnClickListener(this@MainFragment)
             btnExit.setOnClickListener(this@MainFragment)
         }
     }
@@ -50,10 +58,15 @@ class MainFragment : Fragment(),View.OnClickListener {
                 btnGame -> moveToGame()
                 btnQuiz -> moveToQuiz()
                 btnPetunjuk -> moveToGuide()
+                btnStudentScores -> moveToStudentScores()
                 btnExit -> logOut()
             }
         }
 
+    }
+
+    private fun moveToStudentScores() {
+        findNavController().navigate(R.id.action_mainFragment_to_studentScoresFragment)
     }
 
     private fun moveToQuiz() {

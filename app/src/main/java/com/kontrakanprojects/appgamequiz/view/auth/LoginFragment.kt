@@ -111,7 +111,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         val user = User(
                             id = response.data?.id,
                             name = response.data?.nama,
-                            email = response.data?.email,
                             password = response.data?.kataSandi,
                             role = response.data?.role
                         )

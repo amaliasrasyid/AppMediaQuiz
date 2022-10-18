@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:layout_width="500dp"
+    android:layout_height="100dp"
+    android:layout_margin="@dimen/margin_16"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/bg_item_student_score"
+    app:cardBackgroundColor="@color/primaryColor">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_student_name"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:layout_marginStart="@dimen/margin_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_result_score"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Budi Santono Gunawan" />
+
+        <TextView
+            style="@style/SecondaryTextStyle"
+            android:id="@+id/tv_result_score"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_student_name"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/tv_student_name"
+            android:textAlignment="textEnd"
+            android:textSize="30sp"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:textColor="@color/secondaryColor"
+            tools:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_student_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/tv_student_name" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

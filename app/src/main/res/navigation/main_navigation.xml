@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_mainFragment_to_startGameFragment"
             app:destination="@id/startGameFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_studentScoresFragment"
+            app:destination="@id/studentScoresFragment" />
     </fragment>
     <fragment
         android:id="@+id/competencyFragment"
@@ -67,4 +70,9 @@
         android:id="@+id/endGameFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.game.EndGameActivity"
         android:label="EndGameFragment" />
+    <fragment
+        android:id="@+id/studentScoresFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.student_score.StudentScoresFragment"
+        android:label="fragment_student_scores"
+        tools:layout="@layout/fragment_student_scores" />
 </navigation>

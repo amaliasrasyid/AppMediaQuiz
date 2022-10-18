@@ -11,12 +11,9 @@
         android:theme="@style/Theme.AppMediaQuiz"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".EndQuizActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".view.quiz.EndQuizActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".view.auth.AuthActivity"
             android:exported="true"
