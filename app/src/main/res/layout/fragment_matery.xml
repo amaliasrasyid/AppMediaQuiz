@@ -7,6 +7,6 @@
 
    <include
        android:id="@+id/layout_matery"
-       layout="@layout/layout_plant_matery"/>
+       layout="@layout/layout_animals_matery"/>
 
 </FrameLayout>

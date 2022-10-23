@@ -45,6 +45,31 @@ Daerah daratan yang terletak pada ketinggian lebih dari 600 m DPL termasuk datar
 
 Wilayah perbatasan antara daratan dan perairan disebut panta. Pantai ada yang berbentuk landai dan curam. Tumbuhan yang tumbuh dengan baik adalah kelapa dan bakau.
 </string>
+    <string name="desc_batang">Bagian tumbuhan yang berada di atas tanah adalah batang yang berfungsi sebagai tempat munculnya daun, bunga, dan buah. Batang juga berfungsi mengedarkan mineral dan air  yang diserap akar, serta zat makanan hasil fotosintesis ke seluruh bagian tubuh tumbuhan.
+Tumbuhan yang memiliki cadangan makanan di dalam batangnya adalah:
+Kelapa.	 Mangga.	 Pisang.	Kentang.</string>
+    <string name="desc_bunga">Bunga merupakan  bagian tumbuhan yang  berfungsi sebagai alat perkembangbiakan  tumbuhan biji.</string>
+    <string name="desc_daun">Bagian tumbuhan yang berfungsi sebagai tempat  berlangsungnya fotosintesis adalah daun. Daun banyak mengandung zat warna hijau yang disebut klorofil. Daun terdiri atas tangkai daun, tulang daun dan helai daun. Sejumlah tulang daun menyebar keseluruh bagian daun  dan mengangkut air dan mineral menuju ke helai daun</string>
+    <string name="desc_biji">Biji merupakan hasil dari pembuahan yang terjadi akibat penyerbukan antara serbuk sari dan sel telur pada putik. Jika biji ditanam akan tumbuh menjadi
+tumbuhan baru. Biji memiliki keping. Biji ada yang berkeping satu dan ada yang berkeping dua. Biji berkeping satu disebut monokotil dan biji berkeping  dua disebut dikotil</string>
+    <string name="desc_buah">	Buah merupakan bagian tumbuhan yang berfungsi melindungi biji serta cadangan makanan buat biji berkecambah.\nContohnya buah mangga dan buah apel. Buah terdiri atas daging buah dan biji. Bagian yang kita makan biasanya daging buahnya.</string>
+    <string name="desc_padi">PADI\nPadi umumnya tumbuh di daerah yang berhawa panas, banyak mengandung uap air, dan curah hujan yang cukup. Sinar matahari dan suhu sangat mempengaruhi tanaman padi. Suhu yang baik untuk pertumbuhan  tanaman padi adalah 23°C. Tinggi tempat yang cocok untuk tanaman padi berkisar antara 0-1.500m di atas permukaan laut.Tanah yang baik untuk pertumbuhan tanaman padi adalah tanah berlumpur yang subur dengan ketebalan 18-22cm. Diperlukan pengairan yang cukup agar padi dapat tumbuh dengan baik.</string>
+    <string name="desc_teh">Teh\numumnya tumbuh di daerah pegunungan.Suhu yang baik untuk pertumbuhan tanaman teh adalah berkisar 13°C – 15°C dengan curah hujan tahunan tidak kurang dari 2.000 mm3.Sinar matahari dan suhu udara sangat mempengaruhipertumbuhan tanaman teh. Bila suhu mencapai 30°C, maka akan memperlambat pertumbuhan tanaman teh.Tanah yang cocok untuk tanaman teh adalah tanah yang subur dan banyak mengandung bahan organik dan biasanya terletak di lereng-lereng gunung atau perbukitan.</string>
+    <string name="desc_kupu2">	Indonesia merupakan negara dengan keanekaragaman kupu-kupu tertingg kedua di dunia, setelah negara Brazil. Dari sekitar 20.000 jenis kupu-kupu di dunia, sekitar 2.500 jenis berada indonesia. Salah satu jenis kupu-kupu unik yang ada di Indonesia adalah kupu-kupu bersayap burung. Kupu-kupu jenis ini dikenal pertama kali pada awal abaci ke-18.
+
+	Ketika para pendatang berkebangsaan Eropa berkunjung ke Papua dan masuk ke dalam hutan lebat, mereka melihat kupu-kupu bersayap hurung. Kawasan Pegunungan Arfak di kawasan utara Papua adalah pusat terbesar penyebaran kupu-kupu jenis ini. Adapun di Papua Nugini, pusat sebaran adalah hutan di Provinsi Oro, Papua Nugini Timur. Akibat keindahan dan keunikannya, kupu-kupu bersayap burung terancam akibat perburuan. Para kolektor menangkapnya untuk dijadikan koleksi pribadi. 
+
+Dua jenis kupu-kupu bersayap burung yang terkenal adalah kupu-kupu bersayap burung goliath (Ornithoptera goliath) dan kupu-kupu bersayap burung Ratu Alexandra (Ornithoptera alexandreae).
+	Kupu-kupu sayap burung goliath memiliki tubuh ukuran diameter 28 cm. Ini adatah jenis kupu-kupu terbesar kedua di dunia setelah kupu-kupu sayap burung Ratu Alexandra yang diameter tubuhnya hampir mencapai 33 cm.
+	Kupu-kupu bersayap burung goliath dapat digunakan sebagai bioindikator lingkungan. Bioindikator adalah makhluk hidup yang dapat dijadikan penunjuk kualitaas lingkuingan. Kupu-kupu bersayap burung goliath hanya meletakkan telurnya di daun pohon Aristolochia tagala. Hanya daun itulah yang dimakan ulat yang menetas dari telur. Ini menjadikan kupu-kupu sangat rentan punah karena hidupnya sangat bergantung pada satu jenis tanaman.
+	Jadi, dapat dikatakan jika satu jenis kupu-kupu punah, maka ada sesuatu yang hilang dalam ekosistem.
+</string>
+    <string name="desc_cat">Kucing merupakan hewan yang hidup di darat, tubuh kucing ditutupi oleh rambut yang lebat</string>
+    <string name="desc_fish">Ikan hidup di air dan tidak bisa hidup di darat. Ikan hidup diair karena mempunyai insang sebagai alat pernapasannya. Berikut ini bagian-bagian tubuh ikan</string>
+
+
+    <string name="intro_animals_matery">Selain tumbuhan, hewan juga merupakan sumber daya alam yang perlu terus dijaga keseimbangan dan kelestariannya. Jika tidak, maka hewan-hewan tersebut akan menjadi langka dan punah. Seperti yang terjadi pada burung cenderawasih
+Ayo, kita cari tahu lebih lanjut!</string>
 
     <string name="text_start_game">Mulai Permainan</string>
     <string name="text_winning">Kamu Menang!</string>
@@ -68,4 +93,10 @@ Wilayah perbatasan antara daratan dan perairan disebut panta. Pantai ada yang be
     <string name="hint_name">Nama Pengguna</string>
     <string name="title_page_profile">Profil</string>
     <string name="hint_fullname">Nama Lengkap</string>
+    <string name="text_cat">KUCING</string>
+    <string name="text_bird">BURUNG</string>
+    <string name="text_fish">IKAN</string>
+    <string name="text_forest">HUTAN</string>
+    <string name="text_desert">PADANG PASIR</string>
+    <string name="text_land">DARAT</string>
 </resources>
