@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/ThemeTitleMatery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3.1 menganalisis hubungan antara bentuk dan fungsi bagian tubuh ada hewan dan tumbuhan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/ThemeTextOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/margin_16"
+            android:paddingVertical="@dimen/padding_8"
+            android:text="3.8 Menjelaskan pentingnya upaya keseimbangan dan pelestarian sumber daya alam di lingkungannya"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <ImageView
+            android:id="@+id/btn_start_game"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_buton"
+            android:tooltipText="Mulai Permainan"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/TextTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:padding="@dimen/padding_16"
+            android:text="Tumbuhan"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_game" />
+
+        <TextView
+            android:id="@+id/tv_sub_akar"
+            style="@style/ThemeTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="Akar"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/desc_akar"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="	Akar adalah bagian tumbuhan yang umumnya berada di dalam tanah.  Untuk beberapa jenis tumbuhan, akar juga terdapat di atas tanah bahkan menggantung. Akar berfungsi antara lain sebagai bagian yang mengokohkan tumbuhan. Jika tumbuhan tidak memiliki akar, tumbuhan akan mudah dicabut,mudah roboh ketika diterpa angin, atau hanyutterbawa air ketika turun hujan.Zat-zat mineral dan air yang dibutuhkan untuk membuat makanan diserap oleh akar dari dalam tanah. Namun, pada beberapa tumbuhan tertentu, akar tidak hanya berfungsi menyerap air dan mineral, tetapi juga berfungsi sebagai penyimpanan cadangan makanan, misalnya pada beberapa tumbuhan umbi-umbian.
+Akar terbagi menjadi  dua yaitu :"
+            app:layout_constraintTop_toBottomOf="@id/tv_sub_akar" />
+
+        <ImageView
+            android:id="@+id/img_bagan_akar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
+            app:layout_constraintStart_toStartOf="@+id/desc_akar"
+            app:layout_constraintTop_toBottomOf="@id/desc_akar" />
+
+        <TextView
+            android:id="@+id/tv_sub_batang"
+            style="@style/ThemeTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="Batang"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/img_bagan_akar" />
+
+        <TextView
+            android:id="@+id/desc_batang"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="Bagian tumbuhan yang berada di atas tanah adalah batang yang berfungsi sebagai tempat munculnya daun, bunga, dan buah. Batang juga berfungsi mengedarkan mineral dan air  yang diserap akar, serta zat makanan hasil fotosintesis ke seluruh bagian tubuh tumbuhan.
+Tumbuhan yang memiliki cadangan makanan di dalam batangnya adalah:
+Kelapa.	 Mangga.	 Pisang.	Kentang."
+            app:layout_constraintTop_toBottomOf="@id/tv_sub_batang" />
+
+        <TextView
+            android:id="@+id/tv_sub_bunga"
+            style="@style/ThemeTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="Bunga"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/desc_batang" />
+
+        <TextView
+            android:id="@+id/desc_bunga"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="Bagian tumbuhan yang berada di atas tanah adalah batang yang berfungsi sebagai tempat munculnya daun, bunga, dan buah. Batang juga berfungsi mengedarkan mineral dan air  yang diserap akar, serta zat makanan hasil fotosintesis ke seluruh bagian tubuh tumbuhan.
+Tumbuhan yang memiliki cadangan makanan di dalam batangnya adalah:
+Kelapa.	 Mangga.	 Pisang.	Kentang."
+            app:layout_constraintTop_toBottomOf="@id/tv_sub_bunga" />
+
+        <ImageView
+            android:id="@+id/img_struktur_bunga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
+            app:layout_constraintStart_toStartOf="@+id/desc_bunga"
+            app:layout_constraintTop_toBottomOf="@id/desc_bunga" />
+
+        <TextView
+            android:id="@+id/fungsi_bagian_bunga"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="Bagian tumbuhan yang berada di atas tanah adalah batang yang berfungsi sebagai tempat munculnya daun, bunga, dan buah. Batang juga berfungsi mengedarkan mineral dan air  yang diserap akar, serta zat makanan hasil fotosintesis ke seluruh bagian tubuh tumbuhan.
+Tumbuhan yang memiliki cadangan makanan di dalam batangnya adalah:
+Kelapa.	 Mangga.	 Pisang.	Kentang."
+            app:layout_constraintTop_toBottomOf="@id/img_struktur_bunga" />
+
+        <TextView
+            android:id="@+id/tv_daun"
+            style="@style/ThemeTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="Dauh"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/fungsi_bagian_bunga" />
+
+        <TextView
+            android:id="@+id/desc_daun"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="Bagian tumbuhan yang berfungsi sebagai tempat  berlangsungnya fotosintesis adalah daun. Daun banyak mengandung zat warna hijau yang disebut klorofil. Daun terdiri atas tangkai daun, tulang daun dan helai daun. Sejumlah tulang daun menyebar keseluruh bagian daun  dan mengangkut air dan mineral menuju ke helai daun"
+            app:layout_constraintTop_toBottomOf="@+id/tv_daun" />
+
+        <ImageView
+            android:id="@+id/img_jenis_daun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
+            app:layout_constraintStart_toStartOf="@+id/desc_akar"
+            app:layout_constraintTop_toBottomOf="@id/desc_daun" />
+
+        <TextView
+            android:id="@+id/tv_biji"
+            style="@style/ThemeTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="Biji"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/img_jenis_daun" />
+
+        <TextView
+            android:id="@+id/desc_biji"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="Bagian tumbuhan yang berfungsi sebagai tempat  berlangsungnya fotosintesis adalah daun. Daun banyak mengandung zat warna hijau yang disebut klorofil. Daun terdiri atas tangkai daun, tulang daun dan helai daun. Sejumlah tulang daun menyebar keseluruh bagian daun  dan mengangkut air dan mineral menuju ke helai daun"
+            app:layout_constraintTop_toBottomOf="@+id/tv_biji" />
+
+        <ImageView
+            android:id="@+id/img_jenis_biji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
+            app:layout_constraintStart_toStartOf="@+id/desc_akar"
+            app:layout_constraintTop_toBottomOf="@id/desc_daun" />
+
+        <TextView
+            android:id="@+id/tv_buah"
+            style="@style/ThemeTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="Biji"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/img_jenis_biji" />
+
+        <TextView
+            android:id="@+id/desc_buah"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="Bagian tumbuhan yang berfungsi sebagai tempat  berlangsungnya fotosintesis adalah daun. Daun banyak mengandung zat warna hijau yang disebut klorofil. Daun terdiri atas tangkai daun, tulang daun dan helai daun. Sejumlah tulang daun menyebar keseluruh bagian daun  dan mengangkut air dan mineral menuju ke helai daun"
+            app:layout_constraintTop_toBottomOf="@+id/tv_biji" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_32"
+            android:text="PADI\nPadi umumnya tumbuh di daerah yang berhawa panas, banyak mengandung uap air, dan curah hujan yang cukup. Sinar matahari dan suhu sangat mempengaruhi tanaman padi. Suhu yang baik untuk pertumbuhan  tanaman padi adalah 23°C. Tinggi tempat yang cocok untuk tanaman padi berkisar antara 0-1.500m di atas permukaan laut.Tanah yang baik untuk pertumbuhan tanaman padi adalah tanah berlumpur yang subur dengan ketebalan 18-22cm. Diperlukan pengairan yang cukup agar padi dapat tumbuh dengan baik."
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/desc_buah" />
+
+        <TextView
+            style="@style/SecondaryTextStyle"
+            android:id="@+id/tv_text_padi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="PADI\nPadi umumnya tumbuh di daerah yang berhawa panas, banyak mengandung uap air, dan curah hujan yang cukup. Sinar matahari dan suhu sangat mempengaruhi tanaman padi. Suhu yang baik untuk pertumbuhan  tanaman padi adalah 23°C. Tinggi tempat yang cocok untuk tanaman padi berkisar antara 0-1.500m di atas permukaan laut.Tanah yang baik untuk pertumbuhan tanaman padi adalah tanah berlumpur yang subur dengan ketebalan 18-22cm. Diperlukan pengairan yang cukup agar padi dapat tumbuh dengan baik."
+            android:layout_marginTop="@dimen/margin_32"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/desc_buah" />
+
+        <TextView
+            android:id="@+id/tv_text_teh"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_32"
+            android:text="Teh\numumnya tumbuh di daerah pegunungan.Suhu yang baik untuk pertumbuhan tanaman teh adalah berkisar 13°C – 15°C dengan curah hujan tahunan tidak kurang dari 2.000 mm3.Sinar matahari dan suhu udara sangat mempengaruhipertumbuhan tanaman teh. Bila suhu mencapai 30°C, maka akan memperlambat pertumbuhan tanaman teh.Tanah yang cocok untuk tanaman teh adalah tanah yang subur dan banyak mengandung bahan organik dan biasanya terletak di lereng-lereng gunung atau perbukitan."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/desc_buah" />
+
+        <ImageView
+            android:id="@+id/img_padi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="@+id/tv_text_padi"
+            app:layout_constraintHorizontal_bias="0.439"
+            app:layout_constraintStart_toStartOf="@+id/tv_text_padi"
+            app:layout_constraintTop_toBottomOf="@id/tv_text_padi" />
+
+        <ImageView
+            android:id="@+id/img_teh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="@+id/tv_text_teh"
+            app:layout_constraintHorizontal_bias="0.439"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tv_text_teh" />
+
+        <TextView
+            android:id="@+id/tv_ragam_tumbuhan_indonesia"
+            style="@style/ThemeTitlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:background="@drawable/shape_bg_subtitle"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="Kebergaman tumbuhan di indonesia berdasarkan letak ketinggiannya"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/img_padi" />
+
+        <TextView
+            android:id="@+id/desc_ragam_tumbuhan"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:text="@string/desc_ragam_tumbuhan_indonesia"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ragam_tumbuhan_indonesia" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

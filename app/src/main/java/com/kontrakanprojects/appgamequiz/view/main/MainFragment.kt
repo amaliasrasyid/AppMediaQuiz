@@ -59,10 +59,15 @@ class MainFragment : Fragment(),View.OnClickListener {
                 btnQuiz -> moveToQuiz()
                 btnPetunjuk -> moveToGuide()
                 btnStudentScores -> moveToStudentScores()
+                btnMateri -> moveToMatery()
                 btnExit -> logOut()
             }
         }
 
+    }
+
+    private fun moveToMatery() {
+        findNavController().navigate(R.id.action_mainFragment_to_materyFragment)
     }
 
     private fun moveToStudentScores() {
