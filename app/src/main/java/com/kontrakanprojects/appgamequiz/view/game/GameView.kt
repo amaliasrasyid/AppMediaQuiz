@@ -11,7 +11,7 @@ import android.view.SurfaceView
 import androidx.core.content.ContextCompat.startActivity
 import com.kontrakanprojects.appgamequiz.data.model.Question
 import com.kontrakanprojects.appgamequiz.util.DataLocalDb
-import com.kontrakanprojects.appgamequiz.util.converToBitmap
+import com.kontrakanprojects.appgamequiz.util.calculateBaseSpeedNumber
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_OVER
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_GAME_SUCCESS
 import com.kontrakanprojects.appgamequiz.view.game.EndGameActivity.Companion.TYPE_RESULT
@@ -20,11 +20,12 @@ import com.kontrakanprojects.appgamequiz.view.game.component.Bullet
 import com.kontrakanprojects.appgamequiz.view.game.component.Flight
 import com.kontrakanprojects.appgamequiz.view.game.component.fish.Fish
 import com.kontrakanprojects.appgamequiz.view.game.component.question.GameQuestion
+import com.kontrakanprojects.appgamequiz.view.game.component.question.LevelComponent
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class GameView internal constructor(activity: Activity,context: Context, screenX: Int, screenY: Int) :
+class GameView internal constructor(activity: Activity,context: Context, screenX: Int, screenY: Int, densityDpi: Int) :
     SurfaceView(context), Runnable {
     private var activity: Activity
 
@@ -47,11 +48,24 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 
     private lateinit var question: Question
     private lateinit var questionCmp: GameQuestion
+    private lateinit var levelComponent: LevelComponent
 
     private var isDataHaveLoaded = false
 
     private val TAG = GameView::class.java.simpleName
     private val SIZE_QUESTION = 20
+
+    //kedua nilai ini didapat dr hasil uji dg ukuran layar yg digunakan sbg dasar untuk mendapatkankecepatan yg diinginkan
+    private val BASE_MAXIMUM_SPEED_NUMBER = 30
+    private val BASE_MINIMUM_SPEED_NUMBER = 10
+
+    private val BASE_SCREEN_SIZE_X=1920f
+    private val BASE_SCREEN_SIZE_Y=1080f
+
+    private val MY_SCREEN_SIZE_X=2960f //2320f
+    private val MY_SCREEN_SIZE_Y=1440f // 1080f
+
+    private var screenAdjust = 0f
 
 //    private var reduce
 
@@ -66,8 +80,20 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         this.screenX = screenX.toFloat()
         this.screenY = screenY.toFloat()
 
-        screenRatioX = 1920f / screenX
-        screenRatioY = 1080f / screenY
+        when(densityDpi){
+            in 1..120 -> screenAdjust = densityDpi.toFloat()/ 420f //ldpi
+            in 160..213 -> screenAdjust = densityDpi.toFloat()/ 420f //mdpi
+            in 213..240 -> screenAdjust = densityDpi.toFloat()/ 420f //hdpi
+            in 240..320 -> screenAdjust = densityDpi.toFloat()/ 420f //xhdpi
+            in 320..480 -> screenAdjust = densityDpi.toFloat()/ 420f  //xxhdpi
+            in 480..640 -> screenAdjust = densityDpi.toFloat()/ 420f //xxxhdpi
+        }
+        screenRatioX = screenAdjust
+        screenRatioY = screenAdjust
+
+        Log.d(TAG,"screen ratio x = $screenRatioX")
+        Log.d(TAG,"screen x = $screenX")
+        Log.d(TAG,"screen adjust base number = $screenAdjust")
 
         background1 = Background(screenX, screenY, resources)
         background2 = Background(screenX, screenY, resources)
@@ -92,9 +118,13 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         isDataHaveLoaded = true
         this.question = DataLocalDb.getQuestion(indexGameQ,resources)
 
-        //question syntax
         val index = indexGameQ
-        val gameQuestion = GameQuestion(question.text,this.screenX.toInt(),this.screenY.toInt(),question,index + 1, resources)
+
+        //level
+        levelComponent = LevelComponent(index + 1,80f,10f,resources)
+
+        //question syntax
+        val gameQuestion = GameQuestion(question.text,this.screenX.toInt(),this.screenY.toInt(),question,50f+levelComponent.width, resources)
         questionCmp = gameQuestion
         currentAnswerKey = question.answerKey
 
@@ -110,6 +140,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
     }
 
     private fun update() {
+        //Background movement speed
         background1.x -= 10 * screenRatioX
         background2.x -= 10 * screenRatioX
 
@@ -198,12 +229,19 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 //                        flight.reduceHp()
 //                    }
 
-                    val bound = (30 * screenRatioX).toInt()
+//                  MAXIMUM SPEED BASE NUMBER
+//                    val baseMinSpeed = 10.calculateBaseSpeedNumber(calculateRatio(screenX,screenRatioX))
+//                    val baseMaxSpeed = 30.calculateBaseSpeedNumber(calculateRatio(screenX,screenRatioX))
+                    val baseMinSpeed = 10
+                    val baseMaxSpeed = 20
+                    val bound = (baseMaxSpeed * screenRatioX).toInt()
+                    Log.d(TAG,"bound = $bound")
                     fish.speed = random.nextInt(bound)
 
-                    if (fish.speed < 10 * screenRatioX) {
-                        fish.speed = (10 * screenRatioX).toInt()
+                    if (fish.speed < baseMinSpeed * screenRatioX) {
+                        fish.speed = (baseMinSpeed * screenRatioX).toInt()
                     }
+                    Log.d(TAG,"random speed = ${fish.speed}")
 
 
                     fish.x = screenX
@@ -241,7 +279,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 
                 //draw options component
                 val listOptions = questionComponent.getOptions()
-                Log.d(TAG,"size option soal-${indexGameQ} = ${listOptions.size}")
+//                Log.d(TAG,"size option soal-${indexGameQ} = ${listOptions.size}")
                 for((index,option) in listOptions.withIndex()){
                     if(option != null){
                         option.textNumber = index + 1
@@ -253,8 +291,8 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
                 }
 
                 //draw level component
-                val levelBitmap = questionComponent.getLevelComponent().getLevel()
-                val levelComponent = questionComponent.getLevelComponent()
+                val levelBitmap = levelComponent.getLevel()
+                val levelComponent = levelComponent
                 canvas.drawBitmap(levelBitmap,levelComponent.x,levelComponent.y,paint)
 
                 if (flight.isDead) {
@@ -340,5 +378,9 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         bullet.x = flight.x + flight.width
         bullet.y = flight.y + (flight.height / 2)
         bullets.add(bullet)
+    }
+
+    fun calculateRatio(screen: Float, screenRatio: Float): Float{
+        return (screen/screenRatio).toFloat()
     }
 }

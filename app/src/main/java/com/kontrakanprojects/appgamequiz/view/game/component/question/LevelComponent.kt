@@ -25,7 +25,7 @@ class LevelComponent constructor(level: Int,qX: Float, qY: Float, res: Resources
         bitmap = Bitmap.createScaledBitmap(bitmap,width.toInt(),height.toInt(),false)
         
         //define position component on screen
-        x = qX - 100
+        x = qX - 50
         y = qY - 10
         
         val density = res.displayMetrics.density
@@ -52,10 +52,11 @@ class LevelComponent constructor(level: Int,qX: Float, qY: Float, res: Resources
         paint.getTextBounds(text, 0, text.length, bounds)
 
         canvas.save()
-        val textX = if(level < 10) x + (22 * screenRatioX) else x - 5
-        val textY = y + (45 *screenRatioY)
+        val textX = if(level < 10) x + (bitmap.width/2 - 58) else x + (bitmap.width/2 + 13)
+        val textY = y + (bitmap.height/4)
 
 //        Log.d("LevelComponent","ukuran level component = ${bitmap.width/2}")
+        Log.d("LevelComponent","text Xy = $textX;$textY")
 
         canvas.translate(textX, textY.toFloat())
         mTextLayout.draw(canvas)

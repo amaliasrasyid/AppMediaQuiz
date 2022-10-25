@@ -12,29 +12,26 @@ import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRati
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioY
 
 
-class GameQuestion internal constructor(text: String, screenX: Int, screenY: Int, question: Question,level:Int, res: Resources) : GameComponent(res){
+class GameQuestion internal constructor(text: String, screenX: Int, screenY: Int, question: Question,positionX: Float, res: Resources) : GameComponent(res){
 
-    private var level: Int = 1
     private var text: String
 
     private var questionComponent: Bitmap
     private var questionWithTextCmpnt: Bitmap
-    private var levelComponent: LevelComponent
     private var optionImgs: Array<OptionComponent?>
 
     private val TAG = GameQuestion::class.java.simpleName
 
     init {
-        this.level = level
         this.text = question.text
         questionComponent = BitmapFactory.decodeResource(res, R.drawable.bg_question_game)
 
-        width = (screenX/1.7).toFloat() + 200
+        width = (screenX/1.7).toFloat() + 50
         height = screenY/4.toFloat() + 130
         questionComponent = Bitmap.createScaledBitmap(questionComponent, width.toInt(), height.toInt(), false)
 
         //posisi section questionComponent on game view
-        x = 200 * screenRatioX
+        x = positionX - 25
         y = 25 * screenRatioY
 
         val density = res.displayMetrics.density
@@ -52,9 +49,6 @@ class GameQuestion internal constructor(text: String, screenX: Int, screenY: Int
             marginX += 100f + 160
         }
 
-        //create level component
-        levelComponent = LevelComponent(level,x,y,res)
-        levelComponent.level = this.level
     }
 
     private fun drawText(density: Float) :Bitmap {
@@ -66,16 +60,18 @@ class GameQuestion internal constructor(text: String, screenX: Int, screenY: Int
             typeface = Typeface.DEFAULT_BOLD
             color = Color.WHITE
         }
-        val slBuilder = StaticLayout.Builder.obtain(text,0,text.length,textPaint,canvas.width)
+
+        val bounds = canvas.clipBounds
+        val slBuilder = StaticLayout.Builder.obtain(text,0,text.length,textPaint,canvas.width-200)
             .setAlignment(Layout.Alignment.ALIGN_NORMAL)
             .setMaxLines(2)
         val mTextLayout = slBuilder.build()
 
-        val bounds = Rect()
-        paint.getTextBounds(text, 0, text.length, bounds)
+        val rect = Rect()
+        paint.getTextBounds(text, 0, text.length, rect)
 
         canvas.save()
-        val textX = x - 30
+        val textX = x - 200
         val textY = y + 10
 
         canvas.translate(textX, textY.toFloat())
@@ -92,11 +88,5 @@ class GameQuestion internal constructor(text: String, screenX: Int, screenY: Int
     fun getOptions() : Array<OptionComponent?>{
         return optionImgs
     }
-
-    fun getLevelComponent() : LevelComponent{
-        return levelComponent
-    }
-
-
 
 }

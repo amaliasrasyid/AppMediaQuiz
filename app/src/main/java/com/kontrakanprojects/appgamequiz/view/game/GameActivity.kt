@@ -1,11 +1,13 @@
 package com.kontrakanprojects.appgamequiz.view.game
 
+import android.content.Context
 import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -19,6 +21,7 @@ import com.kontrakanprojects.appgamequiz.data.repository.QuestionRepository
 import com.kontrakanprojects.appgamequiz.data.room.MyDatabase
 import com.kontrakanprojects.appgamequiz.util.DataLocalDb
 import com.kontrakanprojects.appgamequiz.util.converToBitmap
+import com.kontrakanprojects.appgamequiz.util.getDisplayScreenSize
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.collect
@@ -32,11 +35,14 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val point = Point()
-        windowManager.defaultDisplay.getSize(point)
+        val displaySize = getDisplayScreenSize(this)
+
+        //density dpi
+        val displayMetrics = DisplayMetrics()
+        this.windowManager.defaultDisplay.getMetrics(displayMetrics)
 
         var questions = ArrayList<Question>()
-        gameView = GameView(this,this, point.x, point.y)
+        gameView = GameView(this,this, displaySize.first,displaySize.second,displayMetrics.densityDpi)
         setContentView(gameView)
 
 

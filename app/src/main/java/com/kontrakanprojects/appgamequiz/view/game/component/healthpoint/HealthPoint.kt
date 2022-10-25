@@ -32,7 +32,7 @@ class HealthPoint(screenX: Int, res: Resources, marginX: Int = 0) :
         brokenHp = Bitmap.createScaledBitmap(brokenHp, width.toInt(), height.toInt(), false)
 
         //health point position on screen (gameview)
-        x = (screenX - (200 + marginX)).toFloat() //lokasi di seperempat screen size
+        x = (screenX - (200 + marginX * screenRatioX)).toFloat() //lokasi di seperempat screen size
         y = 64 * screenRatioY
     }
 
