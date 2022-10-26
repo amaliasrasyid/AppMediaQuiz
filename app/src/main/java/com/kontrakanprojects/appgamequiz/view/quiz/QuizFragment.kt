@@ -1,8 +1,12 @@
 package com.kontrakanprojects.appgamequiz.view.quiz
 
 import android.app.ActionBar.LayoutParams
+import android.app.Activity
 import android.content.Intent
+import android.content.res.AssetFileDescriptor
 import android.graphics.Bitmap
+import android.media.AudioAttributes
+import android.media.MediaPlayer
 import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
@@ -25,6 +29,7 @@ import com.kontrakanprojects.appgamequiz.data.model.Question
 import com.kontrakanprojects.appgamequiz.databinding.FragmentQuizBinding
 import com.kontrakanprojects.appgamequiz.databinding.FragmentRegisterBinding
 import com.kontrakanprojects.appgamequiz.util.DataQuiz
+import com.kontrakanprojects.appgamequiz.view.MainActivity
 import com.kontrakanprojects.appgamequiz.view.quiz.EndQuizActivity.Companion.COUNT_CORRECT_ANSWER
 import com.kontrakanprojects.appgamequiz.view.quiz.EndQuizActivity.Companion.QUIZ_Q_SIZE
 
@@ -36,18 +41,26 @@ class QuizFragment : Fragment(),View.OnClickListener {
     private var score = 0
     private var indexLevel = 0
     private val DELAY_TIME = 1000L
+
+    lateinit var audioRaw: AssetFileDescriptor
+    lateinit var mediaPlayer: MediaPlayer
+
     private val TAG = QuizFragment::class.java.simpleName
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         binding = FragmentQuizBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         /**
          * 1. SIAPKAN SOAL : OK
          * 2. PREPARE VIEW DG PASS SOAL KE VIEW : OK
@@ -233,6 +246,44 @@ class QuizFragment : Fragment(),View.OnClickListener {
                 imgOption4 -> checkAnswer(4,false,true)
             }
         }
+    }
+
+    //load music resource on media player
+    fun prepareMediaPlayer(){
+        val attribute = AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_MEDIA)
+            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+            .build()
+        try{
+            mediaPlayer.setAudioAttributes(attribute)
+            mediaPlayer.setDataSource(audioRaw.fileDescriptor,audioRaw.startOffset,audioRaw.length)
+            mediaPlayer.prepare()
+        }catch (e: Exception){
+            Log.e(TAG,"Prepare Media Player: ${e.message}")
+        }
+
+        mediaPlayer.setOnPreparedListener{
+            mediaPlayer.start()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        //prepare media player for playing quiz music
+        mediaPlayer = MediaPlayer()
+        mediaPlayer.isLooping = true
+        audioRaw = requireContext().resources.openRawResourceFd(R.raw.quiz_music)
+        prepareMediaPlayer()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.pause()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mediaPlayer.release()
     }
 
 }

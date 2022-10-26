@@ -70,7 +70,7 @@
         <TextView
             android:id="@+id/tv_butterfly"
             style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16"
             android:layout_marginTop="64dp"
@@ -117,7 +117,7 @@
         <TextView
             android:id="@+id/tv_struktur_hewan"
             style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16"
             android:layout_marginTop="64dp"
@@ -260,7 +260,7 @@
         <TextView
             android:id="@+id/tv_animal_habitat"
             style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16"
             android:layout_marginTop="64dp"
@@ -450,6 +450,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/hscroll_animals_arctic" />
 
+
         <HorizontalScrollView
             android:id="@+id/hscroll_animal_pet"
             android:layout_width="match_parent"
@@ -481,14 +482,28 @@
             </LinearLayout>
         </HorizontalScrollView>
 
+        <TextView
+            android:id="@+id/tv_animal_pet"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hewan Jinak"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/margin_32"
+            android:textSize="38sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hscroll_animal_pet"/>
+
         <HorizontalScrollView
             android:id="@+id/hscroll_animal_livestock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintTop_toBottomOf="@id/hscroll_animal_pet">
+            app:layout_constraintTop_toBottomOf="@id/tv_animal_pet">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -512,6 +527,21 @@
                     android:src="@drawable/img_kelinci" />
             </LinearLayout>
         </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tv_animal_livestock"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hewan Ternak"
+            android:textAlignment="center"
+            android:layout_marginVertical="@dimen/margin_32"
+            android:textSize="38sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hscroll_animal_livestock"/>
 
 
 
