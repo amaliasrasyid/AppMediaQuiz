@@ -51,7 +51,11 @@ class QuizFragment : Fragment(),View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        //prepare media player for playing quiz music
+        mediaPlayer = MediaPlayer()
+        mediaPlayer.isLooping = true
+        audioRaw = requireContext().resources.openRawResourceFd(R.raw.quiz_music)
+        prepareMediaPlayer()
 
         binding = FragmentQuizBinding.inflate(inflater,container,false)
         return binding.root
@@ -269,11 +273,7 @@ class QuizFragment : Fragment(),View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
-        //prepare media player for playing quiz music
-        mediaPlayer = MediaPlayer()
-        mediaPlayer.isLooping = true
-        audioRaw = requireContext().resources.openRawResourceFd(R.raw.quiz_music)
-        prepareMediaPlayer()
+        if(mediaPlayer != null) mediaPlayer.start()
     }
 
     override fun onStop() {
@@ -281,8 +281,8 @@ class QuizFragment : Fragment(),View.OnClickListener {
         mediaPlayer.pause()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy() {
+        super.onDestroy()
         mediaPlayer.release()
     }
 
