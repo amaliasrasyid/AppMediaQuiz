@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavArgs
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMaterialContentBinding
@@ -32,6 +33,7 @@ class MaterialContentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
+            btnExit.setOnClickListener{ findNavController().navigateUp() }
             when(args.mType){
                 MaterialType.ANIMAL -> {
                     //hide others and show animals material layout

@@ -10,6 +10,9 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMateryBinding
@@ -42,6 +45,9 @@ class MateryFragment : Fragment(), View.OnTouchListener {
             imgPlantMatery.setOnTouchListener(this@MateryFragment)
             imgAnimalMatery.setOnTouchListener(this@MateryFragment)
             imgEnvMatery.setOnTouchListener(this@MateryFragment)
+            tvPlantMatery.setOnTouchListener(this@MateryFragment)
+            tvAnimalMatery.setOnTouchListener(this@MateryFragment)
+            tvEnvMatery.setOnTouchListener(this@MateryFragment)
             btnExit.setOnClickListener { findNavController().navigateUp() }
         }
     }
@@ -49,32 +55,53 @@ class MateryFragment : Fragment(), View.OnTouchListener {
 
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-        if(audioRaw != null) mediaPlayer.reset()
-
+        val action = event?.action
         var type: MaterialType =  MaterialType.PLANT
 
-        with(binding){
-            when(view){
-                imgPlantMatery ->  {
-                    audioRaw = requireContext().resources.openRawResourceFd(R.raw.plant_material_sound)
+        if(view is ImageView){
+            if(audioRaw != null) mediaPlayer.reset()
+
+            with(binding){
+                when(view){
+                    imgPlantMatery ->  {
+                        audioRaw = requireContext().resources.openRawResourceFd(R.raw.plant_material_sound)
+                    }
+                    imgAnimalMatery -> {
+                        audioRaw = requireContext().resources.openRawResourceFd(R.raw.animal_material_sound)
+                        type = MaterialType.ANIMAL
+                    }
+                    imgEnvMatery -> {
+                        audioRaw = requireContext().resources.openRawResourceFd(R.raw.natural_env_matery_sound)
+                        type = MaterialType.ENVIRONMENT
+                    }
                 }
-                imgAnimalMatery -> {
-                    audioRaw = requireContext().resources.openRawResourceFd(R.raw.animal_material_sound)
-                    type = MaterialType.ANIMAL
+            }
+
+            when(action){
+                MotionEvent.ACTION_UP -> { //saat touch dilepas
+                    prepareMediaPlayer()
                 }
-                imgEnvMatery -> {
-                    audioRaw = requireContext().resources.openRawResourceFd(R.raw.natural_env_matery_sound)
-                    type = MaterialType.ENVIRONMENT
+            }
+        }else{
+            with(binding){
+                when(view){
+                    tvAnimalMatery -> type = MaterialType.ANIMAL
+                    tvEnvMatery -> type = MaterialType.ENVIRONMENT
+                }
+            }
+            when(action){
+                MotionEvent.ACTION_UP -> moveToMaterialContent(type)
+                MotionEvent.ACTION_DOWN -> {
+                    var textview = view as TextView
+                    textview.setTextColor(ContextCompat.getColor(requireContext(),R.color.secondaryColor))
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    var textview = view as TextView
+                    textview.setTextColor(ContextCompat.getColor(requireContext(),R.color.primaryTextColor))
                 }
             }
         }
 
-        val action = event?.action
-
-        when(action){
-            MotionEvent.ACTION_BUTTON_PRESS  -> prepareMediaPlayer() //saat masih di touch muncul suaranya
-            MotionEvent.ACTION_UP -> moveToMaterialContent(type)//saat dilepas atau diklik (sentuh & lepas) pindah ke isi materi
-        }
         return true
     }
 

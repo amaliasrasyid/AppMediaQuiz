@@ -7,10 +7,6 @@
     android:background="@drawable/bg_page"
     tools:context=".view.matery.MateryFragment">
 
-<!--   <include-->
-<!--       android:id="@+id/layout_matery"-->
-<!--       layout="@layout/layout_animals_matery"/>-->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -32,92 +28,101 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline_top_page">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="80dp">
+            <androidx.core.widget.NestedScrollView
+                style="@style/ContextScrollPage"
+                android:fillViewport="true">
 
-                <ImageButton
-                    android:id="@+id/img_plant_matery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:layout_margin="@dimen/margin_16"
-                    android:src="@drawable/img_plant_matery"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline_left"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/PrimaryTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_8"
-                    android:text="Tumbuhan"
-                    android:textSize="@dimen/font_size_32"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline_left"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/img_plant_matery" />
+                    <ImageButton
+                        android:id="@+id/img_plant_matery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:layout_margin="@dimen/margin_16"
+                        android:src="@drawable/img_plant_matery"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline_left"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
-                    android:id="@+id/img_animal_matery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:layout_margin="@dimen/margin_16"
-                    android:src="@drawable/img_animal_matery"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/tv_plant_matery"
+                        style="@style/PrimaryTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:text="Tumbuhan"
+                        android:textSize="@dimen/font_size_32"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline_left"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img_plant_matery" />
 
-                <TextView
-                    style="@style/PrimaryTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_8"
-                    android:text="Hewan"
-                    android:textSize="@dimen/font_size_32"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
-                    app:layout_constraintTop_toBottomOf="@+id/img_animal_matery" />
+                    <ImageButton
+                        android:id="@+id/img_animal_matery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:layout_margin="@dimen/margin_16"
+                        android:src="@drawable/img_animal_matery"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
-                    android:id="@+id/img_env_matery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:layout_margin="@dimen/margin_16"
-                    android:src="@drawable/img_env_matery"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_right"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/tv_animal_matery"
+                        style="@style/PrimaryTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:text="Hewan"
+                        android:textSize="@dimen/font_size_32"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toBottomOf="@+id/img_animal_matery" />
 
-                <TextView
-                    style="@style/PrimaryTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_8"
-                    android:text="Lingkungan"
-                    android:textSize="@dimen/font_size_32"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_right"
-                    app:layout_constraintTop_toBottomOf="@+id/img_env_matery" />
+                    <ImageButton
+                        android:id="@+id/img_env_matery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:layout_margin="@dimen/margin_16"
+                        android:src="@drawable/img_env_matery"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_right"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.33" />
+                    <TextView
+                        style="@style/PrimaryTextStyle"
+                        android:id="@+id/tv_env_matery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:text="Lingkungan"
+                        android:textSize="@dimen/font_size_32"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_right"
+                        app:layout_constraintTop_toBottomOf="@+id/img_env_matery" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.66" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.33" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.66" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
 
         </FrameLayout>
 
@@ -169,5 +174,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </FrameLayout>
