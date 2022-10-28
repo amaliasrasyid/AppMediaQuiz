@@ -36,7 +36,7 @@
         android:id="@+id/competencyFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.competency.CompetencyFragment"
         android:label="fragment_competency"
-        tools:layout="@layout/fragment_competency" />
+        tools:layout="@layout/fragment_competency"/>
     <fragment
         android:id="@+id/guideFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.guide.GuideFragment"
@@ -55,7 +55,11 @@
         android:id="@+id/materyFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.matery.MateryFragment"
         android:label="fragment_matery"
-        tools:layout="@layout/fragment_matery" />
+        tools:layout="@layout/fragment_matery" >
+        <action
+            android:id="@+id/action_materyFragment_to_materialContentFragment"
+            app:destination="@id/materialContentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.quiz.QuizFragment"
@@ -75,4 +79,13 @@
         android:name="com.kontrakanprojects.appgamequiz.view.student_score.StudentScoresFragment"
         android:label="fragment_student_scores"
         tools:layout="@layout/fragment_student_scores" />
+    <fragment
+        android:id="@+id/materialContentFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.matery.MaterialContentFragment"
+        android:label="fragment_material_content"
+        tools:layout="@layout/fragment_material_content" >
+        <argument
+            android:name="mType"
+            app:argType="com.kontrakanprojects.appgamequiz.util.MaterialType" />
+    </fragment>
 </navigation>

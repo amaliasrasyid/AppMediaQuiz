@@ -1,12 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_page"
     tools:context=".view.matery.MateryFragment">
 
-   <include
-       android:id="@+id/layout_matery"
-       layout="@layout/layout_animals_matery"/>
+<!--   <include-->
+<!--       android:id="@+id/layout_matery"-->
+<!--       layout="@layout/layout_animals_matery"/>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            style="@style/ThemeButtonExit"
+            android:id="@+id/btn_exit"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bg_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_bg_title"
+            app:layout_constraintVertical_bias="0.18" />
+
+        <FrameLayout
+            style="@style/ThemePage"
+            android:id="@+id/framelayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top_page">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="80dp">
+
+                <ImageButton
+                    android:id="@+id/img_plant_matery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_margin="@dimen/margin_16"
+                    android:src="@drawable/img_plant_matery"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/PrimaryTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:text="Tumbuhan"
+                    android:textSize="@dimen/font_size_32"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_plant_matery" />
+
+                <ImageButton
+                    android:id="@+id/img_animal_matery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_margin="@dimen/margin_16"
+                    android:src="@drawable/img_animal_matery"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/PrimaryTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:text="Hewan"
+                    android:textSize="@dimen/font_size_32"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toBottomOf="@+id/img_animal_matery" />
+
+                <ImageButton
+                    android:id="@+id/img_env_matery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_margin="@dimen/margin_16"
+                    android:src="@drawable/img_env_matery"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_right"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/PrimaryTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:text="Lingkungan"
+                    android:textSize="@dimen/font_size_32"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_right"
+                    app:layout_constraintTop_toBottomOf="@+id/img_env_matery" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.33" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.66" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+        <View
+            android:id="@+id/view_bg_title"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="@dimen/margin_24"
+            android:background="@drawable/modal_title"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="@+id/framelayout"
+            app:layout_constraintStart_toStartOf="@+id/framelayout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/PrimaryTextStyle"
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/title_page_matery"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bg_title"
+            app:layout_constraintEnd_toEndOf="@+id/view_bg_title"
+            app:layout_constraintStart_toStartOf="@+id/view_bg_title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="24dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="view_bg_title" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="68dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

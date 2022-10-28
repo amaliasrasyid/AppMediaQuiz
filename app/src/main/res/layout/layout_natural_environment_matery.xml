@@ -9,66 +9,43 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <TextView
-            android:id="@+id/textView2"
-            style="@style/ThemeTitleMatery"
-            android:layout_width="match_parent"
+            android:id="@+id/intro1"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="3.1 Menganalisis bentuk dan fungsi bagian tubuh pada Hewan"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/margin_32"
+            android:layout_marginEnd="16dp"
+            android:text="@string/intro_natural_env_matery1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/modal_title"
-            android:layout_width="200dp"
-            android:layout_height="80dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/modal_title"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/textView6" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/textView6"
-            style="@style/PrimaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:padding="@dimen/padding_16"
-            android:text="HEWAN"
-            android:textColor="@color/secondaryTextColor"
-            android:textSize="@dimen/font_size_28"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/intro"
+            android:id="@+id/intro2"
             style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_32"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:text="@string/intro_animals_matery"
+            android:layout_margin="@dimen/margin_16"
+            android:text="@string/intro_natural_env_matery2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/modal_title" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/intro1"/>
 
         <View
-            android:id="@+id/border_butterfly"
+            android:id="@+id/border_healthy_env"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_butterfly"
-            app:layout_constraintBottom_toBottomOf="@id/tv_butterfly"
-            app:layout_constraintStart_toStartOf="@id/tv_butterfly"
-            app:layout_constraintEnd_toEndOf="@id/tv_butterfly"/>
+            app:layout_constraintTop_toTopOf="@id/tv_healthy_env"
+            app:layout_constraintBottom_toBottomOf="@id/tv_healthy_env"
+            app:layout_constraintStart_toStartOf="@id/tv_healthy_env"
+            app:layout_constraintEnd_toEndOf="@id/tv_healthy_env"/>
 
         <TextView
-            android:id="@+id/tv_butterfly"
+            android:id="@+id/tv_healthy_env"
             style="@style/SecondaryTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,46 +53,36 @@
             android:layout_marginTop="64dp"
             android:paddingHorizontal="40dp"
             android:paddingVertical="@dimen/padding_16"
-            android:text="KUPU-KUPU BERSAYAP BURUNG"
+            android:text="LINGKUNGAN YANG SEHAT"
             android:textAlignment="center"
             android:textColor="@color/secondaryColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/intro" />
-
-        <ImageView
-            android:id="@+id/img_kupu2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_32"
-            android:src="@drawable/img_kupu2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/border_butterfly" />
+            app:layout_constraintTop_toBottomOf="@id/intro2" />
 
         <TextView
-            android:id="@+id/tv_desc_kupu2"
+            android:id="@+id/desc_healthy_env"
             style="@style/SecondaryTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16"
-            android:text="@string/desc_kupu2"
+            android:text="@string/desc_healthy_env"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_kupu2" />
+            app:layout_constraintTop_toBottomOf="@id/tv_healthy_env"/>
 
         <View
-            android:id="@+id/border_struktur_hewan"
+            android:id="@+id/border_unhealthy_env"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_struktur_hewan"
-            app:layout_constraintBottom_toBottomOf="@id/tv_struktur_hewan"
-            app:layout_constraintStart_toStartOf="@id/tv_struktur_hewan"
-            app:layout_constraintEnd_toEndOf="@id/tv_struktur_hewan"/>
+            app:layout_constraintTop_toTopOf="@id/tv_unhealthy_env"
+            app:layout_constraintBottom_toBottomOf="@id/tv_unhealthy_env"
+            app:layout_constraintStart_toStartOf="@id/tv_unhealthy_env"
+            app:layout_constraintEnd_toEndOf="@id/tv_unhealthy_env"/>
 
         <TextView
-            android:id="@+id/tv_struktur_hewan"
+            android:id="@+id/tv_unhealthy_env"
             style="@style/SecondaryTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,142 +90,36 @@
             android:layout_marginTop="64dp"
             android:paddingHorizontal="40dp"
             android:paddingVertical="@dimen/padding_16"
-            android:text="BAGIAN2 PADA TUBUH HEWAN"
+            android:text="LINGKUNGAN YANG TIDAK SEHAT"
             android:textAlignment="center"
             android:textColor="@color/secondaryColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_desc_kupu2" />
-
-        <View
-            style="@style/LineGrassStyle"
-            android:id="@+id/line_grass_cat"
-            android:background="@drawable/line_grass"
-            app:layout_constraintEnd_toEndOf="@+id/tv_cat"
-            app:layout_constraintStart_toStartOf="@+id/tv_cat"
-            app:layout_constraintTop_toTopOf="@+id/tv_cat" />
+            app:layout_constraintTop_toBottomOf="@id/desc_healthy_env" />
 
         <TextView
-            style="@style/PrimaryTextStyle"
-            android:id="@+id/tv_cat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_32"
-            android:text="@string/text_cat"
-            android:textSize="48sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/tv_struktur_hewan" />
-
-        <TextView
-            android:id="@+id/tv_desc_cat"
+            android:id="@+id/desc_unhealthy_env"
             style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/desc_cat"
             android:layout_margin="@dimen/margin_16"
+            android:text="@string/desc_unhealthy_env"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_cat" />
-
-        <ImageView
-            android:id="@+id/img_struktur_cat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_kucing"
-            app:layout_constraintEnd_toEndOf="@+id/tv_desc_cat"
-            app:layout_constraintStart_toStartOf="@+id/tv_desc_cat"
-            app:layout_constraintTop_toBottomOf="@id/tv_desc_cat" />
+            app:layout_constraintTop_toBottomOf="@id/tv_unhealthy_env"/>
 
         <View
-            style="@style/LineGrassStyle"
-            android:id="@+id/line_grass_bird"
-            android:background="@drawable/line_grass"
-            app:layout_constraintEnd_toEndOf="@+id/tv_bird"
-            app:layout_constraintStart_toStartOf="@+id/tv_bird"
-            app:layout_constraintTop_toTopOf="@+id/tv_bird" />
-
-        <TextView
-            style="@style/PrimaryTextStyle"
-            android:id="@+id/tv_bird"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_32"
-            android:text="@string/text_bird"
-            android:textSize="48sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/img_struktur_cat" />
-
-        <ImageView
-            android:id="@+id/img_struktur_bird"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_burung"
-            app:layout_constraintEnd_toEndOf="@+id/tv_bird"
-            app:layout_constraintStart_toStartOf="@+id/tv_bird"
-            app:layout_constraintTop_toBottomOf="@id/tv_bird" />
-
-        <View
-            style="@style/LineGrassStyle"
-            android:id="@+id/line_grass_fish"
-            android:background="@drawable/line_grass"
-            app:layout_constraintEnd_toEndOf="@+id/tv_fish"
-            app:layout_constraintStart_toStartOf="@+id/tv_fish"
-            app:layout_constraintTop_toTopOf="@+id/tv_fish" />
-
-        <TextView
-            style="@style/PrimaryTextStyle"
-            android:id="@+id/tv_fish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_32"
-            android:text="@string/text_fish"
-            android:textSize="48sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/img_struktur_bird" />
-
-        <TextView
-            android:id="@+id/tv_desc_fish"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/desc_fish"
-            android:layout_margin="@dimen/margin_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_fish" />
-
-        <ImageView
-            android:id="@+id/img_struktur_fish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_ikan"
-            app:layout_constraintEnd_toEndOf="@+id/tv_desc_fish"
-            app:layout_constraintStart_toStartOf="@+id/tv_desc_fish"
-            app:layout_constraintTop_toBottomOf="@id/tv_desc_fish" />
-
-        <View
-            android:id="@+id/border_animal_habitat"
+            android:id="@+id/border_keep_natural_env"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_animal_habitat"
-            app:layout_constraintBottom_toBottomOf="@id/tv_animal_habitat"
-            app:layout_constraintStart_toStartOf="@id/tv_animal_habitat"
-            app:layout_constraintEnd_toEndOf="@id/tv_animal_habitat"/>
+            app:layout_constraintTop_toTopOf="@id/tv_keep_natural_env"
+            app:layout_constraintBottom_toBottomOf="@id/tv_keep_natural_env"
+            app:layout_constraintStart_toStartOf="@id/tv_keep_natural_env"
+            app:layout_constraintEnd_toEndOf="@id/tv_keep_natural_env"/>
 
         <TextView
-            android:id="@+id/tv_animal_habitat"
+            android:id="@+id/tv_keep_natural_env"
             style="@style/SecondaryTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -266,284 +127,210 @@
             android:layout_marginTop="64dp"
             android:paddingHorizontal="40dp"
             android:paddingVertical="@dimen/padding_16"
-            android:text="TEMPAT HIDUP HEWAN "
+            android:text="CARA MEMELIHARA LINGKUNGAN"
             android:textAlignment="center"
             android:textColor="@color/secondaryColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_struktur_fish" />
+            app:layout_constraintTop_toBottomOf="@id/desc_unhealthy_env" />
 
-        <View
-        style="@style/LineGrassStyle"
-        android:id="@+id/line_grass_forest"
-        android:background="@drawable/line_grass"
-        app:layout_constraintEnd_toEndOf="@+id/tv_forest"
-        app:layout_constraintStart_toStartOf="@+id/tv_forest"
-        app:layout_constraintTop_toTopOf="@+id/tv_forest" />
-
-        <TextView
-            style="@style/PrimaryTextStyle"
-            android:id="@+id/tv_forest"
+        <ImageView
+            android:id="@+id/img_healthy_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_32"
-            android:text="@string/text_forest"
-            android:textSize="48sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/tv_animal_habitat" />
-
-        <HorizontalScrollView
-            android:id="@+id/hscroll_animals_forest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_32"
+            android:src="@drawable/img_rumah_sehat"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintTop_toBottomOf="@id/line_grass_forest">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_16"
-                    android:src="@drawable/img_harimau" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_16"
-                    android:src="@drawable/img_org_utan" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:src="@drawable/img_gajah" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <View
-            style="@style/LineGrassStyle"
-            android:id="@+id/line_grass_desert"
-            android:background="@drawable/line_grass"
-            app:layout_constraintEnd_toEndOf="@+id/tv_desert"
-            app:layout_constraintStart_toStartOf="@+id/tv_desert"
-            app:layout_constraintTop_toTopOf="@+id/tv_desert" />
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_env" />
 
         <TextView
-            style="@style/PrimaryTextStyle"
-            android:id="@+id/tv_desert"
+            android:id="@+id/tv_desc_img_healthy_home"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Menciptakan Rumah yang sehat"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/img_healthy_home"
+            app:layout_constraintStart_toStartOf="@+id/img_healthy_home"
+            app:layout_constraintTop_toBottomOf="@id/img_healthy_home" />
+
+        <ImageView
+            android:id="@+id/img_tree_onroad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_pohon_onroad"
+            app:layout_constraintEnd_toStartOf="@+id/img_throwing_garbage"
+            app:layout_constraintStart_toEndOf="@+id/img_healthy_home"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc_img_healthy_home" />
+
+        <TextView
+            android:id="@+id/tv_desc_img_tree_onroad"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Menanam pohon pelindung ditepi jalan"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/img_tree_onroad"
+            app:layout_constraintStart_toStartOf="@+id/img_tree_onroad"
+            app:layout_constraintTop_toBottomOf="@id/img_tree_onroad" />
+
+
+        <ImageView
+            android:id="@+id/img_throwing_garbage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_32"
-            android:text="@string/text_desert"
-            android:textSize="48sp"
-            android:textAlignment="center"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/img_throw_garbage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/hscroll_animals_forest" />
+            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_env" />
 
-        <HorizontalScrollView
-            android:id="@+id/hscroll_animals_desert"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_desc_img_throw_garbage"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintTop_toBottomOf="@id/line_grass_desert">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_16"
-                    android:src="@drawable/img_unta" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_16"
-                    android:src="@drawable/img_kadal" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:src="@drawable/img_ular" />
-            </LinearLayout>
-        </HorizontalScrollView>
+            android:text="Membuang sampah pada tempatnya"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@id/img_throwing_garbage"
+            app:layout_constraintStart_toStartOf="@id/img_throwing_garbage"
+            app:layout_constraintTop_toBottomOf="@id/img_throwing_garbage" />
 
         <View
-            style="@style/LineGrassStyle"
-            android:id="@+id/line_grass_arctic"
-            android:background="@drawable/line_grass"
-            app:layout_constraintEnd_toEndOf="@+id/tv_arctic"
-            app:layout_constraintStart_toStartOf="@+id/tv_arctic"
-            app:layout_constraintTop_toTopOf="@+id/tv_arctic" />
+            android:id="@+id/border_keep_natural_balance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintTop_toTopOf="@id/tv_keep_natural_balance"
+            app:layout_constraintBottom_toBottomOf="@id/tv_keep_natural_balance"
+            app:layout_constraintStart_toStartOf="@id/tv_keep_natural_balance"
+            app:layout_constraintEnd_toEndOf="@id/tv_keep_natural_balance"/>
 
         <TextView
-            style="@style/PrimaryTextStyle"
-            android:id="@+id/tv_arctic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_32"
-            android:text="KUTUB UTARA"
-            android:textSize="48sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/hscroll_animals_desert" />
-
-        <HorizontalScrollView
-            android:id="@+id/hscroll_animals_arctic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintTop_toBottomOf="@id/line_grass_arctic">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_16"
-                    android:src="@drawable/img_beruang_kutub" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_16"
-                    android:src="@drawable/img_penguin" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:src="@drawable/img_rubah_kutub" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <View
-            style="@style/LineGrassStyle"
-            android:id="@+id/line_grass_land"
-            android:background="@drawable/line_grass"
-            app:layout_constraintEnd_toEndOf="@+id/tv_land"
-            app:layout_constraintStart_toStartOf="@+id/tv_land"
-            app:layout_constraintTop_toTopOf="@+id/tv_land" />
-
-        <TextView
-            style="@style/PrimaryTextStyle"
-            android:id="@+id/tv_land"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_32"
-            android:text="@string/text_land"
-            android:textSize="48sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/hscroll_animals_arctic" />
-
-
-        <HorizontalScrollView
-            android:id="@+id/hscroll_animal_pet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintTop_toBottomOf="@id/line_grass_land">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_16"
-                    android:src="@drawable/img_kucing_pet" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_16"
-                    android:src="@drawable/img_pet_dog" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:src="@drawable/img_pet_nuri" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <TextView
-            android:id="@+id/tv_animal_pet"
+            android:id="@+id/tv_keep_natural_balance"
             style="@style/SecondaryTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hewan Jinak"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="64dp"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="CARA MEMELIHARA KESEIMBANGAN ALAM"
             android:textAlignment="center"
-            android:layout_marginTop="@dimen/margin_32"
-            android:textSize="38sp"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/secondaryColor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hscroll_animal_pet"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_tree_onroad" />
 
-        <HorizontalScrollView
-            android:id="@+id/hscroll_animal_livestock"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/img_preserving_forest"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_32"
+            android:src="@drawable/img_preserve_forest"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_animal_pet">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_16"
-                    android:src="@drawable/img_ayam" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_16"
-                    android:src="@drawable/img_cow" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:src="@drawable/img_kelinci" />
-            </LinearLayout>
-        </HorizontalScrollView>
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_balance" />
 
         <TextView
-            android:id="@+id/tv_animal_livestock"
+            android:id="@+id/tv_desc_img_preserving_forest"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Menjaga kelestarian hutan"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/img_preserving_forest"
+            app:layout_constraintStart_toStartOf="@+id/img_preserving_forest"
+            app:layout_constraintTop_toBottomOf="@id/img_preserving_forest" />
+
+        <ImageView
+            android:id="@+id/img_treat_waste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_treat_waste"
+            app:layout_constraintEnd_toStartOf="@+id/img_recycling"
+            app:layout_constraintStart_toEndOf="@+id/img_preserving_forest"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc_img_preserving_forest" />
+
+        <TextView
+            android:id="@+id/tv_desc_img_treat_waste"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Mengolah limbah sebelum dibuang"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/img_treat_waste"
+            app:layout_constraintStart_toStartOf="@+id/img_treat_waste"
+            app:layout_constraintTop_toBottomOf="@id/img_treat_waste" />
+
+
+        <ImageView
+            android:id="@+id/img_recycling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/img_recyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_balance" />
+
+        <TextView
+            android:id="@+id/tv_desc_img_recycling"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Membuang sampah pada tempatnya"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@id/img_recycling"
+            app:layout_constraintStart_toStartOf="@id/img_recycling"
+            app:layout_constraintTop_toBottomOf="@id/img_recycling" />
+
+        <View
+            android:id="@+id/border_env_damage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintTop_toTopOf="@id/tv_env_damage"
+            app:layout_constraintBottom_toBottomOf="@id/tv_env_damage"
+            app:layout_constraintStart_toStartOf="@id/tv_env_damage"
+            app:layout_constraintEnd_toEndOf="@id/tv_env_damage"/>
+
+        <TextView
+            android:id="@+id/tv_env_damage"
             style="@style/SecondaryTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hewan Ternak"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="64dp"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="KERUSAKAN LINGKUNGAN"
             android:textAlignment="center"
-            android:layout_marginVertical="@dimen/margin_32"
-            android:textSize="38sp"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/secondaryColor"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_treat_waste" />
+
+        <ImageView
+            android:id="@+id/img_env_damage_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_32"
+            android:src="@drawable/img_tabel_env_damage"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hscroll_animal_livestock"/>
-
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_env_damage" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -551,6 +338,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

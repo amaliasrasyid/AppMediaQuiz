@@ -66,10 +66,37 @@ Dua jenis kupu-kupu bersayap burung yang terkenal adalah kupu-kupu bersayap buru
 </string>
     <string name="desc_cat">Kucing merupakan hewan yang hidup di darat, tubuh kucing ditutupi oleh rambut yang lebat</string>
     <string name="desc_fish">Ikan hidup di air dan tidak bisa hidup di darat. Ikan hidup diair karena mempunyai insang sebagai alat pernapasannya. Berikut ini bagian-bagian tubuh ikan</string>
+    <string name="desc_healthy_env">Lingkungan sehat memiliki arti lingkungan yang mendukung penghuninya hidup sehat. Lingkungan sehat memiliki ciri-ciri:
+- Sumber air bersih dan tidak tercemar
+- Saluran pembuangan air kotor lancar sehingga tidak ada air yang menggenang
+- Udara bersih segar dan sejuk
+- Banyak tumbuhan hijau
+- Tidak ada sampah berserakan
+- Terbebas dari binantang pembawa penyakit
+
+Sedangkan manfaat lingkungan yang sehat adalah
+- Lingkungan enak dipandang
+- Memiliki kualitas udara yang baik
+- Jauh dari penyakit
+- Terhindar dari bencana alam </string>
+    <string name="desc_unhealthy_env">Lingkungan yang tidak sehat memiliki ciri-ciri:
+- Sumber air tidak bersih
+- Saluran pembuangan air kotor tidak lancar
+- Banyak asap dan debu
+- Sampah berserakan
+- Tumbuhan tidak dapat tumbuh dengan subur
+
+Akibat lingkungan yang tidak sehat:
+- Tersebarnya bibit penyakit
+- Udara kotor menyebabkan penyakit pernapasan
+- Tanah yang tercemar menyebabkan tanaman tidak tumbuh subur
+</string>
 
 
     <string name="intro_animals_matery">Selain tumbuhan, hewan juga merupakan sumber daya alam yang perlu terus dijaga keseimbangan dan kelestariannya. Jika tidak, maka hewan-hewan tersebut akan menjadi langka dan punah. Seperti yang terjadi pada burung cenderawasih
 Ayo, kita cari tahu lebih lanjut!</string>
+    <string name="intro_natural_env_matery1">Sebelum mencintai lingkungan, kita harus mengenal, apakah lingkungan itu</string>
+    <string name="intro_natural_env_matery2">Segala sesuatu yang ada disekitar kita disebut lingkungan. Lingkungan juga bisa disebut tempat kita berada.</string>
 
     <string name="text_start_game">Mulai Permainan</string>
     <string name="text_winning">Kamu Menang!</string>
@@ -99,4 +126,5 @@ Ayo, kita cari tahu lebih lanjut!</string>
     <string name="text_forest">HUTAN</string>
     <string name="text_desert">PADANG PASIR</string>
     <string name="text_land">DARAT</string>
+    <string name="title_page_matery">Materi</string>
 </resources>

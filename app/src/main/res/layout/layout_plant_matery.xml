@@ -400,12 +400,12 @@ Akar terbagi menjadi  dua yaitu :"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_16"
-            android:layout_marginTop="8dp"
             android:src="@drawable/img_teh"
+            app:layout_constraintBottom_toBottomOf="@+id/img_padi"
             app:layout_constraintEnd_toEndOf="@+id/tv_text_teh"
             app:layout_constraintHorizontal_bias="0.439"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tv_text_teh" />
+            app:layout_constraintTop_toTopOf="@+id/img_padi" />
 
         <View
             android:id="@+id/border_ragam_tumbuhan_indonesia"
