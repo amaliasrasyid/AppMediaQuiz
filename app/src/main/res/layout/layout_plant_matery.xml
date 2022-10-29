@@ -93,7 +93,7 @@ Akar terbagi menjadi  dua yaitu :"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/image_37"
             app:layout_constraintEnd_toEndOf="@+id/desc_akar"
             app:layout_constraintStart_toStartOf="@+id/desc_akar"
             app:layout_constraintTop_toBottomOf="@id/desc_akar" />

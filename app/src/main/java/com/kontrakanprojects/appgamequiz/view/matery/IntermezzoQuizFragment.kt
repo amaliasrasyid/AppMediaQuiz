@@ -17,12 +17,9 @@ import com.kontrakanprojects.appgamequiz.util.MaterialType
 
 class IntermezzoQuizFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
     private lateinit var binding: FragmentIntermezzoQuizBinding
-    private lateinit var rightResult: ArrayList<ImageView>
-    private lateinit var wrongResult: ArrayList<ImageView>
     private lateinit var vibrator: Vibrator
     private lateinit var wrongMp: MediaPlayer
     private lateinit var rightMp: MediaPlayer
-    private val DELAY_TIME = 1500L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +33,6 @@ class IntermezzoQuizFragment : Fragment(), CompoundButton.OnCheckedChangeListene
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rightResult = ArrayList()
-        wrongResult = ArrayList()
         rightMp = MediaPlayer.create(requireContext(),R.raw.correct)
         wrongMp = MediaPlayer.create(requireContext(),R.raw.wrong)
 

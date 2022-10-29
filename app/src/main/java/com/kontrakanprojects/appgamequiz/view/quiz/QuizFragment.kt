@@ -1,35 +1,27 @@
 package com.kontrakanprojects.appgamequiz.view.quiz
 
-import android.app.ActionBar.LayoutParams
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.res.AssetFileDescriptor
 import android.graphics.Bitmap
 import android.media.AudioAttributes
 import android.media.MediaPlayer
-import android.opengl.Visibility
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.os.*
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
-import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginBottom
-import com.google.android.material.card.MaterialCardView
+import androidx.navigation.fragment.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.data.model.Option
 import com.kontrakanprojects.appgamequiz.data.model.Question
 import com.kontrakanprojects.appgamequiz.databinding.FragmentQuizBinding
-import com.kontrakanprojects.appgamequiz.databinding.FragmentRegisterBinding
 import com.kontrakanprojects.appgamequiz.util.DataQuiz
-import com.kontrakanprojects.appgamequiz.view.MainActivity
 import com.kontrakanprojects.appgamequiz.view.quiz.EndQuizActivity.Companion.COUNT_CORRECT_ANSWER
 import com.kontrakanprojects.appgamequiz.view.quiz.EndQuizActivity.Companion.QUIZ_Q_SIZE
 
@@ -41,6 +33,8 @@ class QuizFragment : Fragment(),View.OnClickListener {
     private var score = 0
     private var indexLevel = 0
     private val DELAY_TIME = 1000L
+    private lateinit var vibrator: Vibrator
+
 
     lateinit var audioRaw: AssetFileDescriptor
     lateinit var mediaPlayer: MediaPlayer
@@ -64,6 +58,7 @@ class QuizFragment : Fragment(),View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        vibrator = requireContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         /**
          * 1. SIAPKAN SOAL : OK
@@ -189,9 +184,16 @@ class QuizFragment : Fragment(),View.OnClickListener {
         //show right and wrong answer
         if(selectedAnswer != currentAnswerKey){
             if(isText){
-                changeStyleOptionView(selectedAnswer,"text")
+                changeStyleBgOptionView(selectedAnswer,"text")
             }else{
-                changeStyleOptionView(selectedAnswer,"image")
+                changeStyleBgOptionView(selectedAnswer,"image")
+            }
+            vibrate()
+        }else{
+            if(isText){
+                changeStyleBgOptionView(selectedAnswer,"text",true)
+            }else{
+                changeStyleBgOptionView(selectedAnswer,"image",true)
             }
         }
         Handler(Looper.getMainLooper()).postDelayed({
@@ -211,25 +213,44 @@ class QuizFragment : Fragment(),View.OnClickListener {
             putExtra(QUIZ_Q_SIZE,listQuizQ.size)
         }
         startActivity(intent)
+        findNavController().popBackStack()
     }
 
-    private fun changeStyleOptionView(selectedAnswer: Int, type: String) {
+    private fun changeStyleBgOptionView(selectedAnswer: Int, type: String, isRight: Boolean = false) {
         with(binding){
             when(type){
                 "text" -> {
-                    when(selectedAnswer){
-                        1 -> tvOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
-                        2 -> tvOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
-                        3 -> tvOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
-                        4 -> tvOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                    if(!isRight) {
+                        when(selectedAnswer){
+                            1 -> tvOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                            2 -> tvOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                            3 -> tvOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                            4 -> tvOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_red)
+                        }
+                    }else{
+                        when(selectedAnswer){
+                            1 -> tvOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_selected)
+                            2 -> tvOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_selected)
+                            3 -> tvOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_selected)
+                            4 -> tvOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_option_selected)
+                        }
                     }
                 }
                 else -> {
-                    when(selectedAnswer){
-                        1 -> imgOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
-                        2 -> imgOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
-                        3 -> imgOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
-                        4 -> imgOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option)
+                    if(!isRight){
+                        when(selectedAnswer){
+                            1 -> imgOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_red)
+                            2 -> imgOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_red)
+                            3 -> imgOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_red)
+                            4 -> imgOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_red)
+                        }
+                    }else{
+                        when(selectedAnswer){
+                            1 -> imgOption1.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_selected)
+                            2 -> imgOption2.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_selected)
+                            3 -> imgOption3.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_selected)
+                            4 -> imgOption4.background = ContextCompat.getDrawable(requireContext(),R.drawable.bg_quiz_img_option_selected)
+                        }
                     }
                 }
             }
@@ -268,6 +289,14 @@ class QuizFragment : Fragment(),View.OnClickListener {
 
         mediaPlayer.setOnPreparedListener{
             mediaPlayer.start()
+        }
+    }
+
+    private fun vibrate(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            vibrator.vibrate(200)
         }
     }
 

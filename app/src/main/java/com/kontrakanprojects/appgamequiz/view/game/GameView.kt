@@ -333,6 +333,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 
         }
         startActivity(context,intent,null)
+        activity.finish()
     }
 
 

@@ -1,6 +1,7 @@
 package com.kontrakanprojects.appgamequiz.view.quiz
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,21 +10,19 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.fragment.app.viewModels
 import com.kontrakanprojects.appgamequiz.R
-import com.kontrakanprojects.appgamequiz.data.model.User
 import com.kontrakanprojects.appgamequiz.data.request.StoreStudentScoreRequest
 import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.ActivityEndQuizBinding
 import com.kontrakanprojects.appgamequiz.util.Status
-import com.kontrakanprojects.appgamequiz.util.mySnackBar
 import com.kontrakanprojects.appgamequiz.view.MainActivity
-import com.kontrakanprojects.appgamequiz.view.auth.AuthViewModel
 
 class EndQuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEndQuizBinding
     private val viewModel: QuizViewModel by viewModels()
     private var score = 0
+    private lateinit var failMp: MediaPlayer
+    private lateinit var successMp: MediaPlayer
 
     companion object {
         const val COUNT_CORRECT_ANSWER = "count correct answer"
@@ -46,6 +45,9 @@ class EndQuizActivity : AppCompatActivity() {
             )
         }
 
+        successMp = MediaPlayer.create(this@EndQuizActivity,R.raw.success)
+        failMp = MediaPlayer.create(this@EndQuizActivity,R.raw.fail)
+
 //        listener button
         binding.btnOk.setOnClickListener{
             saveScore()
@@ -61,11 +63,12 @@ class EndQuizActivity : AppCompatActivity() {
                     //not satisfied result
                     tvBannerText.text = "Kurang Memuaskan"
                     imgStar.setImageDrawable(getDrawable(R.drawable.fail_star))
-
+                    failMp.start()
                 }else{
                     //satisfied result
                     tvBannerText.text = "Memuaskan!"
                     imgStar.setImageDrawable(getDrawable(R.drawable.success_star))
+                    successMp.start()
                 }
                 tvScoreResult.text = score.toString()
             }

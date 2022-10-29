@@ -2,6 +2,7 @@ package com.kontrakanprojects.appgamequiz.view.game
 
 import android.content.Intent
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
@@ -14,6 +15,8 @@ import com.kontrakanprojects.appgamequiz.view.MainActivity
 
 class EndGameActivity :AppCompatActivity() {
     private lateinit var binding: ActivityEndGameBinding
+    private lateinit var failMp: MediaPlayer
+    private lateinit var successMp: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,8 @@ class EndGameActivity :AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
+        successMp = MediaPlayer.create(this@EndGameActivity,R.raw.success)
+        failMp = MediaPlayer.create(this@EndGameActivity,R.raw.fail)
 
         //listener button
         binding.btnOk.setOnClickListener{
@@ -47,7 +52,7 @@ class EndGameActivity :AppCompatActivity() {
                         imgStar.setImageDrawable(getDrawable(R.drawable.star_success))
                         tvScoreResult.text = "100"
                         tvBannerText.text = getString(R.string.text_winning)
-
+                        successMp.start()
                         GamePreference(this@EndGameActivity).setGameState(true)
                     }
                     TYPE_GAME_OVER -> {
@@ -55,6 +60,7 @@ class EndGameActivity :AppCompatActivity() {
                         tvScoreResult.text = "0"
                         tvScoreResult.setTextColor(Color.RED)
                         tvBannerText.text = getString(R.string.text_failing)
+                        failMp.start()
                     }
                 }
             }
