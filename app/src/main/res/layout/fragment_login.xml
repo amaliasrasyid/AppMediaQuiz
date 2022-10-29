@@ -31,6 +31,7 @@
             android:id="@+id/edt_email"
             android:textColor="@color/primaryTextColor"
             android:hint="@string/hint_fullname"
+            android:paddingVertical="5dp"
             android:imeOptions="actionNext"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -49,6 +50,7 @@
             android:textColor="@color/primaryTextColor"
             android:hint="@string/hint_password"
             android:imeOptions="actionNext"
+            android:paddingVertical="5dp"
             android:inputType="textPassword"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
