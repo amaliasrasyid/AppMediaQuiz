@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_materyFragment_to_materialContentFragment"
             app:destination="@id/materialContentFragment" />
+        <action
+            android:id="@+id/action_materyFragment_to_intermezzoQuizFragment"
+            app:destination="@id/intermezzoQuizFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
@@ -87,5 +90,16 @@
         <argument
             android:name="mType"
             app:argType="com.kontrakanprojects.appgamequiz.util.MaterialType" />
+    </fragment>
+    <fragment
+        android:id="@+id/intermezzoQuizFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.matery.IntermezzoQuizFragment"
+        android:label="fragment_intermezzo_quiz"
+        tools:layout="@layout/fragment_intermezzo_quiz" >
+        <action
+            android:id="@+id/action_intermezzoQuizFragment_to_materialContentFragment"
+            app:destination="@id/materialContentFragment"
+            app:popUpTo="@id/materyFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

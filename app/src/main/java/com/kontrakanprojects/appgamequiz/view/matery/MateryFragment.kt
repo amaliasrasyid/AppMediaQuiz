@@ -106,8 +106,12 @@ class MateryFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun moveToMaterialContent(type: MaterialType) {
-        val toMaterialContent = MateryFragmentDirections.actionMateryFragmentToMaterialContentFragment(type)
-        findNavController().navigate(toMaterialContent)
+        if(type == MaterialType.ENVIRONMENT){
+            findNavController().navigate(R.id.action_materyFragment_to_intermezzoQuizFragment)
+        }else{
+            val toMaterialContent = MateryFragmentDirections.actionMateryFragmentToMaterialContentFragment(type)
+            findNavController().navigate(toMaterialContent)
+        }
     }
 
     //load music resource on media player

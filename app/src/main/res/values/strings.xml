@@ -66,30 +66,30 @@ Dua jenis kupu-kupu bersayap burung yang terkenal adalah kupu-kupu bersayap buru
 </string>
     <string name="desc_cat">Kucing merupakan hewan yang hidup di darat, tubuh kucing ditutupi oleh rambut yang lebat</string>
     <string name="desc_fish">Ikan hidup di air dan tidak bisa hidup di darat. Ikan hidup diair karena mempunyai insang sebagai alat pernapasannya. Berikut ini bagian-bagian tubuh ikan</string>
-    <string name="desc_healthy_env">Lingkungan sehat memiliki arti lingkungan yang mendukung penghuninya hidup sehat. Lingkungan sehat memiliki ciri-ciri:
-- Sumber air bersih dan tidak tercemar
-- Saluran pembuangan air kotor lancar sehingga tidak ada air yang menggenang
-- Udara bersih segar dan sejuk
-- Banyak tumbuhan hijau
+    <string name="desc_healthy_env">Lingkungan sehat memiliki arti lingkungan yang mendukung penghuninya hidup sehat. Lingkungan sehat memiliki ciri-ciri:\n
+        - Sumber air bersih dan tidak tercemar\n
+- Saluran pembuangan air kotor lancar sehingga tidak ada air yang menggenang\n
+- Udara bersih segar dan sejuk\n
+- Banyak tumbuhan hijau\n
 - Tidak ada sampah berserakan
-- Terbebas dari binantang pembawa penyakit
-
-Sedangkan manfaat lingkungan yang sehat adalah
-- Lingkungan enak dipandang
-- Memiliki kualitas udara yang baik
-- Jauh dari penyakit
-- Terhindar dari bencana alam </string>
-    <string name="desc_unhealthy_env">Lingkungan yang tidak sehat memiliki ciri-ciri:
-- Sumber air tidak bersih
-- Saluran pembuangan air kotor tidak lancar
-- Banyak asap dan debu
-- Sampah berserakan
-- Tumbuhan tidak dapat tumbuh dengan subur
-
-Akibat lingkungan yang tidak sehat:
-- Tersebarnya bibit penyakit
-- Udara kotor menyebabkan penyakit pernapasan
-- Tanah yang tercemar menyebabkan tanaman tidak tumbuh subur
+- Terbebas dari binantang pembawa penyakit\n
+\n
+Sedangkan manfaat lingkungan yang sehat adalah\n
+- Lingkungan enak dipandang\n
+- Memiliki kualitas udara yang baik\n
+- Jauh dari penyakit\n
+- Terhindar dari bencana alam\n </string>
+    <string name="desc_unhealthy_env">Lingkungan yang tidak sehat memiliki ciri-ciri:\n
+- Sumber air tidak bersih\n
+- Saluran pembuangan air kotor tidak lancar\n
+- Banyak asap dan debu\n
+- Sampah berserakan\n
+- Tumbuhan tidak dapat tumbuh dengan subur\n
+\n
+Akibat lingkungan yang tidak sehat:\n
+- Tersebarnya bibit penyakit\n
+- Udara kotor menyebabkan penyakit pernapasan\n
+- Tanah yang tercemar menyebabkan tanaman tidak tumbuh subur\n
 </string>
 
 
@@ -127,4 +127,5 @@ Ayo, kita cari tahu lebih lanjut!</string>
     <string name="text_desert">PADANG PASIR</string>
     <string name="text_land">DARAT</string>
     <string name="title_page_matery">Materi</string>
+    <string name="desc_intermezzo_quiz">Ayo, amati gambar berikut. Berilah tanda centang (V) pada gambar yang menunjukkan tanaman dan hewan yang terawat.</string>
 </resources>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.matery.IntermezzoQuizFragment"
+    android:background="@color/primaryColor"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_desc"
+        style="@style/ThemeTitleMatery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/desc_intermezzo_quiz"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+
+
+
+    <!--    BARIS 1 -->
+
+        <ImageView
+            android:id="@+id/im_healthy_plant"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:src="@drawable/healthy_leaves" />
+
+    <CheckBox
+        android:id="@+id/cb_healthy_plant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_healthy_plant"
+        android:layout_alignTop="@+id/im_healthy_plant"
+        android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_healthy_goat"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_toEndOf="@id/im_healthy_plant"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:src="@drawable/healthy_goat" />
+
+
+        <CheckBox
+        android:id="@+id/cb_healthy_goat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_healthy_goat"
+        android:layout_alignTop="@+id/im_healthy_goat"
+        android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_unhealthy_plant"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_toEndOf="@id/im_healthy_goat"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/unhealthy_leaf" />
+
+
+        <CheckBox
+        android:id="@+id/cb_unhealthy_plant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_unhealthy_plant"
+        android:layout_alignTop="@+id/im_unhealthy_plant"
+        android:button="@drawable/custom_checkbox" />
+
+    <ImageView
+        android:id="@+id/im_healthy_horse"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/margin_16"
+        android:background="@drawable/shape_bg_subtitle"
+        android:padding="@dimen/padding_16"
+        android:src="@drawable/healthy_horse"
+        android:layout_toEndOf="@+id/im_unhealthy_plant"/>
+
+
+        <CheckBox
+        android:id="@+id/cb_healthy_horse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_healthy_horse"
+        android:layout_alignTop="@+id/im_healthy_horse"
+        android:button="@drawable/custom_checkbox" />
+
+        <!--    BARIS 2 -->
+
+        <ImageView
+            android:id="@+id/im_unhealthy_plant2"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_healthy_plant"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:src="@drawable/withered_plant" />
+
+    <CheckBox
+        android:id="@+id/cb_unhealthy_plant2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_unhealthy_plant2"
+        android:layout_alignTop="@+id/im_unhealthy_plant2"
+        android:button="@drawable/custom_checkbox" />
+
+    <ImageView
+        android:id="@+id/im_unkempt_cat"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/margin_16"
+        android:background="@drawable/shape_bg_subtitle"
+        android:padding="@dimen/padding_16"
+        android:src="@drawable/unkempt_cat"
+        android:scaleType="centerCrop"
+        android:layout_toEndOf="@id/im_healthy_plant"
+        android:layout_below="@id/im_healthy_goat"/>
+
+    <CheckBox
+        android:id="@+id/cb_unkempt_cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_unkempt_cat"
+        android:layout_alignTop="@+id/im_unkempt_cat"
+        android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_healthy_chicken"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/im_unhealthy_plant"
+            android:layout_toEndOf="@id/im_unkempt_cat"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:layout_margin="@dimen/margin_16"
+            android:src="@drawable/healthy_chickens" />
+
+    <CheckBox
+        android:id="@+id/cb_healthy_chicken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_healthy_chicken"
+        android:layout_alignTop="@+id/im_healthy_chicken"
+        android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_healthy_plant3"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_healthy_horse"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_toEndOf="@+id/im_unhealthy_plant"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:src="@drawable/img_healthy_plant" />
+
+    <CheckBox
+        android:id="@+id/cb_healthy_plant3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_healthy_plant3"
+        android:layout_alignTop="@+id/im_healthy_plant3"
+        android:button="@drawable/custom_checkbox" />
+
+    <!-- BARIS 3 -->
+
+        <ImageView
+            android:id="@+id/im_unkempt_cow"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_unhealthy_plant2"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:layout_margin="@dimen/margin_16"
+            android:src="@drawable/thin_cow" />
+
+    <CheckBox
+        android:id="@+id/cb_unkempt_cow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_unkempt_cow"
+        android:layout_alignTop="@+id/im_unkempt_cow"
+        android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_unhealthy_plant4"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_unkempt_cat"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_toEndOf="@id/im_healthy_plant"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:scaleType="centerCrop"
+            android:src="@drawable/withered_plant_on_ground" />
+
+    <CheckBox
+        android:id="@+id/cb_unhealthy_plant4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_unhealthy_plant4"
+        android:layout_alignTop="@+id/im_unhealthy_plant4"
+        android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_unhealthy_plant5"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/im_healthy_chicken"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_toEndOf="@id/im_unkempt_cat"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:src="@drawable/withered_plant2" />
+
+    <CheckBox
+        android:id="@+id/cb_unhealthy_plant5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_unhealthy_plant5"
+        android:layout_alignTop="@+id/im_unhealthy_plant5"
+        android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_lush_scenery"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_healthy_plant3"
+            android:layout_toEndOf="@+id/im_unhealthy_plant"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:layout_margin="@dimen/margin_16"
+            android:scaleType="centerCrop"
+            android:src="@drawable/green_scenery" />
+
+    <CheckBox
+        android:id="@+id/cb_lush_scenery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/im_lush_scenery"
+        android:layout_alignTop="@+id/im_lush_scenery"
+        android:button="@drawable/custom_checkbox" />
+
+    <!--  BARIS 4 -->
+
+        <ImageView
+            android:id="@+id/im_unhealthy_plant6"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_unkempt_cow"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:src="@drawable/withered_plant3" />
+
+        <CheckBox
+            android:id="@+id/cb_unhealthy_plant6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/im_unhealthy_plant6"
+            android:layout_alignTop="@+id/im_unhealthy_plant6"
+            android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_unhealthy_chili"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_unhealthy_plant4"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_toEndOf="@id/im_healthy_plant"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:scaleType="centerCrop"
+            android:src="@drawable/withered_chili" />
+
+        <CheckBox
+            android:id="@+id/cb_unhealthy_chili"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/im_unhealthy_chili"
+            android:layout_alignTop="@+id/im_unhealthy_chili"
+            android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_healthy_cow2"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/im_unhealthy_plant4"
+            android:layout_toEndOf="@id/im_unkempt_cat"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:layout_margin="@dimen/margin_16"
+            android:src="@drawable/healthy_cow" />
+
+        <CheckBox
+            android:id="@+id/cb_healthy_cow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/im_healthy_cow2"
+            android:layout_alignTop="@+id/im_healthy_cow2"
+            android:button="@drawable/custom_checkbox" />
+
+        <ImageView
+            android:id="@+id/im_stray_dog"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/im_lush_scenery"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_toEndOf="@+id/im_healthy_cow2"
+            android:background="@drawable/shape_bg_subtitle"
+            android:padding="@dimen/padding_16"
+            android:src="@drawable/stray_dog" />
+
+        <CheckBox
+            android:id="@+id/cb_death_puppy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/im_stray_dog"
+            android:layout_alignTop="@+id/im_stray_dog"
+            android:button="@drawable/custom_checkbox" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_stray_dog"
+            android:layout_alignEnd="@+id/im_stray_dog"
+            android:layout_alignStart="@id/im_unhealthy_plant6"
+            android:gravity="center_horizontal"
+            android:text="Lanjut" />
+
+    </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
