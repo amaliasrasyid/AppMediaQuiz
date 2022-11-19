@@ -15,6 +15,8 @@ import com.kontrakanprojects.appgamequiz.view.game.component.healthpoint.HealthP
 class Flight internal constructor(private val gameView: GameView, screenX: Int, screenY: Int, res: Resources): GameComponent(res) {
 
     var isGoingUp = false
+    var isGoingDown = false
+    var currentPosition = 0f
     var toShoot = 0
     private var wingCounter = 0
     private var shootCounter = 1
@@ -59,6 +61,8 @@ class Flight internal constructor(private val gameView: GameView, screenX: Int, 
 
         y = (screenY / 2).toFloat() //tepat di tengah vertikal (sumbu y)
         x = 64 * screenRatioX //=> 64 pixel * screen ration
+
+        currentPosition = y
 
         /* Shoot Code */
         shoot1 = BitmapFactory.decodeResource(res, R.drawable.shoot1)

@@ -21,11 +21,18 @@ import com.kontrakanprojects.appgamequiz.view.game.component.Flight
 import com.kontrakanprojects.appgamequiz.view.game.component.fish.Fish
 import com.kontrakanprojects.appgamequiz.view.game.component.question.GameQuestion
 import com.kontrakanprojects.appgamequiz.view.game.component.question.LevelComponent
+import timber.log.Timber
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class GameView internal constructor(activity: Activity,context: Context, screenX: Int, screenY: Int, densityDpi: Int) :
+class GameView internal constructor(
+    activity: Activity,
+    context: Context,
+    screenX: Int,
+    screenY: Int,
+    densityDpi: Int
+) :
     SurfaceView(context), Runnable {
     private var activity: Activity
 
@@ -59,11 +66,11 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
     private val BASE_MAXIMUM_SPEED_NUMBER = 30
     private val BASE_MINIMUM_SPEED_NUMBER = 10
 
-    private val BASE_SCREEN_SIZE_X=1920f
-    private val BASE_SCREEN_SIZE_Y=1080f
+    private val BASE_SCREEN_SIZE_X = 1920f
+    private val BASE_SCREEN_SIZE_Y = 1080f
 
-    private val MY_SCREEN_SIZE_X=2960f //2320f
-    private val MY_SCREEN_SIZE_Y=1440f // 1080f
+    private val MY_SCREEN_SIZE_X = 2960f //2320f
+    private val MY_SCREEN_SIZE_Y = 1440f // 1080f
 
     private var screenAdjust = 0f
 
@@ -80,20 +87,20 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         this.screenX = screenX.toFloat()
         this.screenY = screenY.toFloat()
 
-        when(densityDpi){
-            in 1..120 -> screenAdjust = densityDpi.toFloat()/ 420f //ldpi
-            in 160..213 -> screenAdjust = densityDpi.toFloat()/ 420f //mdpi
-            in 213..240 -> screenAdjust = densityDpi.toFloat()/ 420f //hdpi
-            in 240..320 -> screenAdjust = densityDpi.toFloat()/ 420f //xhdpi
-            in 320..480 -> screenAdjust = densityDpi.toFloat()/ 420f  //xxhdpi
-            in 480..640 -> screenAdjust = densityDpi.toFloat()/ 420f //xxxhdpi
+        when (densityDpi) {
+            in 1..120 -> screenAdjust = densityDpi.toFloat() / 420f //ldpi
+            in 160..213 -> screenAdjust = densityDpi.toFloat() / 420f //mdpi
+            in 213..240 -> screenAdjust = densityDpi.toFloat() / 420f //hdpi
+            in 240..320 -> screenAdjust = densityDpi.toFloat() / 420f //xhdpi
+            in 320..480 -> screenAdjust = densityDpi.toFloat() / 420f  //xxhdpi
+            in 480..640 -> screenAdjust = densityDpi.toFloat() / 420f //xxxhdpi
         }
         screenRatioX = screenAdjust
         screenRatioY = screenAdjust
 
-        Log.d(TAG,"screen ratio x = $screenRatioX")
-        Log.d(TAG,"screen x = $screenX")
-        Log.d(TAG,"screen adjust base number = $screenAdjust")
+        Log.d(TAG, "screen ratio x = $screenRatioX")
+        Log.d(TAG, "screen x = $screenX")
+        Log.d(TAG, "screen adjust base number = $screenAdjust")
 
         background1 = Background(screenX, screenY, resources)
         background2 = Background(screenX, screenY, resources)
@@ -114,17 +121,24 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         prepareQuestions()
     }
 
-    fun prepareQuestions(){
+    fun prepareQuestions() {
         isDataHaveLoaded = true
-        this.question = DataLocalDb.getQuestion(indexGameQ,resources)
+        this.question = DataLocalDb.getQuestion(indexGameQ, resources)
 
         val index = indexGameQ
 
         //level
-        levelComponent = LevelComponent(index + 1,80f,10f,resources)
+        levelComponent = LevelComponent(index + 1, 80f, 10f, resources)
 
         //question syntax
-        val gameQuestion = GameQuestion(question.text,this.screenX.toInt(),this.screenY.toInt(),question,50f+levelComponent.width, resources)
+        val gameQuestion = GameQuestion(
+            question.text,
+            this.screenX.toInt(),
+            this.screenY.toInt(),
+            question,
+            50f + levelComponent.width,
+            resources
+        )
         questionCmp = gameQuestion
         currentAnswerKey = question.answerKey
 
@@ -152,9 +166,10 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
             background2.x = screenX
         }
 
+        Timber.tag(TAG).d("flight is moving")
         if (flight.isGoingUp) {
             flight.y -= 20 * screenRatioY
-        } else {
+        } else if (flight.isGoingDown) {
             flight.y += 20 * screenRatioY
         }
 
@@ -184,21 +199,20 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
                         fish.wasShot = true
 
                         //cek yg ditembak benar/tidak
-                        if(fish.textNumber == currentAnswerKey.toString()){
+                        if (fish.textNumber == currentAnswerKey.toString()) {
                             //Todo: next question
-                            if( indexGameQ < SIZE_QUESTION ) {
+                            if (indexGameQ < SIZE_QUESTION) {
                                 indexGameQ++
                                 prepareQuestions()
-                            }
-                            else {
+                            } else {
                                 isPlaying = false
                                 moveToResult()
-                                Log.d(TAG,"Game finished,Good job!")
+                                Log.d(TAG, "Game finished,Good job!")
                             }
 
-                        }else if(fish.textNumber != currentAnswerKey.toString()){
+                        } else if (fish.textNumber != currentAnswerKey.toString()) {
                             flight.reduceHp()
-                            Log.d(TAG,"Salah Tembak,Good job!")
+                            Timber.tag(TAG).d("Salah Tembak,Good job!")
 
                         }
                     }
@@ -207,10 +221,10 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         }
 
         //CEk apa soal udah habis?
-        if(!(indexGameQ < SIZE_QUESTION)) {
+        if (!(indexGameQ < SIZE_QUESTION)) {
             isPlaying = false
             moveToResult()
-            Log.d(TAG,"Game finished,Good job!")
+            Timber.tag(TAG).d("Game finished,Good job!")
         }
 
         //delete all bullets
@@ -229,19 +243,16 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 //                        flight.reduceHp()
 //                    }
 
-//                  MAXIMUM SPEED BASE NUMBER
-//                    val baseMinSpeed = 10.calculateBaseSpeedNumber(calculateRatio(screenX,screenRatioX))
-//                    val baseMaxSpeed = 30.calculateBaseSpeedNumber(calculateRatio(screenX,screenRatioX))
                     val baseMinSpeed = 10
                     val baseMaxSpeed = 20
                     val bound = (baseMaxSpeed * screenRatioX).toInt()
-                    Log.d(TAG,"bound = $bound")
+//                    Log.d(TAG,"bound = $bound")
                     fish.speed = random.nextInt(bound)
 
                     if (fish.speed < baseMinSpeed * screenRatioX) {
                         fish.speed = (baseMinSpeed * screenRatioX).toInt()
                     }
-                    Log.d(TAG,"random speed = ${fish.speed}")
+//                    Log.d(TAG,"random speed = ${fish.speed}")
 
 
                     fish.x = screenX
@@ -257,16 +268,16 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
     private fun draw() {
         if (holder.surface.isValid) {
             val canvas = holder.lockCanvas()
-            canvas.drawBitmap(background1.background, background1.x,background1.y,paint)
-            canvas.drawBitmap(background2.background, background2.x,background2.y,paint)
+            canvas.drawBitmap(background1.background, background1.x, background1.y, paint)
+            canvas.drawBitmap(background2.background, background2.x, background2.y, paint)
 
-            if(isDataHaveLoaded){
+            if (isDataHaveLoaded) {
                 val listHp = flight.healthPoints.getHealthPoints()
-                for (hp in listHp){
-                    if(hp != null) {
-                        if(hp.isBroken){
+                for (hp in listHp) {
+                    if (hp != null) {
+                        if (hp.isBroken) {
                             canvas.drawBitmap(hp.getBrokenHealthPoint(), hp.x, hp.y, paint)
-                        }else{
+                        } else {
                             canvas.drawBitmap(hp.getHealthPoint(), hp.x, hp.y, paint)
                         }
                     }
@@ -275,32 +286,37 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
                 //draw question and its option imgs
                 //draw question component
                 var questionComponent = questionCmp
-                canvas.drawBitmap(questionComponent.getQuestionLayout(),questionComponent.x,questionComponent.y,paint)
+                canvas.drawBitmap(
+                    questionComponent.getQuestionLayout(),
+                    questionComponent.x,
+                    questionComponent.y,
+                    paint
+                )
 
                 //draw options component
                 val listOptions = questionComponent.getOptions()
 //                Log.d(TAG,"size option soal-${indexGameQ} = ${listOptions.size}")
-                for((index,option) in listOptions.withIndex()){
-                    if(option != null){
+                for ((index, option) in listOptions.withIndex()) {
+                    if (option != null) {
                         option.textNumber = index + 1
-                        canvas.drawBitmap(option.getOption(),option.x,option.y,paint)
+                        canvas.drawBitmap(option.getOption(), option.x, option.y, paint)
 
                         //draw number (string) over it
-                        option.drawTextOnTop(canvas,resources)
+                        option.drawTextOnTop(canvas, resources)
                     }
                 }
 
                 //draw level component
                 val levelBitmap = levelComponent.getLevel()
                 val levelComponent = levelComponent
-                canvas.drawBitmap(levelBitmap,levelComponent.x,levelComponent.y,paint)
+                canvas.drawBitmap(levelBitmap, levelComponent.x, levelComponent.y, paint)
 
                 if (flight.isDead) {
                     isPlaying = false
                     canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint)
                     holder.unlockCanvasAndPost(canvas)
                     moveToResult(true)
-                    Log.d(TAG,"GAME OVER")
+                    Log.d(TAG, "GAME OVER")
                     return
                 }
 
@@ -309,7 +325,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
                         canvas.drawBitmap(fish.getFish(), fish.x, fish.y, paint)
 
                         //draw text on top fish
-                        fish.drawTextOnTop(canvas,resources)
+                        fish.drawTextOnTop(canvas, resources)
 
 //                    Log.d(TAG,"bitmap w:${fish.width};h:${fish.height}")
                     }
@@ -325,14 +341,14 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
     }
 
     private fun moveToResult(isGameOver: Boolean = false) {
-        val intent = Intent(activity,EndGameActivity::class.java)
-        if(!isGameOver){
+        val intent = Intent(activity, EndGameActivity::class.java)
+        if (!isGameOver) {
             intent.putExtra(TYPE_RESULT, TYPE_GAME_SUCCESS)
-        }else{
+        } else {
             intent.putExtra(TYPE_RESULT, TYPE_GAME_OVER)
 
         }
-        startActivity(context,intent,null)
+        startActivity(context, intent, null)
         activity.finish()
     }
 
@@ -356,16 +372,34 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
-                if (event.x < screenX / 2) {
-                    flight.isGoingUp = true
+                if(event.x < screenX/2){
+                    when {
+                        event.y < screenY / 2 -> {
+                            flight.isGoingUp = true
+                            flight.isGoingDown = false
+                            flight.currentPosition = event.y
+                            Timber.tag(TAG).d("onTouchEvent: Pesawat Ditekan ke atas")
+                            Timber.tag(TAG).d("posisi event.Y: ${event.y} dg screen y = ${screenY}")
+                        }
+                        event.y > screenY / 2 -> {
+                            flight.isGoingUp = false
+                            flight.isGoingDown = true
+                            flight.currentPosition = event.y
+                            Timber.tag(TAG).d("onTouchEvent: Pesawat Ditekan ke bawah")
 
-                    Log.d(TAG, "onTouchEvent: Pesawat Ditekan")
+                        }
+                    }
                 }
             }
             MotionEvent.ACTION_UP -> {
-                flight.isGoingUp = false
-                if (event.x > screenX / 2) flight.toShoot++
-                Log.d(TAG, "onTouchEvent: Peluru Ditekan")
+                if (event.x > screenX / 2) {
+                    flight.isGoingUp = false
+                    flight.toShoot++
+                    Timber.tag(TAG).d("onTouchEvent: Peluru ditembakkan")
+                } else if(event.x < screenX/2) {
+                    flight.isGoingUp = false
+                    flight.isGoingDown = false
+                }
             }
         }
         return true
@@ -381,7 +415,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         bullets.add(bullet)
     }
 
-    fun calculateRatio(screen: Float, screenRatio: Float): Float{
-        return (screen/screenRatio).toFloat()
+    fun calculateRatio(screen: Float, screenRatio: Float): Float {
+        return (screen / screenRatio).toFloat()
     }
 }

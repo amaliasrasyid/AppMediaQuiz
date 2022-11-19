@@ -12,13 +12,13 @@ import java.util.concurrent.TimeUnit
 object ApiConfig {
 //    const val URL = "http://192.168.100.215:8000" //WIFI OFFICE
 //    const val URL = "http://192.168.1.7:8000" //WIFI HOME
-    const val URL = "https://appgamequiz.rproject-dev.com" //RELEASE
+    const val URL = "http://mrpanse.xyz" //RELEASE
     const val ENDPOINT = "$URL/api/"
 
     var allowedClient = Interceptor{chain: Interceptor.Chain ->
         val response: Response
         val newRequest = chain.request().newBuilder()
-            .addHeader("Accept","application/json")
+            .addHeader("Accept","application/json")//MUST! untuk dpt return json dr laravel-ny
             .method(chain.request().method,chain.request().body)
             .build()
         newRequest.headers["Cookie"]
