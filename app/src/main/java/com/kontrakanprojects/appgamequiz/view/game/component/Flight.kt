@@ -62,8 +62,6 @@ class Flight internal constructor(private val gameView: GameView, screenX: Int, 
         y = (screenY / 2).toFloat() //tepat di tengah vertikal (sumbu y)
         x = 64 * screenRatioX //=> 64 pixel * screen ration
 
-        currentPosition = y
-
         /* Shoot Code */
         shoot1 = BitmapFactory.decodeResource(res, R.drawable.shoot1)
         shoot2 = BitmapFactory.decodeResource(res, R.drawable.shoot2)

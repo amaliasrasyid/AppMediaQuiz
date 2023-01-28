@@ -26,13 +26,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class GameView internal constructor(
-    activity: Activity,
-    context: Context,
-    screenX: Int,
-    screenY: Int,
-    densityDpi: Int
-) :
+class GameView internal constructor(activity: Activity,context: Context, screenX: Int, screenY: Int, densityDpi: Int) :
     SurfaceView(context), Runnable {
     private var activity: Activity
 
@@ -98,9 +92,9 @@ class GameView internal constructor(
         screenRatioX = screenAdjust
         screenRatioY = screenAdjust
 
-        Log.d(TAG, "screen ratio x = $screenRatioX")
-        Log.d(TAG, "screen x = $screenX")
-        Log.d(TAG, "screen adjust base number = $screenAdjust")
+        Log.d(TAG,"screen ratio x = $screenRatioX")
+        Log.d(TAG,"screen x = $screenX")
+        Log.d(TAG,"screen adjust base number = $screenAdjust")
 
         background1 = Background(screenX, screenY, resources)
         background2 = Background(screenX, screenY, resources)
@@ -121,9 +115,9 @@ class GameView internal constructor(
         prepareQuestions()
     }
 
-    fun prepareQuestions() {
+    fun prepareQuestions(){
         isDataHaveLoaded = true
-        this.question = DataLocalDb.getQuestion(indexGameQ, resources)
+        this.question = DataLocalDb.getQuestion(indexGameQ,resources)
 
         val index = indexGameQ
 
@@ -169,7 +163,7 @@ class GameView internal constructor(
         Timber.tag(TAG).d("flight is moving")
         if (flight.isGoingUp) {
             flight.y -= 20 * screenRatioY
-        } else if (flight.isGoingDown) {
+        }else if(flight.isGoingDown){
             flight.y += 20 * screenRatioY
         }
 
@@ -213,7 +207,6 @@ class GameView internal constructor(
                         } else if (fish.textNumber != currentAnswerKey.toString()) {
                             flight.reduceHp()
                             Timber.tag(TAG).d("Salah Tembak,Good job!")
-
                         }
                     }
                 }
@@ -268,16 +261,16 @@ class GameView internal constructor(
     private fun draw() {
         if (holder.surface.isValid) {
             val canvas = holder.lockCanvas()
-            canvas.drawBitmap(background1.background, background1.x, background1.y, paint)
-            canvas.drawBitmap(background2.background, background2.x, background2.y, paint)
+            canvas.drawBitmap(background1.background, background1.x,background1.y,paint)
+            canvas.drawBitmap(background2.background, background2.x,background2.y,paint)
 
-            if (isDataHaveLoaded) {
+            if(isDataHaveLoaded){
                 val listHp = flight.healthPoints.getHealthPoints()
-                for (hp in listHp) {
-                    if (hp != null) {
-                        if (hp.isBroken) {
+                for (hp in listHp){
+                    if(hp != null) {
+                        if(hp.isBroken){
                             canvas.drawBitmap(hp.getBrokenHealthPoint(), hp.x, hp.y, paint)
-                        } else {
+                        }else{
                             canvas.drawBitmap(hp.getHealthPoint(), hp.x, hp.y, paint)
                         }
                     }
@@ -296,27 +289,27 @@ class GameView internal constructor(
                 //draw options component
                 val listOptions = questionComponent.getOptions()
 //                Log.d(TAG,"size option soal-${indexGameQ} = ${listOptions.size}")
-                for ((index, option) in listOptions.withIndex()) {
-                    if (option != null) {
+                for((index,option) in listOptions.withIndex()){
+                    if(option != null){
                         option.textNumber = index + 1
-                        canvas.drawBitmap(option.getOption(), option.x, option.y, paint)
+                        canvas.drawBitmap(option.getOption(),option.x,option.y,paint)
 
                         //draw number (string) over it
-                        option.drawTextOnTop(canvas, resources)
+                        option.drawTextOnTop(canvas,resources)
                     }
                 }
 
                 //draw level component
                 val levelBitmap = levelComponent.getLevel()
                 val levelComponent = levelComponent
-                canvas.drawBitmap(levelBitmap, levelComponent.x, levelComponent.y, paint)
+                canvas.drawBitmap(levelBitmap,levelComponent.x,levelComponent.y,paint)
 
                 if (flight.isDead) {
                     isPlaying = false
                     canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint)
                     holder.unlockCanvasAndPost(canvas)
                     moveToResult(true)
-                    Log.d(TAG, "GAME OVER")
+                    Log.d(TAG,"GAME OVER")
                     return
                 }
 
@@ -325,7 +318,7 @@ class GameView internal constructor(
                         canvas.drawBitmap(fish.getFish(), fish.x, fish.y, paint)
 
                         //draw text on top fish
-                        fish.drawTextOnTop(canvas, resources)
+                        fish.drawTextOnTop(canvas,resources)
 
 //                    Log.d(TAG,"bitmap w:${fish.width};h:${fish.height}")
                     }
@@ -341,14 +334,14 @@ class GameView internal constructor(
     }
 
     private fun moveToResult(isGameOver: Boolean = false) {
-        val intent = Intent(activity, EndGameActivity::class.java)
-        if (!isGameOver) {
+        val intent = Intent(activity,EndGameActivity::class.java)
+        if(!isGameOver){
             intent.putExtra(TYPE_RESULT, TYPE_GAME_SUCCESS)
-        } else {
+        }else{
             intent.putExtra(TYPE_RESULT, TYPE_GAME_OVER)
 
         }
-        startActivity(context, intent, null)
+        startActivity(context,intent,null)
         activity.finish()
     }
 
@@ -386,7 +379,6 @@ class GameView internal constructor(
                             flight.isGoingDown = true
                             flight.currentPosition = event.y
                             Timber.tag(TAG).d("onTouchEvent: Pesawat Ditekan ke bawah")
-
                         }
                     }
                 }

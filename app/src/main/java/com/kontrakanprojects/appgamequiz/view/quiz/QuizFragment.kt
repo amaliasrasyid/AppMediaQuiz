@@ -45,11 +45,6 @@ class QuizFragment : Fragment(),View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //prepare media player for playing quiz music
-        mediaPlayer = MediaPlayer()
-        mediaPlayer.isLooping = true
-        audioRaw = requireContext().resources.openRawResourceFd(R.raw.quiz_music)
-        prepareMediaPlayer()
 
         binding = FragmentQuizBinding.inflate(inflater,container,false)
         return binding.root
@@ -273,24 +268,6 @@ class QuizFragment : Fragment(),View.OnClickListener {
         }
     }
 
-    //load music resource on media player
-    fun prepareMediaPlayer(){
-        val attribute = AudioAttributes.Builder()
-            .setUsage(AudioAttributes.USAGE_MEDIA)
-            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-            .build()
-        try{
-            mediaPlayer.setAudioAttributes(attribute)
-            mediaPlayer.setDataSource(audioRaw.fileDescriptor,audioRaw.startOffset,audioRaw.length)
-            mediaPlayer.prepare()
-        }catch (e: Exception){
-            Log.e(TAG,"Prepare Media Player: ${e.message}")
-        }
-
-        mediaPlayer.setOnPreparedListener{
-            mediaPlayer.start()
-        }
-    }
 
     private fun vibrate(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -300,19 +277,6 @@ class QuizFragment : Fragment(),View.OnClickListener {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        if(mediaPlayer != null) mediaPlayer.start()
-    }
 
-    override fun onStop() {
-        super.onStop()
-        mediaPlayer.pause()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaPlayer.release()
-    }
 
 }

@@ -53,7 +53,6 @@ class MateryFragment : Fragment(), View.OnTouchListener {
     }
 
 
-
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
         val action = event?.action
         var type: MaterialType =  MaterialType.PLANT

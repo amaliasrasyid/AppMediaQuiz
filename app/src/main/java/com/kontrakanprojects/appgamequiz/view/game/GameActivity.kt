@@ -1,9 +1,12 @@
 package com.kontrakanprojects.appgamequiz.view.game
 
 import android.content.Context
+import android.content.res.AssetFileDescriptor
 import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.graphics.Point
+import android.media.AudioAttributes
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +33,8 @@ class GameActivity : AppCompatActivity() {
 
     private lateinit var gameView: GameView
     private lateinit var viewModel: GameViewModel
+    private lateinit var audioRaw: AssetFileDescriptor
+    private lateinit var mediaPlayer: MediaPlayer
     private val TAG = GameActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +50,12 @@ class GameActivity : AppCompatActivity() {
         gameView = GameView(this,this, displaySize.first,displaySize.second,displayMetrics.densityDpi)
         setContentView(gameView)
 
+        //prepare media player for bacground game music
+//        mediaPlayer = MediaPlayer()
+//        mediaPlayer.isLooping = true
+//        audioRaw = resources.openRawResourceFd(R.raw.game_music)
+//        prepareMediaPlayer()
+
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -57,12 +68,24 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-//    suspend fun loadData(): ArrayList<Question> {
-//        withContext(IO){
-//            return DataLocalDb.getArrQuestions(resources)
-//        }
-//    }
+    /**
+     *  load music resource on media player
+     */
+    private fun prepareMediaPlayer() {
+        val attribute = AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_MEDIA)
+            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+            .build()
 
+        try{
+            mediaPlayer.setAudioAttributes(attribute)
+            mediaPlayer.setDataSource(audioRaw.fileDescriptor,audioRaw.startOffset,audioRaw.length)
+            mediaPlayer.prepare()
+        }catch (e: Exception){
+            Log.e(TAG,"Prepare Media Player: ${e.message}")
+        }
+        mediaPlayer.setOnPreparedListener { mediaPlayer.start() }
+    }
 
     override fun onResume() {
         super.onResume()
@@ -72,5 +95,20 @@ class GameActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         gameView.pause()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(mediaPlayer != null) mediaPlayer.start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.pause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
     }
 }
