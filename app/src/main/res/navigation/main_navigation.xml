@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_mainFragment_to_studentScoresFragment"
             app:destination="@id/studentScoresFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutDeveloperFragment"
+            app:destination="@id/aboutDeveloperFragment" />
     </fragment>
     <fragment
         android:id="@+id/competencyFragment"
@@ -102,4 +105,9 @@
             app:popUpTo="@id/materyFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutDeveloperFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.about.AboutDeveloperFragment"
+        android:label="fragment_about_developer"
+        tools:layout="@layout/fragment_about_developer" />
 </navigation>

@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.kontrakanprojects.appgamequiz.data.dto.AuthResponse
-import com.kontrakanprojects.appgamequiz.data.dto.ErrorResponse
 import com.kontrakanprojects.appgamequiz.data.dto.Resource
 import com.kontrakanprojects.appgamequiz.data.dto.UserDTO
 import com.kontrakanprojects.appgamequiz.data.network.ApiConfig

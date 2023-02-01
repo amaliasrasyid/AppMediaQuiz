@@ -12,9 +12,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_buton"
         android:text="Profil"
         android:textSize="@dimen/font_size_28"
-        android:background="@drawable/bg_buton"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/gd_menu_horizontal2"
         app:layout_constraintEnd_toStartOf="@+id/gd_menu_vertical2"
@@ -27,10 +27,10 @@
         style="@style/PrimaryTextStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/bg_buton"
         android:layout_marginStart="@dimen/margin_16"
         android:layout_marginEnd="@dimen/margin_16"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_buton"
         android:text="KI,KD"
         android:textSize="@dimen/font_size_28"
         app:backgroundTint="@null"
@@ -113,7 +113,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/bg_buton"
-        android:text="Nilai Siswa"
+        android:text="@string/text_students_score"
         android:textSize="24sp"
         android:visibility="invisible"
         app:backgroundTint="@null"
@@ -124,9 +124,27 @@
         app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal2"
         app:layout_constraintVertical_bias="0.0" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_about_developer"
+        style="@style/PrimaryTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:background="@drawable/bg_buton"
+        android:text="@string/text_about_developer"
+        android:textSize="24sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/gd_menu_horizontal3"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageButton
-        style="@style/ThemeButtonExit"
         android:id="@+id/btn_exit"
+        style="@style/ThemeButtonExit"
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -179,6 +197,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.76" />
+        app:layout_constraintGuide_percent="0.75906736" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

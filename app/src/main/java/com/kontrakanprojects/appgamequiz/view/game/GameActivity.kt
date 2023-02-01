@@ -51,10 +51,10 @@ class GameActivity : AppCompatActivity() {
         setContentView(gameView)
 
         //prepare media player for bacground game music
-//        mediaPlayer = MediaPlayer()
-//        mediaPlayer.isLooping = true
-//        audioRaw = resources.openRawResourceFd(R.raw.game_music)
-//        prepareMediaPlayer()
+        mediaPlayer = MediaPlayer()
+        mediaPlayer.isLooping = true
+        audioRaw = resources.openRawResourceFd(R.raw.game_music)
+        prepareMediaPlayer()
 
 
         @Suppress("DEPRECATION")

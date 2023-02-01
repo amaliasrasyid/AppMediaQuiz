@@ -15,6 +15,7 @@ import com.kontrakanprojects.appgamequiz.util.TEACHER
 import com.kontrakanprojects.appgamequiz.util.mySnackBar
 import com.kontrakanprojects.appgamequiz.view.auth.AuthActivity
 import com.kontrakanprojects.appgamequiz.view.game.GameActivity
+import timber.log.Timber
 
 class MainFragment : Fragment(),View.OnClickListener {
 
@@ -47,6 +48,7 @@ class MainFragment : Fragment(),View.OnClickListener {
             btnQuiz.setOnClickListener(this@MainFragment)
             btnStudentScores.setOnClickListener(this@MainFragment)
             btnExit.setOnClickListener(this@MainFragment)
+            btnAboutDeveloper.setOnClickListener (this@MainFragment)
         }
     }
 
@@ -61,9 +63,15 @@ class MainFragment : Fragment(),View.OnClickListener {
                 btnStudentScores -> moveToStudentScores()
                 btnMateri -> moveToMatery()
                 btnExit -> logOut()
+                btnAboutDeveloper -> moveToAboutDeveloper()
             }
         }
 
+    }
+
+    private fun moveToAboutDeveloper() {
+        Timber.d("Menu About Developer diklik")
+        findNavController().navigate(R.id.action_mainFragment_to_aboutDeveloperFragment)
     }
 
     private fun moveToMatery() {

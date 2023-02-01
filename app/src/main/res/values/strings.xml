@@ -24,15 +24,23 @@
 
     <string name="title_core_competency">KOMPETENSI INTI KELAS 4 (KI)</string>
     <string name="title_basic_competency">KOMPETENSI DASAR (KD)</string>
-    <string name="text_core_competency">1. Menerima, menjalankan, dan menghargai ajaran agama yang dianutnya.\n2.Memiliki perilaku jujur, disiplin, tanggung jawab, santun,peduli, dan percaya diridalam berinteraksi dengan keluarga, teman, guru, dan tetangganya\n3.Memahami pengetahuan faktual dengan cara mengamati [mendengar, melihat, membaca] dan menanya berdasarkan rasa ingin tahu tentang dirinya, makhluk ciptaan Tuhan dan kegiatannya, dan benda-benda yang dijumpainya di rumah,sekolah, dan tempat bermain.\n4.Menyajikan pengetahuan faktual dalam bahasa yang jelas,sistematis, dan logis, dalam karya yang estetis, dalam gerakan yang mencerminkan anak sehat, dan dalam tindakan yang mencerminkan perilaku anak beriman dan berakhlak mulia.
+    <string name="title_learning_objectives">TUJUAN PEMBELAJARAN</string>
+    <string name="text_core_competency">1.	Menerima, menjalankan, dan menghargai ajaran agama yang dianutnya.
+2.	Memiliki perilaku jujur, disiplin, tanggung jawab, santun,peduli, dan percaya diridalam berinteraksi dengan keluarga, teman, guru, dan tetangganya
+3.	Memahami pengetahuan faktual dengan cara mengamati [mendengar, melihat, membaca] dan menanya berdasarkan rasa ingin tahu tentang dirinya, makhluk ciptaan Tuhan dan kegiatannya, dan benda-benda yang dijumpainya di rumah,sekolah, dan tempat bermain.
+4.	Menyajikan pengetahuan faktual dalam bahasa yang jelas,sistematis, dan logis, dalam karya yang estetis, dalam gerakan yang mencerminkan anak sehat, dan dalam tindakan yang mencerminkan perilaku anak beriman dan berakhlak mulia.
     </string>
-    <string name="text_basic_competency">3.1 Menganalisis hubungan antara bentuk dan fungsi bagian tubuh pada hewan dan tumbuhan.\n
-    3.8 Menjelaskan pentingnya upaya keseimbangan dan pelestarian sumber daya alam di lingkungannya.\n
-    4.1 Menyajikan laporan hasil pengamatan tentang bentuk dan fungsi bagian tubuh hewan dan tumbuhan.\n
-    4.8 Melakukan kegiatan upaya pelestarian sumber daya alam bersama orang-orang di lingkungannya.\n
-        3.8 Menjelaskan pentingnya upaya keseimbangan dan pelestarian sumber daya alam di lingkungannya.\n
-    4.1 Menyajikan laporan hasil pengamatan tentang bentuk dan fungsi bagian tubuh hewan dan tumbuhan.\n
-    4.8 Melakukan kegiatan upaya pelestarian sumber daya alam bersama orang-orang di lingkungannya.\n
+    <string name="text_basic_competency">3.1Menganalisis hubungan antara bentuk dan fungsi bagian tubuh pada hewan dan tumbuhan.
+3.8 Menjelaskan pentingnya upaya keseimbangan dan pelestarian sumber daya alam di lingkungannya.
+4.1 Menyajikan laporan hasil pengamatan tentang bentuk dan fungsi bagian tubuh hewan dan tumbuhan.
+4.8 Melakukan kegiatan upaya pelestarian sumber daya alam bersama orang-orang di lingkungannya
+    </string>
+    <string name="text_learning_objectives">1.	Siswa Mampu Menganalisis hubungan antara bentuk dan fungsi bagian tubuh pada hewan
+2.	Siswa Mampu Menganalisis hubungan antara bentuk dan fungsi bagian tubuh pada tumbuhan.
+3.	Siswa mampu Mengumpulkan informasi tentang pentingnya upaya keseimbangan
+4.	 Siswa mampu Mengumpulkan informasi tentang pelestarian sumber daya alam di lingkungannya.
+5.	Melakukan kegiatan upaya pelestarian sumber daya alam bersama orang-orang di lingkungannya tubuh hewan dan tumbuhan.
+6.	Siswa mampu Melakukan kegiatan upaya pelestarian sumber daya alam bersama orang-orang di lingkungannya
     </string>
 
     <string name="desc_ragam_tumbuhan_indonesia">Pulau indonesia dikenal sebagai sebutan untaian zamrud khatulistiwa yang memiliki arti kepulauan indonesia adalah negeri yang tanahnya subur dan memiliki kekayaan alam serta terletak di daerah khatulistiwa
@@ -128,4 +136,11 @@ Ayo, kita cari tahu lebih lanjut!</string>
     <string name="text_land">DARAT</string>
     <string name="title_page_matery">Materi</string>
     <string name="desc_intermezzo_quiz">Ayo, amati gambar berikut. Berilah tanda centang (V) pada gambar yang menunjukkan tanaman dan hewan yang terawat.</string>
+    <string name="text_admin_name">Winda Fajar Qomariah</string>
+    <string name="hint_ttl">Tempat, Tanggal Lahir</string>
+    <string name="text_admin_ttl">Titian Resak, 03 September 1998</string>
+    <string name="hint_major">Jurusan</string>
+    <string name="text_admin_major">Magister Pendidikan Guru Madrasah Ibtidaiyah</string>
+    <string name="text_about_developer">About Developer</string>
+    <string name="text_students_score">Nilai Siswa</string>
 </resources>

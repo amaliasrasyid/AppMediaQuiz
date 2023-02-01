@@ -69,24 +69,12 @@
                             android:imeOptions="actionNext"
                             android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>
 
         </FrameLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Developed By Winda"
-            android:textAlignment="center"
-            android:fontFamily="@font/wonder_boys"
-            android:textColor="#9AD8D0D0"
-            android:textSize="@dimen/font_12"
-            android:layout_marginBottom="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/framelayout"
-            app:layout_constraintStart_toStartOf="@+id/framelayout" />
 
         <View
             android:id="@+id/view_bg_title"
