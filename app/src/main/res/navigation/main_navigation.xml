@@ -44,7 +44,11 @@
         android:id="@+id/guideFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.guide.GuideFragment"
         android:label="fragment_guide"
-        tools:layout="@layout/fragment_guide" />
+        tools:layout="@layout/fragment_guide" >
+        <action
+            android:id="@+id/action_guideFragment_to_videoGuideFragment"
+            app:destination="@id/videoGuideFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.kontrakanprojects.appgamequiz.view.profile.UserProfileFragment"
@@ -110,4 +114,9 @@
         android:name="com.kontrakanprojects.appgamequiz.view.about.AboutDeveloperFragment"
         android:label="fragment_about_developer"
         tools:layout="@layout/fragment_about_developer" />
+    <fragment
+        android:id="@+id/videoGuideFragment"
+        android:name="com.kontrakanprojects.appgamequiz.view.guide.VideoGuideFragment"
+        android:label="fragment_video_guide"
+        tools:layout="@layout/fragment_video_guide" />
 </navigation>

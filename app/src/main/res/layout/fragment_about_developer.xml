@@ -37,6 +37,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_marginTop="@dimen/margin_16"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#ffffff"
+                        android:src="@drawable/img_dev"/>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ti_name"
                         style="@style/ThemeInputField"

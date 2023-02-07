@@ -157,6 +157,8 @@
         <item name="android:layout_marginBottom">45dp</item>
     </style>
 
+    <style name="ContentPage" parent="ContextScrollPage"/>
+
     <style name="AuthScrollPage">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
