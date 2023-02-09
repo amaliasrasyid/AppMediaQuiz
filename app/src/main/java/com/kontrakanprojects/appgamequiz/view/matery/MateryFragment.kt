@@ -17,12 +17,13 @@ import androidx.navigation.fragment.findNavController
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMateryBinding
 import com.kontrakanprojects.appgamequiz.util.MaterialType
+import timber.log.Timber
 
 class MateryFragment : Fragment(), View.OnTouchListener {
     private lateinit var binding: FragmentMateryBinding
     private lateinit var mediaPlayer: MediaPlayer
     private  var audioRaw: AssetFileDescriptor? = null
-    private var latestPositionMusic: Int? = null
+    private var latestPositionAudio: Int? = null
 
     private val TAG = MateryFragment::class.java.simpleName
 
@@ -128,7 +129,7 @@ class MateryFragment : Fragment(), View.OnTouchListener {
             }
             mediaPlayer.prepare()
         }catch (e: Exception){
-            Log.e(TAG,"Prepare Media Player: ${e.message}")
+            Timber.e("Prepare Media Player: ${e.message}")
         }
 
         mediaPlayer.setOnPreparedListener{
@@ -138,8 +139,8 @@ class MateryFragment : Fragment(), View.OnTouchListener {
 
     override fun onStart() {
         super.onStart()
-        if(latestPositionMusic != null){
-            mediaPlayer.seekTo(latestPositionMusic!!)
+        if(latestPositionAudio != null){
+            mediaPlayer.seekTo(latestPositionAudio!!)
             mediaPlayer.start()
         }
     }
@@ -148,7 +149,7 @@ class MateryFragment : Fragment(), View.OnTouchListener {
         super.onStop()
         if(mediaPlayer.isPlaying){
             mediaPlayer.pause()
-            latestPositionMusic = mediaPlayer.currentPosition
+            latestPositionAudio = mediaPlayer.currentPosition
         }
     }
 

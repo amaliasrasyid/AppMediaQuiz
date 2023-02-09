@@ -34,7 +34,8 @@ class GameActivity : AppCompatActivity() {
     private lateinit var gameView: GameView
     private lateinit var viewModel: GameViewModel
     private lateinit var audioRaw: AssetFileDescriptor
-    private lateinit var mediaPlayer: MediaPlayer
+    private var mediaPlayer = MediaPlayer()
+
     private val TAG = GameActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +52,6 @@ class GameActivity : AppCompatActivity() {
         setContentView(gameView)
 
         //prepare media player for bacground game music
-        mediaPlayer = MediaPlayer()
         mediaPlayer.isLooping = true
         audioRaw = resources.openRawResourceFd(R.raw.game_music)
         prepareMediaPlayer()
@@ -99,7 +99,7 @@ class GameActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if(mediaPlayer != null) mediaPlayer.start()
+        mediaPlayer.start()
     }
 
     override fun onStop() {

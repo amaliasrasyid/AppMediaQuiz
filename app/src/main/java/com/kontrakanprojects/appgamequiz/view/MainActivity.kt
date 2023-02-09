@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private  val TAG = MainActivity::class.java.simpleName
     private lateinit var audioRaw: AssetFileDescriptor
     private lateinit var mediaPlayer: MediaPlayer
+    private var latestPositionAudio: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = MediaPlayer()
         mediaPlayer.isLooping = true
         audioRaw = resources.openRawResourceFd(R.raw.quiz_music)
-        prepareMediaPlayer()
+//        prepareMediaPlayer()
 
 
         @Suppress("DEPRECATION")
@@ -61,12 +62,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if(mediaPlayer != null) mediaPlayer.start()
+        if(latestPositionAudio != null){
+            mediaPlayer.seekTo(latestPositionAudio!!)
+            mediaPlayer.start()
+        }
     }
 
     override fun onStop() {
         super.onStop()
-        mediaPlayer.pause()
+        if(mediaPlayer.isPlaying){
+            mediaPlayer.pause()
+            latestPositionAudio = mediaPlayer.currentPosition
+        }
     }
 
     override fun onDestroy() {

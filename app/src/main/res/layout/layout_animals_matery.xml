@@ -316,18 +316,21 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/img_tiger"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_16"
                     android:src="@drawable/img_harimau" />
 
                 <ImageView
+                    android:id="@+id/img_orangutan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_16"
                     android:src="@drawable/img_org_utan" />
 
                 <ImageView
+                    android:id="@+id/img_elephant"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16"
@@ -370,16 +373,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
+                    android:id="@+id/img_camel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_16"
                     android:src="@drawable/img_unta" />
                 <ImageView
+                    android:id="@+id/img_lizard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_16"
                     android:src="@drawable/img_kadal" />
                 <ImageView
+                    android:id="@+id/img_snake"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16"
@@ -423,18 +429,21 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/img_polar_bear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_16"
                     android:src="@drawable/img_beruang_kutub" />
 
                 <ImageView
+                    android:id="@+id/img_penguin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_16"
                     android:src="@drawable/img_penguin" />
 
                 <ImageView
+                    android:id="@+id/img_arctic_fox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16"
@@ -478,16 +487,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
+                    android:id="@+id/img_cat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_16"
                     android:src="@drawable/img_kucing_pet" />
                 <ImageView
+                    android:id="@+id/img_dog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_16"
                     android:src="@drawable/img_pet_dog" />
                 <ImageView
+                    android:id="@+id/img_parrot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16"
@@ -524,16 +536,19 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
                 <ImageView
+                    android:id="@+id/img_chicken"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_16"
                     android:src="@drawable/img_ayam" />
                 <ImageView
+                    android:id="@+id/img_cow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_16"
                     android:src="@drawable/img_cow" />
                 <ImageView
+                    android:id="@+id/img_rabbit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16"

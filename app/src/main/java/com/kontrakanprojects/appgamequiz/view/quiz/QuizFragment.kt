@@ -95,7 +95,7 @@ class QuizFragment : Fragment(),View.OnClickListener {
             }
             tvQuizQuestion.text = currentQuizQ.text
             //options
-            val isImage = if(currentQuizQ.options.get(0).image is Bitmap) true else false
+            val isImage = currentQuizQ.options.get(0).image is Bitmap
             if(isImage){
                 prepareOptionsImage(currentQuizQ.options)
             }else{
