@@ -95,7 +95,9 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
         val action = event?.action
 
-        //PREPARE AUDIO
+        //PREPARE AUDIO n RESET IF AUDIO HAS BEEN SET
+        if(audioRaw != null) mediaPlayer.reset()
+
         with(binding.layoutAnimal) {
             when (view) {
                 imgTiger -> audioRaw = requireContext().resources.openRawResourceFd(R.raw.harimau)
