@@ -53,7 +53,7 @@ class GameActivity : AppCompatActivity() {
 
         //prepare media player for bacground game music
         mediaPlayer.isLooping = true
-        audioRaw = resources.openRawResourceFd(R.raw.game_music)
+        audioRaw = resources.openRawResourceFd(R.raw.game_music_n11db)
         prepareMediaPlayer()
 
 

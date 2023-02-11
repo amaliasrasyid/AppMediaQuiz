@@ -10,7 +10,6 @@ import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.kontrakanprojects.appgamequiz.R
-import com.kontrakanprojects.appgamequiz.data.session.GamePreference
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         //prepare media player for playing app music
         mediaPlayer = MediaPlayer()
         mediaPlayer.isLooping = true
-        audioRaw = resources.openRawResourceFd(R.raw.quiz_music)
-//        prepareMediaPlayer()
+        audioRaw = resources.openRawResourceFd(R.raw.quiz_music_n11db)
+        prepareMediaPlayer()
 
 
         @Suppress("DEPRECATION")
