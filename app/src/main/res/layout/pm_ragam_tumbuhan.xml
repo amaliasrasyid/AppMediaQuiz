@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/border_ragam_tumbuhan_indonesia"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintTop_toTopOf="@id/tv_ragam_tumbuhan_indonesia"
+            app:layout_constraintBottom_toBottomOf="@id/tv_ragam_tumbuhan_indonesia"
+            app:layout_constraintStart_toStartOf="@id/tv_ragam_tumbuhan_indonesia"
+            app:layout_constraintEnd_toEndOf="@id/tv_ragam_tumbuhan_indonesia"/>
+
+        <TextView
+            android:id="@+id/tv_ragam_tumbuhan_indonesia"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:padding="20dp"
+            android:text="Kebergaman tumbuhan di indonesia berdasarkan letak ketinggiannya"
+            android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/desc_ragam_tumbuhan"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:layout_marginHorizontal="@dimen/margin_32"
+            android:justificationMode="inter_word"
+            android:text="@string/desc_ragam_tumbuhan_indonesia"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ragam_tumbuhan_indonesia"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

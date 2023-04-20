@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title_plant_matery"
+            style="@style/ThemeTitleMatery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3.1 menganalisis hubungan antara bentuk dan fungsi bagian tubuh ada hewan dan tumbuhan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/modal_title"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/modal_title"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_plant"
+            app:layout_constraintEnd_toEndOf="@+id/tv_plant"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tv_plant"
+            app:layout_constraintTop_toTopOf="@+id/tv_plant" />
+
+        <TextView
+            android:id="@+id/tv_plant"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:padding="@dimen/padding_16"
+            android:text="Tumbuhan"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/font_size_28"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_plant_matery"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_plant_matery"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_plant_matery" />
+
+        <ImageView
+            android:id="@+id/img_tree_structure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:src="@drawable/struktur_tanaman"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/modal_title" />
+
+        <View
+            android:id="@+id/border_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@id/tv_sub_matery"
+            app:layout_constraintBottom_toBottomOf="@id/tv_sub_matery"
+            app:layout_constraintStart_toStartOf="@id/tv_sub_matery"
+            app:layout_constraintEnd_toEndOf="@id/tv_sub_matery" />
+
+        <TextView
+            android:id="@+id/tv_sub_matery"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:gravity="center"
+            android:paddingHorizontal="40dp"
+            android:text="Akar"
+            android:textColor="@color/secondaryColor"
+            android:textSize="48sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/desc_matery"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:justificationMode="inter_word"
+            android:text="...teks desc akar..."
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/border_title" />
+
+        <ImageView
+            android:id="@+id/img_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/img_materi_akar"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/desc_matery"
+            app:layout_constraintStart_toStartOf="@+id/desc_matery"
+            app:layout_constraintTop_toBottomOf="@id/desc_matery" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

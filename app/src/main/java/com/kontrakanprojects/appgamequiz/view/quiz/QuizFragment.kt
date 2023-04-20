@@ -252,7 +252,6 @@ class QuizFragment : Fragment(),View.OnClickListener {
         }
     }
 
-
     override fun onClick(view: View?) {
         with(binding){
             when(view){
@@ -267,7 +266,6 @@ class QuizFragment : Fragment(),View.OnClickListener {
             }
         }
     }
-
 
     private fun vibrate(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

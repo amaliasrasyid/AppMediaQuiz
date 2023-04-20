@@ -10,475 +10,84 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/ThemeTitleMatery"
+        <LinearLayout
+            android:id="@+id/container_matery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3.1 menganalisis hubungan antara bentuk dan fungsi bagian tubuh ada hewan dan tumbuhan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/modal_title"
-            android:layout_width="200dp"
-            android:layout_height="80dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/modal_title"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/textView6" />
+            <include
+                android:id="@+id/layout_first"
+                layout="@layout/pm_first"/>
 
-        <TextView
-            android:id="@+id/textView6"
-            style="@style/PrimaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:padding="@dimen/padding_16"
-            android:text="Tumbuhan"
-            android:textColor="@color/secondaryTextColor"
-            android:textSize="@dimen/font_size_28"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <include
+                android:id="@+id/layout_akar"
+                android:visibility="gone"
+                layout="@layout/pm_akar" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_32"
-            android:src="@drawable/struktur_tanaman"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/modal_title" />
+            <include
+                android:id="@+id/layout_batang"
+                android:visibility="gone"
+                layout="@layout/pm_batang" />
 
-        <View
-            android:id="@+id/line_grass_akar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_sub_akar"
-            app:layout_constraintBottom_toBottomOf="@id/tv_sub_akar"
-            app:layout_constraintStart_toStartOf="@id/tv_sub_akar"
-            app:layout_constraintEnd_toEndOf="@id/tv_sub_akar" />
+            <include
+                android:id="@+id/layout_bunga"
+                android:visibility="gone"
+                layout="@layout/pm_bunga" />
 
-        <TextView
-            android:id="@+id/tv_sub_akar"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:textSize="48sp"
-            android:gravity="center"
-            android:textColor="@color/secondaryColor"
-            android:text="Akar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <include
+                android:id="@+id/layout_daun"
+                android:visibility="gone"
+                layout="@layout/pm_daun" />
 
-        <TextView
-            android:id="@+id/desc_akar"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:justificationMode="inter_word"
-            android:text="	Akar adalah bagian tumbuhan yang umumnya berada di dalam tanah.  Untuk beberapa jenis tumbuhan, akar juga terdapat di atas tanah bahkan menggantung. Akar berfungsi antara lain sebagai bagian yang mengokohkan tumbuhan. Jika tumbuhan tidak memiliki akar, tumbuhan akan mudah dicabut,mudah roboh ketika diterpa angin, atau hanyutterbawa air ketika turun hujan.Zat-zat mineral dan air yang dibutuhkan untuk membuat makanan diserap oleh akar dari dalam tanah. Namun, pada beberapa tumbuhan tertentu, akar tidak hanya berfungsi menyerap air dan mineral, tetapi juga berfungsi sebagai penyimpanan cadangan makanan, misalnya pada beberapa tumbuhan umbi-umbian.
-Akar terbagi menjadi  dua yaitu :"
-            app:layout_constraintTop_toBottomOf="@+id/line_grass_akar"
-            tools:layout_editor_absoluteX="16dp" />
+            <include
+                android:id="@+id/layout_biji"
+                android:visibility="gone"
+                layout="@layout/pm_biji" />
 
-        <ImageView
-            android:id="@+id/img_bagan_akar"
+            <include
+                android:id="@+id/layout_buah"
+                android:visibility="gone"
+                layout="@layout/pm_buah" />
+
+            <include
+                android:id="@+id/layout_pengamatan"
+                android:visibility="gone"
+                layout="@layout/pm_pengamatan" />
+
+            <include
+                android:id="@+id/layout_ragam_tumbuhan"
+                android:visibility="gone"
+                layout="@layout/pm_ragam_tumbuhan" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_prev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/image_37"
-            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
-            app:layout_constraintStart_toStartOf="@+id/desc_akar"
-            app:layout_constraintTop_toBottomOf="@id/desc_akar" />
-
-        <View
-            android:id="@+id/line_grass_batang"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_sub_batang"
-            app:layout_constraintBottom_toBottomOf="@id/tv_sub_batang"
-            app:layout_constraintStart_toStartOf="@id/tv_sub_batang"
-            app:layout_constraintEnd_toEndOf="@id/tv_sub_batang"  />
-
-        <TextView
-            android:id="@+id/tv_sub_batang"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:textSize="48sp"
-            android:gravity="center"
-            android:text="BATANG"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/img_bagan_akar" />
-
-        <TextView
-            android:id="@+id/desc_batang"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:justificationMode="inter_word"
-            android:text="@string/desc_batang"
-            app:layout_constraintTop_toBottomOf="@id/tv_sub_batang" />
-
-        <View
-            android:id="@+id/line_grass_bunga"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_sub_bunga"
-            app:layout_constraintBottom_toBottomOf="@id/tv_sub_bunga"
-            app:layout_constraintStart_toStartOf="@id/tv_sub_bunga"
-            app:layout_constraintEnd_toEndOf="@id/tv_sub_bunga" />
-
-        <TextView
-            android:id="@+id/tv_sub_bunga"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:textSize="48sp"
-            android:gravity="center"
-            android:textColor="@color/secondaryColor"
-            android:text="BUNGA"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/desc_batang" />
-
-        <TextView
-            android:id="@+id/desc_bunga"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:text="@string/desc_bunga"
-            app:layout_constraintTop_toBottomOf="@id/tv_sub_bunga" />
-
-        <ImageView
-            android:id="@+id/img_struktur_bunga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_struktur_bunga"
-            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
-            app:layout_constraintStart_toStartOf="@+id/desc_bunga"
-            app:layout_constraintTop_toBottomOf="@id/desc_bunga" />
-
-        <TextView
-            android:id="@+id/fungsi_bagian_bunga"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:text=""
-            app:layout_constraintTop_toBottomOf="@id/img_struktur_bunga" />
-
-        <View
-            android:id="@+id/line_grass_daun"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_sub_daun"
-            app:layout_constraintBottom_toBottomOf="@id/tv_sub_daun"
-            app:layout_constraintStart_toStartOf="@id/tv_sub_daun"
-            app:layout_constraintEnd_toEndOf="@id/tv_sub_daun" />
-
-        <TextView
-            android:id="@+id/tv_sub_daun"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:textSize="48sp"
-            android:gravity="center"
-            android:textColor="@color/secondaryColor"
-            android:text="DAUN"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/fungsi_bagian_bunga" />
-
-        <TextView
-            android:id="@+id/desc_daun"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:justificationMode="inter_word"
-            android:text="@string/desc_daun"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sub_daun" />
-
-        <ImageView
-            android:id="@+id/img_jenis_daun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_jenis_daun"
-            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
-            app:layout_constraintStart_toStartOf="@+id/desc_akar"
-            app:layout_constraintTop_toBottomOf="@id/desc_daun" />
-
-        <View
-            android:id="@+id/line_grass_biji"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_sub_biji"
-            app:layout_constraintBottom_toBottomOf="@id/tv_sub_biji"
-            app:layout_constraintStart_toStartOf="@id/tv_sub_biji"
-            app:layout_constraintEnd_toEndOf="@id/tv_sub_biji" />
-
-        <TextView
-            android:id="@+id/tv_sub_biji"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:textSize="48sp"
-            android:gravity="center"
-            android:textColor="@color/secondaryColor"
-            android:text="BIJI"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/img_jenis_daun" />
-
-        <TextView
-            android:id="@+id/desc_biji"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:text="@string/desc_biji"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sub_biji" />
-
-        <ImageView
-            android:id="@+id/img_jenis_biji_mono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_biji_mono"
-            app:layout_constraintEnd_toEndOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toStartOf="@+id/desc_akar"
-            app:layout_constraintTop_toBottomOf="@id/desc_biji" />
-
-        <TextView
-            android:id="@+id/textView4"
-            style="@style/PrimaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_16"
-            android:background="@color/secondaryColor"
-            android:textColor="@color/secondaryTextColor"
-            android:padding="8dp"
-            android:textAlignment="center"
-            android:text="MONOKOTIL"
-            android:textSize="@dimen/font_size_28"
-            app:layout_constraintEnd_toEndOf="@+id/img_jenis_biji_mono"
-            app:layout_constraintStart_toStartOf="@+id/img_jenis_biji_mono"
-            app:layout_constraintTop_toBottomOf="@id/img_jenis_biji_mono" />
-
-        <ImageView
-            android:id="@+id/img_jenis_biji_diko"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_biji_diko"
-            app:layout_constraintEnd_toEndOf="@+id/desc_akar"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/desc_biji" />
-
-        <TextView
-            android:id="@+id/tv_dikotil"
-            style="@style/PrimaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_16"
-            android:background="@color/secondaryColor"
-            android:textColor="@color/secondaryTextColor"
-            android:padding="8dp"
-            android:textAlignment="center"
-            android:text="DIKOTIL"
-            android:textSize="@dimen/font_size_28"
-            app:layout_constraintEnd_toEndOf="@+id/img_jenis_biji_diko"
-            app:layout_constraintStart_toStartOf="@+id/img_jenis_biji_diko"
-            app:layout_constraintTop_toBottomOf="@id/img_jenis_biji_diko" />
-
-        <View
-            android:id="@+id/line_grass_buah"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_sub_buah"
-            app:layout_constraintBottom_toBottomOf="@id/tv_sub_buah"
-            app:layout_constraintStart_toStartOf="@id/tv_sub_buah"
-            app:layout_constraintEnd_toEndOf="@id/tv_sub_buah" />
-
-        <TextView
-            android:id="@+id/tv_sub_buah"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:textSize="48sp"
-            android:gravity="center"
-            android:textColor="@color/secondaryColor"
-            android:text="BUAH"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/desc_buah"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:text="@string/desc_buah"
-            app:layout_constraintTop_toBottomOf="@+id/line_grass_buah" />
-
-        <View
-            android:id="@+id/border_section_teh_padi"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_section_padi_teh"
-            app:layout_constraintBottom_toBottomOf="@id/tv_section_padi_teh"
-            app:layout_constraintStart_toStartOf="@id/tv_section_padi_teh"
-            app:layout_constraintEnd_toEndOf="@id/tv_section_padi_teh"/>
-
-        <TextView
-            android:id="@+id/tv_section_padi_teh"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="@dimen/padding_16"
-            android:layout_marginTop="64dp"
-            android:textAlignment="center"
-            android:text="Amati gambar dan baca teks tentang tanaman padi dan teh berikut. Di manakah padi dan teh biasa tumbuh? Lingkungan yang seperti apa yang baik untuk tanaman tersebut?"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/desc_buah" />
-
-        <TextView
-            style="@style/SecondaryTextStyle"
-            android:id="@+id/tv_text_padi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:justificationMode="inter_word"
-            android:text="@string/desc_padi"
-            android:layout_marginTop="@dimen/margin_32"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_section_padi_teh" />
-
-        <TextView
-            android:id="@+id/tv_text_teh"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="@dimen/margin_32"
-            android:justificationMode="inter_word"
-            android:text="@string/desc_teh"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tv_section_padi_teh" />
-
-        <ImageView
-            android:id="@+id/img_padi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/img_padi"
-            app:layout_constraintEnd_toEndOf="@+id/tv_text_padi"
-            app:layout_constraintHorizontal_bias="0.439"
-            app:layout_constraintStart_toStartOf="@+id/tv_text_padi"
-            app:layout_constraintTop_toBottomOf="@id/tv_text_padi" />
-
-        <ImageView
-            android:id="@+id/img_teh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_16"
-            android:src="@drawable/img_teh"
-            app:layout_constraintBottom_toBottomOf="@+id/img_padi"
-            app:layout_constraintEnd_toEndOf="@+id/tv_text_teh"
-            app:layout_constraintHorizontal_bias="0.439"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="@+id/img_padi" />
-
-        <View
-            android:id="@+id/border_ragam_tumbuhan_indonesia"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_ragam_tumbuhan_indonesia"
-            app:layout_constraintBottom_toBottomOf="@id/tv_ragam_tumbuhan_indonesia"
-            app:layout_constraintStart_toStartOf="@id/tv_ragam_tumbuhan_indonesia"
-            app:layout_constraintEnd_toEndOf="@id/tv_ragam_tumbuhan_indonesia"/>
-
-        <TextView
-            android:id="@+id/tv_ragam_tumbuhan_indonesia"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="@dimen/padding_16"
-            android:layout_marginTop="64dp"
-            android:textAlignment="center"
-            android:textColor="@color/secondaryColor"
-            android:text="Kebergaman tumbuhan di indonesia berdasarkan letak ketinggiannya"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/img_padi" />
-
-        <TextView
-            android:id="@+id/desc_ragam_tumbuhan"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:justificationMode="inter_word"
-            android:text="@string/desc_ragam_tumbuhan_indonesia"
+            android:background="@null"
+            android:visibility="invisible"
+            android:src="@drawable/ic_broken_hp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ragam_tumbuhan_indonesia"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_matery" />
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:background="@null"
+            android:src="@drawable/ic_broken_hp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/container_matery" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

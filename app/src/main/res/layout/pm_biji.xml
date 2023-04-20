@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/line_grass_biji"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintBottom_toBottomOf="@id/tv_sub_biji"
+            app:layout_constraintEnd_toEndOf="@id/tv_sub_biji"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_sub_biji"
+            app:layout_constraintTop_toTopOf="@id/tv_sub_biji"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_sub_biji"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:gravity="center"
+            android:paddingHorizontal="40dp"
+            android:text="BIJI"
+            android:textColor="@color/secondaryColor"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/desc_biji"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:layout_marginHorizontal="@dimen/margin_32"
+            android:text="@string/desc_biji"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sub_biji" />
+
+        <ImageView
+            android:id="@+id/img_jenis_biji_mono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:src="@drawable/img_biji_mono"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/desc_biji" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:background="@color/secondaryColor"
+            android:textColor="@color/secondaryTextColor"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:text="MONOKOTIL"
+            android:textSize="@dimen/font_size_28"
+            app:layout_constraintEnd_toEndOf="@+id/img_jenis_biji_mono"
+            app:layout_constraintStart_toStartOf="@+id/img_jenis_biji_mono"
+            app:layout_constraintTop_toBottomOf="@id/img_jenis_biji_mono" />
+
+        <ImageView
+            android:id="@+id/img_jenis_biji_diko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:src="@drawable/img_biji_diko"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/desc_biji" />
+
+        <TextView
+            android:id="@+id/tv_dikotil"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:background="@color/secondaryColor"
+            android:textColor="@color/secondaryTextColor"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:text="DIKOTIL"
+            android:textSize="@dimen/font_size_28"
+            app:layout_constraintEnd_toEndOf="@+id/img_jenis_biji_diko"
+            app:layout_constraintStart_toStartOf="@+id/img_jenis_biji_diko"
+            app:layout_constraintTop_toBottomOf="@id/img_jenis_biji_diko" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/border_section_teh_padi"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintTop_toTopOf="@id/tv_section_padi_teh"
+            app:layout_constraintBottom_toBottomOf="@id/tv_section_padi_teh"
+            app:layout_constraintStart_toStartOf="@id/tv_section_padi_teh"
+            app:layout_constraintEnd_toEndOf="@id/tv_section_padi_teh"/>
+
+        <TextView
+            android:id="@+id/tv_section_padi_teh"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:paddingHorizontal="@dimen/margin_32"
+            android:paddingVertical="@dimen/padding_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:text="Amati gambar dan baca teks tentang tanaman padi dan teh berikut. Di manakah padi dan teh biasa tumbuh? Lingkungan yang seperti apa yang baik untuk tanaman tersebut?"
+            android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/SecondaryTextStyle"
+            android:id="@+id/tv_text_padi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="@string/desc_padi"
+            android:layout_marginTop="@dimen/margin_32"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_section_padi_teh" />
+
+        <TextView
+            android:id="@+id/tv_text_teh"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_32"
+            android:justificationMode="inter_word"
+            android:text="@string/desc_teh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tv_section_padi_teh" />
+
+        <ImageView
+            android:id="@+id/img_padi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/img_padi"
+            app:layout_constraintEnd_toEndOf="@+id/tv_text_padi"
+            app:layout_constraintHorizontal_bias="0.439"
+            app:layout_constraintStart_toStartOf="@+id/tv_text_padi"
+            app:layout_constraintTop_toBottomOf="@id/tv_text_padi" />
+
+        <ImageView
+            android:id="@+id/img_teh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/img_teh"
+            app:layout_constraintBottom_toBottomOf="@+id/img_padi"
+            app:layout_constraintEnd_toEndOf="@+id/tv_text_teh"
+            app:layout_constraintStart_toStartOf="@+id/tv_text_teh"
+            app:layout_constraintTop_toTopOf="@+id/img_padi" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -72,6 +72,8 @@ Dua jenis kupu-kupu bersayap burung yang terkenal adalah kupu-kupu bersayap buru
 	Kupu-kupu bersayap burung goliath dapat digunakan sebagai bioindikator lingkungan. Bioindikator adalah makhluk hidup yang dapat dijadikan penunjuk kualitaas lingkuingan. Kupu-kupu bersayap burung goliath hanya meletakkan telurnya di daun pohon Aristolochia tagala. Hanya daun itulah yang dimakan ulat yang menetas dari telur. Ini menjadikan kupu-kupu sangat rentan punah karena hidupnya sangat bergantung pada satu jenis tanaman.
 	Jadi, dapat dikatakan jika satu jenis kupu-kupu punah, maka ada sesuatu yang hilang dalam ekosistem.
 </string>
+    <string name="desc_akar">Akar adalah bagian tumbuhan yang umumnya berada di dalam tanah.  Untuk beberapa jenis tumbuhan, akar juga terdapat di atas tanah bahkan menggantung. Akar berfungsi antara lain sebagai bagian yang mengokohkan tumbuhan. Jika tumbuhan tidak memiliki akar, tumbuhan akan mudah dicabut,mudah roboh ketika diterpa angin, atau hanyutterbawa air ketika turun hujan.Zat-zat mineral dan air yang dibutuhkan untuk membuat makanan diserap oleh akar dari dalam tanah. Namun, pada beberapa tumbuhan tertentu, akar tidak hanya berfungsi menyerap air dan mineral, tetapi juga berfungsi sebagai penyimpanan cadangan makanan, misalnya pada beberapa tumbuhan umbi-umbian.
+Akar terbagi menjadi  dua yaitu :</string>
     <string name="desc_cat">Kucing merupakan hewan yang hidup di darat, tubuh kucing ditutupi oleh rambut yang lebat</string>
     <string name="desc_fish">Ikan hidup di air dan tidak bisa hidup di darat. Ikan hidup diair karena mempunyai insang sebagai alat pernapasannya. Berikut ini bagian-bagian tubuh ikan</string>
     <string name="desc_healthy_env">Lingkungan sehat memiliki arti lingkungan yang mendukung penghuninya hidup sehat. Lingkungan sehat memiliki ciri-ciri:\n
@@ -143,4 +145,5 @@ Ayo, kita cari tahu lebih lanjut!</string>
     <string name="text_admin_major">Magister Pendidikan Guru Madrasah Ibtidaiyah</string>
     <string name="text_about_developer">About Developer</string>
     <string name="text_students_score">Nilai Siswa</string>
+
 </resources>
