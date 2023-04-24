@@ -34,14 +34,15 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_16">
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/img_plant_matery"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:layout_margin="@dimen/margin_16"
+                        android:layout_margin="@dimen/margin_8"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/img_plant_matery"
                         app:layout_constraintEnd_toStartOf="@+id/guideline_left"
                         app:layout_constraintStart_toStartOf="parent"
@@ -50,59 +51,67 @@
                     <TextView
                         android:id="@+id/tv_plant_matery"
                         style="@style/PrimaryTextStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
                         android:layout_marginTop="@dimen/margin_8"
+                        android:autoSizeTextType="uniform"
                         android:text="Tumbuhan"
-                        android:textSize="@dimen/font_size_32"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline_left"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/img_plant_matery"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/img_plant_matery"
                         app:layout_constraintTop_toBottomOf="@+id/img_plant_matery" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/img_animal_matery"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:layout_margin="@dimen/margin_16"
+                        android:scaleType="fitCenter"
+                        android:layout_margin="@dimen/margin_8"
                         android:src="@drawable/img_animal_matery"
                         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="@+id/guideline_left"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/tv_animal_matery"
                         style="@style/PrimaryTextStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:autoSizeTextType="uniform"
+                        android:textAlignment="center"
                         android:layout_marginTop="@dimen/margin_8"
                         android:text="Hewan"
-                        android:textSize="@dimen/font_size_32"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintEnd_toEndOf="@+id/img_animal_matery"
+                        app:layout_constraintStart_toStartOf="@+id/img_animal_matery"
                         app:layout_constraintTop_toBottomOf="@+id/img_animal_matery" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/img_env_matery"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:layout_margin="@dimen/margin_16"
+                        android:layout_margin="@dimen/margin_8"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/img_env_matery"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.47"
                         app:layout_constraintStart_toStartOf="@+id/guideline_right"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        style="@style/PrimaryTextStyle"
                         android:id="@+id/tv_env_matery"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/PrimaryTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizePresetSizes="@arrays/autosize_text_sizes"
+                        android:textAlignment="center"
                         android:layout_marginTop="@dimen/margin_8"
                         android:text="Lingkungan"
-                        android:textSize="@dimen/font_size_32"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline_right"
+                        app:layout_constraintEnd_toEndOf="@+id/img_env_matery"
+                        app:layout_constraintHorizontal_bias="0.464"
+                        app:layout_constraintStart_toStartOf="@+id/img_env_matery"
                         app:layout_constraintTop_toBottomOf="@+id/img_env_matery" />
 
                     <androidx.constraintlayout.widget.Guideline

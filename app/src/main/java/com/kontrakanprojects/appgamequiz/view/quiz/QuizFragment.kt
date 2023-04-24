@@ -174,7 +174,10 @@ class QuizFragment : Fragment(),View.OnClickListener {
     }
 
     private fun checkAnswer(selectedAnswer: Int,isText :Boolean = false, isImage: Boolean = false) {
-        score = if(selectedAnswer == currentAnswerKey) score + 1 else score
+        score = if(selectedAnswer == currentAnswerKey) {
+            val point = listQuizQ.get(currentAnswerKey).points
+            score + point
+        } else { score }
 
         //show right and wrong answer
         if(selectedAnswer != currentAnswerKey){
@@ -274,7 +277,5 @@ class QuizFragment : Fragment(),View.OnClickListener {
             vibrator.vibrate(200)
         }
     }
-
-
 
 }

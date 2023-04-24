@@ -145,5 +145,7 @@ Ayo, kita cari tahu lebih lanjut!</string>
     <string name="text_admin_major">Magister Pendidikan Guru Madrasah Ibtidaiyah</string>
     <string name="text_about_developer">About Developer</string>
     <string name="text_students_score">Nilai Siswa</string>
+    <string name="text_less_satisfying">Kurang Memuaskan</string>
+    <string name="text_satisfying">Memuaskan!</string>
 
 </resources>

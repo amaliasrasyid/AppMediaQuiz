@@ -57,16 +57,16 @@ class EndQuizActivity : AppCompatActivity() {
         if(intentExtra != null){
             val correctAnswer = intentExtra.getInt(COUNT_CORRECT_ANSWER)
             val sizeQuizQ = intentExtra.getInt(QUIZ_Q_SIZE)
-            score = calculateScore(correctAnswer,sizeQuizQ)
+            score = correctAnswer
             with(binding){
                 if(score <= 60){
                     //not satisfied result
-                    tvBannerText.text = "Kurang Memuaskan"
+                    tvBannerText.text = getString(R.string.text_less_satisfying)
                     imgStar.setImageDrawable(getDrawable(R.drawable.fail_star))
                     failMp.start()
                 }else{
                     //satisfied result
-                    tvBannerText.text = "Memuaskan!"
+                    tvBannerText.text = getString(R.string.text_satisfying)
                     imgStar.setImageDrawable(getDrawable(R.drawable.success_star))
                     successMp.start()
                 }
@@ -104,14 +104,7 @@ class EndQuizActivity : AppCompatActivity() {
         val id = 0
         val studentId = UserPreference(this@EndQuizActivity).getUser().id
         val nilai = score
-        return StoreStudentScoreRequest(id,studentId!!,nilai)
-    }
-
-    private fun calculateScore(correctAnswer: Int, sizeQuizQ: Int,): Int {
-        val maxQ = sizeQuizQ
-        val point = 100/maxQ
-
-        return point * correctAnswer as (Int)
+        return StoreStudentScoreRequest(id, studentId!!, nilai)
     }
 
     private fun loader(state: Boolean) {

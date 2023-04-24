@@ -36,7 +36,7 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragmen
         binding = FragmentMaterialContentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -249,6 +249,7 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
         if(audioRaw != null) mediaPlayer.reset()
         with(binding.layoutAnimal) {
             when (view) {
+
                 imgTiger -> audioRaw = requireContext().resources.openRawResourceFd(R.raw.harimau)
                 imgOrangutan -> audioRaw = requireContext().resources.openRawResourceFd(R.raw.orang_utan)
                 imgElephant -> audioRaw = requireContext().resources.openRawResourceFd(R.raw.gajah)
