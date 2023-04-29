@@ -15,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMaterialContentBinding
 import com.kontrakanprojects.appgamequiz.util.MaterialType
+import com.kontrakanprojects.appgamequiz.view.MainActivity
 import timber.log.Timber
 import java.lang.Boolean.FALSE
 import java.lang.Boolean.TRUE
@@ -25,6 +26,7 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
     private var layoutType: MaterialType = MaterialType.PLANT
     private lateinit var mediaPlayer: MediaPlayer
     private var audioRaw: AssetFileDescriptor? = null
+    private lateinit var audioRawMain: AssetFileDescriptor
     private var latestPositionAudio: Int? = null
 
     private var indexMatery = 1
@@ -58,6 +60,7 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
                     otherLayout2.visibility = View.GONE
 
                     prepareOnTouchImage()
+                    audioRawMain = requireContext().resources.openRawResourceFd(R.raw.audio_materi_hewan)
                 }
                 MaterialType.ENVIRONMENT -> {
                     val layout = layoutEnvironment.root
@@ -66,6 +69,8 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
                     layout.visibility = View.VISIBLE
                     otherLayout1.visibility = View.GONE
                     otherLayout2.visibility = View.GONE
+
+                    audioRawMain = requireContext().resources.openRawResourceFd(R.raw.audio_materi_lingkungan)
                 }
                 else -> {
                     //DEFAULT IS THE PLANT LAYOUT
@@ -105,12 +110,20 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
                             Timber.d("Clicked Prev")
                         }
                     }
+                    audioRawMain = requireContext().resources.openRawResourceFd(R.raw.audio_materi_tanaman)
                 }
             }
         }
 
         val animalLayout = binding.layoutAnimal.root
         Timber.d("Status Type Layout View: ${animalLayout.visibility == View.GONE}")
+
+
+        //change source & prepare matery music
+        val act = activity
+        if(act is MainActivity){
+            act.changeAudioRes(audioRawMain)
+        }
     }
 
     private fun showNextMatery() {
@@ -316,6 +329,11 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        audioRawMain = resources.openRawResourceFd(R.raw.quiz_music_n11db)
+        val act = activity
+        if(act is MainActivity){
+            act.changeAudioRes(audioRawMain)
+        }
         mediaPlayer.release()
     }
 

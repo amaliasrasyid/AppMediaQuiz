@@ -8,19 +8,44 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/modal_title"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/modal_title"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:padding="@dimen/padding_16"
+            android:text="MARI MENGENAL LINGKUNGAN"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/font_size_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/intro1"
             style="@style/SecondaryTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="@dimen/margin_32"
-            android:layout_marginEnd="16dp"
             android:text="@string/intro_natural_env_matery1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/modal_title" />
 
         <TextView
             android:id="@+id/intro2"

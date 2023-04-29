@@ -13,6 +13,7 @@ import com.kontrakanprojects.appgamequiz.data.session.UserPreference
 import com.kontrakanprojects.appgamequiz.databinding.FragmentMainBinding
 import com.kontrakanprojects.appgamequiz.util.TEACHER
 import com.kontrakanprojects.appgamequiz.util.mySnackBar
+import com.kontrakanprojects.appgamequiz.view.MainActivity
 import com.kontrakanprojects.appgamequiz.view.auth.AuthActivity
 import com.kontrakanprojects.appgamequiz.view.game.GameActivity
 import timber.log.Timber
@@ -122,5 +123,7 @@ class MainFragment : Fragment(),View.OnClickListener {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+
+        //change audio res music back to original
     }
 }

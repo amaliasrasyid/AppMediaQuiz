@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private  val TAG = MainActivity::class.java.simpleName
     private lateinit var audioRaw: AssetFileDescriptor
-    private lateinit var mediaPlayer: MediaPlayer
+    lateinit var mediaPlayer: MediaPlayer
     private var latestPositionAudio: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +57,12 @@ class MainActivity : AppCompatActivity() {
             Log.e(TAG,"Prepare Media Player: ${e.message}")
         }
         mediaPlayer.setOnPreparedListener { mediaPlayer.start() }
+    }
+
+    public fun changeAudioRes(audioRaw: AssetFileDescriptor){
+        mediaPlayer.reset()
+        this.audioRaw = audioRaw
+        prepareMediaPlayer()
     }
 
     override fun onStart() {

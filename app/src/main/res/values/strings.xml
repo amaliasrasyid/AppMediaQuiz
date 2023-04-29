@@ -103,7 +103,7 @@ Akibat lingkungan yang tidak sehat:\n
 </string>
 
 
-    <string name="intro_animals_matery">Selain tumbuhan, hewan juga merupakan sumber daya alam yang perlu terus dijaga keseimbangan dan kelestariannya. Jika tidak, maka hewan-hewan tersebut akan menjadi langka dan punah. Seperti yang terjadi pada burung cenderawasih
+    <string name="intro_animals_matery">Selain tumbuhan, hewan juga merupakan sumber daya alam yang perlu terus dijaga keseimbangan dan kelestariannya. Jika tidak, maka hewan-hewan tersebut akan menjadi langka dan punah. Seperti yang terjadi pada kupu-kupu bersayap burung
 Ayo, kita cari tahu lebih lanjut!</string>
     <string name="intro_natural_env_matery1">Sebelum mencintai lingkungan, kita harus mengenal, apakah lingkungan itu</string>
     <string name="intro_natural_env_matery2">Segala sesuatu yang ada disekitar kita disebut lingkungan. Lingkungan juga bisa disebut tempat kita berada.</string>
@@ -143,7 +143,7 @@ Ayo, kita cari tahu lebih lanjut!</string>
     <string name="text_admin_ttl">Titian Resak, 03 September 1998</string>
     <string name="hint_major">Jurusan</string>
     <string name="text_admin_major">Magister Pendidikan Guru Madrasah Ibtidaiyah</string>
-    <string name="text_about_developer">About Developer</string>
+    <string name="text_about_developer">About</string>
     <string name="text_students_score">Nilai Siswa</string>
     <string name="text_less_satisfying">Kurang Memuaskan</string>
     <string name="text_satisfying">Memuaskan!</string>
