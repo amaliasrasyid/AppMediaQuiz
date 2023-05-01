@@ -92,7 +92,11 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         screenRatioX = screenAdjust
         screenRatioY = screenAdjust
 
-        Log.d(TAG,"screen ratio x = $screenRatioX")
+
+        Timber.d("DPI: $densityDpi")
+        Timber.d("Screen Ratio X : $screenRatioX")
+        Timber.d("Screen Ratio Y : $screenRatioY")
+
         Log.d(TAG,"screen x = $screenX")
         Log.d(TAG,"screen adjust base number = $screenAdjust")
 
@@ -160,7 +164,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
             background2.x = screenX
         }
 
-        Timber.tag(TAG).d("flight is moving")
+//        Timber.tag(TAG).d("flight is moving")
         if (flight.isGoingUp) {
             flight.y -= 20 * screenRatioY
         }else if(flight.isGoingDown){
@@ -186,7 +190,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 
             for (fish in fishs) {
                 if (fish != null) {
-                    // jika bersentuhan peluru dan burung maka burung mati
+                    // jika bersentuhan antara peluru dan ikan maka objek ikan menghilang
                     if (Rect.intersects(fish.getCollisionShape(), bullet.getCollisionShape())) {
                         fish.x = (-500).toFloat()
                         bullet.x = screenX + 500
@@ -231,11 +235,6 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
                 fish.x -= fish.speed
 
                 if (fish.x + fish.width < 0) {
-                    // jika burung melewati lebar
-//                    if (!fish.wasShot) {
-//                        flight.reduceHp()
-//                    }
-
                     val baseMinSpeed = 10
                     val baseMaxSpeed = 20
                     val bound = (baseMaxSpeed * screenRatioX).toInt()
@@ -245,7 +244,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
                     if (fish.speed < baseMinSpeed * screenRatioX) {
                         fish.speed = (baseMinSpeed * screenRatioX).toInt()
                     }
-//                    Log.d(TAG,"random speed = ${fish.speed}")
+//                    Timber.tag(TAG).d("random speed = ${fish.speed}")
 
 
                     fish.x = screenX

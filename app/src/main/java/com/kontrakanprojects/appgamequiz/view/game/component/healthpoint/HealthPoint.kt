@@ -8,6 +8,7 @@ import com.kontrakanprojects.appgamequiz.view.game.GameComponent
 import com.kontrakanprojects.appgamequiz.view.game.GameView
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioX
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioY
+import timber.log.Timber
 
 class HealthPoint(screenX: Int, res: Resources, marginX: Int = 0) :
     GameComponent(res) {
@@ -25,8 +26,13 @@ class HealthPoint(screenX: Int, res: Resources, marginX: Int = 0) :
         width = healthPoint.width.toFloat()
         height = healthPoint.height.toFloat()
 
-        width *= screenRatioX
-        height *= screenRatioY
+        Timber.d("Width HealthP : $width")
+        Timber.d("Height HealthP : $height")
+
+        if(width < 40f){
+            width = 40f
+            height = 49f
+        }
 
         healthPoint = Bitmap.createScaledBitmap(healthPoint, width.toInt(), height.toInt(), false)
         brokenHp = Bitmap.createScaledBitmap(brokenHp, width.toInt(), height.toInt(), false)
@@ -34,6 +40,8 @@ class HealthPoint(screenX: Int, res: Resources, marginX: Int = 0) :
         //health point position on screen (gameview)
         x = (screenX - (200 + marginX * screenRatioX)).toFloat() //lokasi di seperempat screen size
         y = 64 * screenRatioY
+        Timber.d("Width HealthP After adjustment : $width")
+        Timber.d("Height HealthP After adjustment: $height")
     }
 
     fun getHealthPoint(): Bitmap{

@@ -7,6 +7,7 @@ import com.kontrakanprojects.appgamequiz.view.game.GameComponent
 import com.kontrakanprojects.appgamequiz.view.game.GameView
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioX
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioY
+import timber.log.Timber
 
 class Fish(res: Resources,) : GameComponent(res) {
     var wasShot = true
@@ -34,11 +35,23 @@ class Fish(res: Resources,) : GameComponent(res) {
         width /= 2
         height /= 2
 
-        //making size the fishes compatible with other devices
-        width *= screenRatioX
-        height *= screenRatioY
+//        Timber.d("Width Fish : $width")
+//        Timber.d("Height Fish : $height")
 
-        //
+        //Re-size based resolution (dpi)
+        //making size the fishes compatible with other devices
+//        width *= screenRatioX
+//        height *= screenRatioY
+
+        //define minimum size of the width-height Flight Object
+        if(width < 50){
+            width = 50f
+            height = 30f
+        }
+
+        Timber.d("Width Fish After Adj: $width")
+        Timber.d("Height Fish After Adj: $height")
+
         fish1 = Bitmap.createScaledBitmap(fish1, width.toInt(), height.toInt(), false)
         fish2 = Bitmap.createScaledBitmap(fish2, width.toInt(), height.toInt(), false)
         fish3 = Bitmap.createScaledBitmap(fish3, width.toInt(), height.toInt(), false)
@@ -46,6 +59,7 @@ class Fish(res: Resources,) : GameComponent(res) {
 
         y = -height
 
+        Timber.d("Text X-Y: $x-$y")
     }
 
     //making fish like it moving
@@ -94,8 +108,15 @@ class Fish(res: Resources,) : GameComponent(res) {
         paintText.textSize = 28 * density
         paintText.typeface = Typeface.DEFAULT_BOLD
 
-        val startPosition = x + (width / 2) - 25
-        val endPosition = y + (height/2) + 20
+        val startPosition = x + (width / 2)
+        val endPosition = y + (height/2)
+
+//        Timber.d("startX F: $startPosition")
+//        Timber.d("startY F: $endPosition")
+
+        if(startPosition != 0f || endPosition != 0f){
+            startPosition
+        }
         canvas.drawText(captionString, startPosition,endPosition,paintText)
     }
 }
