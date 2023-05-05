@@ -11,7 +11,7 @@ import com.kontrakanprojects.appgamequiz.view.game.GameComponent
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioX
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioY
 
-class LevelComponent constructor(level: Int,qX: Float, qY: Float, res: Resources) : GameComponent(res) {
+class LevelComponent constructor(level: Int,positionX: Float, positionY: Float, res: Resources) : GameComponent(res) {
 
     private var levelBitmap: Bitmap
     var level: Int = 1
@@ -22,11 +22,10 @@ class LevelComponent constructor(level: Int,qX: Float, qY: Float, res: Resources
         //config img size
         width = bitmap.width.toFloat()
         height = bitmap.height.toFloat()
-        bitmap = Bitmap.createScaledBitmap(bitmap,width.toInt(),height.toInt(),false)
         
         //define position component on screen
-        x = qX - 50
-        y = qY - 10
+        x = positionX
+        y = positionY
         
         val density = res.displayMetrics.density
         this.level = level
@@ -52,7 +51,11 @@ class LevelComponent constructor(level: Int,qX: Float, qY: Float, res: Resources
         paint.getTextBounds(text, 0, text.length, bounds)
 
         canvas.save()
-        val textX = if(level < 10) x + (bitmap.width/2 - 58) else x + (bitmap.width/2 + 13)
+        val textX = if(level < 10){
+            x + (bitmap.width/2 - (73 * screenRatioX))
+        } else {
+            x + (bitmap.width/2 - (110 * screenRatioX))
+        }
         val textY = y + (bitmap.height/4)
 
 //        Log.d("LevelComponent","ukuran level component = ${bitmap.width/2}")

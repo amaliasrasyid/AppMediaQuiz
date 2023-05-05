@@ -565,7 +565,7 @@ object DataLocalDb{
                         listOf(
                             Option(BitmapFactory.decodeResource(res, R.drawable.tanaman_layu),1),
                             Option(BitmapFactory.decodeResource(res, R.drawable.pohon_subur),2),
-                            Option(BitmapFactory.decodeResource(res, R.drawable.ufo),3)
+                            Option(BitmapFactory.decodeResource(res, R.drawable.withered_plant),3)
                         )
                     )
                 )

@@ -68,6 +68,8 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
 
     private var screenAdjust = 0f
 
+    private var densityDpi: Int = 0
+
 //    private var reduce
 
     companion object {
@@ -80,14 +82,15 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         this.activity = activity
         this.screenX = screenX.toFloat()
         this.screenY = screenY.toFloat()
+        this.densityDpi = densityDpi
 
         when (densityDpi) {
-            in 1..120 -> screenAdjust = densityDpi.toFloat() / 420f //ldpi
-            in 160..213 -> screenAdjust = densityDpi.toFloat() / 420f //mdpi
-            in 213..240 -> screenAdjust = densityDpi.toFloat() / 420f //hdpi
-            in 240..320 -> screenAdjust = densityDpi.toFloat() / 420f //xhdpi
-            in 320..480 -> screenAdjust = densityDpi.toFloat() / 420f  //xxhdpi
-            in 480..640 -> screenAdjust = densityDpi.toFloat() / 420f //xxxhdpi
+            in 1..120 -> screenAdjust = densityDpi.toFloat() / 484f //ldpi
+            in 160..213 -> screenAdjust = densityDpi.toFloat() / 484f //mdpi
+            in 213..240 -> screenAdjust = densityDpi.toFloat() / 484f //hdpi
+            in 240..320 -> screenAdjust = densityDpi.toFloat() / 484f //xhdpi
+            in 320..480 -> screenAdjust = densityDpi.toFloat() / 484f  //xxhdpi
+            in 480..640 -> screenAdjust = densityDpi.toFloat() / 484f //xxxhdpi
         }
         screenRatioX = screenAdjust
         screenRatioY = screenAdjust
@@ -103,7 +106,7 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         background1 = Background(screenX, screenY, resources)
         background2 = Background(screenX, screenY, resources)
 
-        flight = Flight(this, screenX, screenY, resources)
+        flight = Flight(this, screenX, screenY, resources,densityDpi)
         bullets = arrayListOf()
         background2.x = screenX.toFloat()
         paint = Paint()
@@ -126,7 +129,9 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
         val index = indexGameQ
 
         //level
-        levelComponent = LevelComponent(index + 1, 80f, 10f, resources)
+        val positionLevelX = 50f * screenRatioX
+        val positionY = 10f * screenRatioY
+        levelComponent = LevelComponent(index + 1, positionLevelX,positionY, resources)
 
         //question syntax
         val gameQuestion = GameQuestion(
@@ -134,8 +139,9 @@ class GameView internal constructor(activity: Activity,context: Context, screenX
             this.screenX.toInt(),
             this.screenY.toInt(),
             question,
-            50f + levelComponent.width,
-            resources
+            positionLevelX + levelComponent.width,
+            resources,
+            densityDpi
         )
         questionCmp = gameQuestion
         currentAnswerKey = question.answerKey

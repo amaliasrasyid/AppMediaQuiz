@@ -4,17 +4,21 @@ import android.content.res.Resources
 import android.graphics.Rect
 import com.kontrakanprojects.appgamequiz.view.game.GameComponent
 
-class HealthPoints internal  constructor(screenX: Int, res: Resources) :
+class HealthPoints internal  constructor(screenX: Int, res: Resources, screenRatioX: Float,densityDpi: Int) :
     GameComponent(res) {
 
     private  var healthPoints: Array<HealthPoint?> = arrayOfNulls(3)
 
     init {
-        var marginX = 200
+        var marginX = if(densityDpi <= 200){
+            (50 * screenRatioX).toInt()
+        }else{
+            (200 * screenRatioX).toInt()
+        }
         for(i in healthPoints.indices){
-            val hp = HealthPoint(screenX,res,marginX)
+            val hp = HealthPoint(screenX,res,marginX,densityDpi)
             healthPoints[i] = hp
-            marginX -= 100
+            marginX -= (100).toInt()
         }
     }
 

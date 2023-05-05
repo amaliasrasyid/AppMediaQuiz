@@ -49,8 +49,8 @@ class Fish(res: Resources,) : GameComponent(res) {
             height = 30f
         }
 
-        Timber.d("Width Fish After Adj: $width")
-        Timber.d("Height Fish After Adj: $height")
+//        Timber.d("Width Fish After Adj: $width")
+//        Timber.d("Height Fish After Adj: $height")
 
         fish1 = Bitmap.createScaledBitmap(fish1, width.toInt(), height.toInt(), false)
         fish2 = Bitmap.createScaledBitmap(fish2, width.toInt(), height.toInt(), false)
@@ -78,7 +78,6 @@ class Fish(res: Resources,) : GameComponent(res) {
                 return fish3
             }
         }
-
         fishCounter = 1
         return fish4
     }
@@ -108,15 +107,12 @@ class Fish(res: Resources,) : GameComponent(res) {
         paintText.textSize = 28 * density
         paintText.typeface = Typeface.DEFAULT_BOLD
 
-        val startPosition = x + (width / 2)
+        val startPosition = x + (width /3)
         val endPosition = y + (height/2)
 
 //        Timber.d("startX F: $startPosition")
 //        Timber.d("startY F: $endPosition")
 
-        if(startPosition != 0f || endPosition != 0f){
-            startPosition
-        }
         canvas.drawText(captionString, startPosition,endPosition,paintText)
     }
 }

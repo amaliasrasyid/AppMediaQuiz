@@ -11,25 +11,37 @@ import com.kontrakanprojects.appgamequiz.view.game.GameComponent
 import com.kontrakanprojects.appgamequiz.view.game.GameView
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioX
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioY
+import timber.log.Timber
 
-class OptionComponent constructor(qX: Float, qY: Float, marginX: Float, res: Resources,bitmap: Bitmap) : GameComponent(res,bitmap) {
+class OptionComponent constructor(positionX: Float, positionY: Float, marginX: Float, res: Resources,bitmap: Bitmap) : GameComponent(res,bitmap) {
 
     private var optionImg: Bitmap
      var textNumber: Int = 0
     private var isChoosed = false
 
     init{
-        //option position on screen (question bitmap)
-        x = qX + marginX
-        y = qY - 30
-
 //        Log.d("option component","x = ${x};y = ${y}")
 
-        width = bitmap.width.toFloat()
-        height = bitmap.height.toFloat()
+        width = 200f * screenRatioX
+        height =  200f * screenRatioY
 
-        optionImg = Bitmap.createScaledBitmap(bitmap,200,200,false)
+        Timber.d("Width Option After Adj: $width")
+        Timber.d("Height Option After Adj: $height")
 
+        //Define The max min size
+        if(width < 40f){
+            width = 40f
+            height = 40f
+        }
+
+        Timber.d("Width Option Last: $width")
+        Timber.d("Height Option Last: $height")
+            optionImg = Bitmap.createScaledBitmap(bitmap,width.toInt(),height.toInt(),false)
+
+
+        //option position on screen (question bitmap)
+        x = positionX + marginX
+        y = positionY - (30 * screenRatioX)
     }
     
     fun drawTextOnTop(canvas: Canvas,res: Resources){
@@ -42,33 +54,9 @@ class OptionComponent constructor(qX: Float, qY: Float, marginX: Float, res: Res
             color = Color.WHITE
         }
 
-
-
-        val startPosition = x + (optionImg.width) - 25
-        val endPosition = y + 30
+        val startPosition = x + (optionImg.width/2) - (15 * screenRatioX)
+        val endPosition = y + (optionImg.height/2) + (15 * screenRatioX)
         canvas.drawText(captionString, startPosition,endPosition,paintText)
-
-//        val text = textNumber.toString()
-//        val paint = Paint()
-//        val textPaint = TextPaint().apply {
-//            textSize = 16 * density
-//            typeface = Typeface.DEFAULT_BOLD
-//        }
-//        val slBuilder = StaticLayout.Builder.obtain(text,0,text.length,textPaint,canvas.width)
-//            .setAlignment(Layout.Alignment.ALIGN_NORMAL)
-//            .setMaxLines(2)
-//        val mTextLayout = slBuilder.build()
-//
-//        val bounds = Rect()
-//        paint.getTextBounds(text, 0, text.length, bounds)
-//
-//        canvas.save()
-//        val textX = x + optionImg.width
-//        val textY = y
-//
-//        canvas.translate(textX, textY.toFloat())
-//        mTextLayout.draw(canvas)
-//        canvas.restore()
     }
 
     fun getOption() = optionImg

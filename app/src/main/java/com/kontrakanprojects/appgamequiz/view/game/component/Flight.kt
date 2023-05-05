@@ -9,11 +9,9 @@ import com.kontrakanprojects.appgamequiz.R
 import com.kontrakanprojects.appgamequiz.view.game.GameComponent
 import com.kontrakanprojects.appgamequiz.view.game.GameView
 import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioX
-import com.kontrakanprojects.appgamequiz.view.game.GameView.Companion.screenRatioY
 import com.kontrakanprojects.appgamequiz.view.game.component.healthpoint.HealthPoints
-import timber.log.Timber
 
-class Flight internal constructor(private val gameView: GameView, screenX: Int, screenY: Int, res: Resources): GameComponent(res) {
+class Flight internal constructor(private val gameView: GameView, screenX: Int, screenY: Int, res: Resources,densityDpi: Int): GameComponent(res) {
 
     var isGoingUp = false
     var isGoingDown = false
@@ -45,33 +43,33 @@ class Flight internal constructor(private val gameView: GameView, screenX: Int, 
         flight2 = BitmapFactory.decodeResource(res, R.drawable.fly2)
 
         //health point
-        healthPoints = HealthPoints(screenX,res)
+        healthPoints = HealthPoints(screenX,res, screenRatioX,densityDpi)
         numFailure = healthPoints.getHealthPoints().size - 1
 
         width = flight1.width.toFloat()
         height = flight1.height.toFloat()
 
-        Timber.d("Width Flight Awal : $width")
-        Timber.d("Height Flight Awal : $height")
+//        Timber.d("Width Flight Awal : $width")
+//        Timber.d("Height Flight Awal : $height")
 
         width /= 4
         height /= 4
 
-        Timber.d("Width Flight : $width")
-        Timber.d("Height Flight : $height")
+//        Timber.d("Width Flight : $width")
+//        Timber.d("Height Flight : $height")
 
         //Re-size based resolution (dpi)
 //        width *= screenRatioX
 //        height *= screenRatioY
 
-        //define minimum size of the width-height Flight Object
+        //define the max minimum size of the width-height Flight Object
         if(width < 70){
             width = 70f
             height = 50f
         }
 
-        Timber.d("Width Flight After Adj: $width")
-        Timber.d("Height Flight After Adj: $height")
+//        Timber.d("Width Flight After Adj: $width")
+//        Timber.d("Height Flight After Adj: $height")
 
         flight1 = Bitmap.createScaledBitmap(flight1, width.toInt(), height.toInt(), false)
         flight2 = Bitmap.createScaledBitmap(flight2, width.toInt(), height.toInt(), false)
