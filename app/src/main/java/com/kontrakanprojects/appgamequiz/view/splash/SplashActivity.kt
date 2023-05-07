@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
     private val activityScope = CoroutineScope(Dispatchers.Main)
 
     companion object {
-        private const val DELAY = 200L
+        private const val DELAY = 2000L
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

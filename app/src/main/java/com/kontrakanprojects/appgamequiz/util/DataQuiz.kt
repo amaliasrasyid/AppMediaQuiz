@@ -185,8 +185,8 @@ object DataQuiz {
                     options = ArrayList<Option>(
                         listOf(
                             Option(BitmapFactory.decodeResource(res, R.drawable.kitten),1),
-                            Option(BitmapFactory.decodeResource(res, R.drawable.ikan_quiz),2),
-                            Option(BitmapFactory.decodeResource(res, R.drawable.badak_quiz),3),
+                            Option(BitmapFactory.decodeResource(res, R.drawable.badak_quiz),2),
+                            Option(BitmapFactory.decodeResource(res, R.drawable.ikan_quiz),3),
                             Option(BitmapFactory.decodeResource(res, R.drawable.ayam),4),
                         )
                     ),

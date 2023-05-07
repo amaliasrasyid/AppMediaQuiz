@@ -177,7 +177,9 @@ class QuizFragment : Fragment(),View.OnClickListener {
         score = if(selectedAnswer == currentAnswerKey) {
             val point = listQuizQ.get(currentAnswerKey).points
             score + point
-        } else { score }
+        }else{
+            score
+        }
 
         //show right and wrong answer
         if(selectedAnswer != currentAnswerKey){
