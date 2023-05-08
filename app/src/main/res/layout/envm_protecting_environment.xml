@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/border_keep_natural_env"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintTop_toTopOf="@id/tv_keep_natural_env"
+            app:layout_constraintBottom_toBottomOf="@id/tv_keep_natural_env"
+            app:layout_constraintStart_toStartOf="@id/tv_keep_natural_env"
+            app:layout_constraintEnd_toEndOf="@id/tv_keep_natural_env"/>
+
+        <TextView
+            android:id="@+id/tv_keep_natural_env"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="CARA MEMELIHARA LINGKUNGAN"
+            android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_healthy_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_32"
+            android:src="@drawable/img_rumah_sehat"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_env" />
+
+        <TextView
+            android:id="@+id/tv_desc_img_healthy_home"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Menciptakan Rumah yang sehat"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/img_healthy_home"
+            app:layout_constraintStart_toStartOf="@+id/img_healthy_home"
+            app:layout_constraintTop_toBottomOf="@id/img_healthy_home" />
+
+        <ImageView
+            android:id="@+id/img_tree_onroad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/img_pohon_onroad"
+            app:layout_constraintEnd_toEndOf="@+id/img_throwing_garbage"
+            app:layout_constraintStart_toStartOf="@+id/img_healthy_home"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc_img_healthy_home" />
+
+        <TextView
+            android:id="@+id/tv_desc_img_tree_onroad"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Menanam pohon pelindung ditepi jalan"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/img_tree_onroad"
+            app:layout_constraintStart_toStartOf="@+id/img_tree_onroad"
+            app:layout_constraintTop_toBottomOf="@id/img_tree_onroad" />
+
+
+        <ImageView
+            android:id="@+id/img_throwing_garbage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/img_throw_garbage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_env" />
+
+        <TextView
+            android:id="@+id/tv_desc_img_throw_garbage"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Membuang sampah pada tempatnya"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@id/img_throwing_garbage"
+            app:layout_constraintStart_toStartOf="@id/img_throwing_garbage"
+            app:layout_constraintTop_toBottomOf="@id/img_throwing_garbage" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

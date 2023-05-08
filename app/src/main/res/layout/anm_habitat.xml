@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/border_animal_habitat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintTop_toTopOf="@id/tv_animal_habitat"
+            app:layout_constraintBottom_toBottomOf="@id/tv_animal_habitat"
+            app:layout_constraintStart_toStartOf="@id/tv_animal_habitat"
+            app:layout_constraintEnd_toEndOf="@id/tv_animal_habitat"/>
+
+        <TextView
+            android:id="@+id/tv_animal_habitat"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="TEMPAT HIDUP HEWAN "
+            android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/LineGrassStyle"
+            android:id="@+id/line_grass_forest"
+            android:background="@drawable/line_grass"
+            app:layout_constraintEnd_toEndOf="@+id/tv_forest"
+            app:layout_constraintStart_toStartOf="@+id/tv_forest"
+            app:layout_constraintTop_toTopOf="@+id/tv_forest" />
+
+        <TextView
+            android:id="@+id/tv_forest"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_32"
+            android:text="@string/text_forest"
+            android:textAlignment="center"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_animal_habitat" />
+
+        <HorizontalScrollView
+            android:id="@+id/hscroll_animals_forest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_forest">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_tiger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:src="@drawable/img_harimau" />
+
+                <ImageView
+                    android:id="@+id/img_orangutan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16"
+                    android:src="@drawable/img_org_utan" />
+
+                <ImageView
+                    android:id="@+id/img_elephant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:src="@drawable/img_gajah" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <View
+            style="@style/LineGrassStyle"
+            android:id="@+id/line_grass_desert"
+            android:background="@drawable/line_grass"
+            app:layout_constraintEnd_toEndOf="@+id/tv_desert"
+            app:layout_constraintStart_toStartOf="@+id/tv_desert"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desert" />
+
+        <TextView
+            android:id="@+id/tv_desert"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:text="@string/text_desert"
+            android:textAlignment="center"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hscroll_animals_forest" />
+
+        <HorizontalScrollView
+            android:id="@+id/hscroll_animals_desert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/margin_16"
+            app:layout_constraintTop_toBottomOf="@id/line_grass_desert">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/img_camel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:src="@drawable/img_unta" />
+                <ImageView
+                    android:id="@+id/img_lizard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16"
+                    android:src="@drawable/img_kadal" />
+                <ImageView
+                    android:id="@+id/img_snake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:src="@drawable/img_ular" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <View
+            style="@style/LineGrassStyle"
+            android:id="@+id/line_grass_arctic"
+            android:background="@drawable/line_grass"
+            app:layout_constraintEnd_toEndOf="@+id/tv_arctic"
+            app:layout_constraintStart_toStartOf="@+id/tv_arctic"
+            app:layout_constraintTop_toTopOf="@+id/tv_arctic" />
+
+        <TextView
+            android:id="@+id/tv_arctic"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:text="KUTUB UTARA"
+            android:textAlignment="center"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hscroll_animals_desert" />
+
+        <HorizontalScrollView
+            android:id="@+id/hscroll_animals_arctic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_arctic">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_polar_bear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:src="@drawable/img_beruang_kutub" />
+
+                <ImageView
+                    android:id="@+id/img_penguin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16"
+                    android:src="@drawable/img_penguin" />
+
+                <ImageView
+                    android:id="@+id/img_arctic_fox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:src="@drawable/img_rubah_kutub" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <View
+            style="@style/LineGrassStyle"
+            android:id="@+id/line_grass_land"
+            android:background="@drawable/line_grass"
+            app:layout_constraintEnd_toEndOf="@+id/tv_land"
+            app:layout_constraintStart_toStartOf="@+id/tv_land"
+            app:layout_constraintTop_toTopOf="@+id/tv_land" />
+
+        <TextView
+            style="@style/PrimaryTextStyle"
+            android:id="@+id/tv_land"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:text="@string/text_land"
+            android:textSize="48sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/hscroll_animals_arctic" />
+
+
+        <HorizontalScrollView
+            android:id="@+id/hscroll_animal_pet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/margin_16"
+            app:layout_constraintTop_toBottomOf="@id/tv_land">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/img_cat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:src="@drawable/img_kucing_pet" />
+                <ImageView
+                    android:id="@+id/img_dog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16"
+                    android:src="@drawable/img_pet_dog" />
+                <ImageView
+                    android:id="@+id/img_parrot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:src="@drawable/img_pet_nuri" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tv_animal_pet"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hewan Jinak"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            android:textSize="38sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hscroll_animal_pet"/>
+
+        <HorizontalScrollView
+            android:id="@+id/hscroll_animal_livestock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_animal_pet">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/img_chicken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:src="@drawable/img_ayam" />
+                <ImageView
+                    android:id="@+id/img_cow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16"
+                    android:src="@drawable/img_cow" />
+                <ImageView
+                    android:id="@+id/img_rabbit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:src="@drawable/img_kelinci" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tv_animal_livestock"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hewan Ternak"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/margin_32"
+            android:textSize="38sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hscroll_animal_livestock"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

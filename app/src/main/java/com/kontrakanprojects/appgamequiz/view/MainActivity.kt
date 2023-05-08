@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.kontrakanprojects.appgamequiz.R
+import com.kontrakanprojects.appgamequiz.data.session.GamePreference
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        GamePreference(this@MainActivity).setGameState(true)
+
 
         //prepare media player for playing app music
         mediaPlayer = MediaPlayer()

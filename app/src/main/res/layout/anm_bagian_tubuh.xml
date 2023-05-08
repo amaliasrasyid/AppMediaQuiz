@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/border_struktur_hewan"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border_image"
+            app:layout_constraintTop_toTopOf="@id/tv_struktur_hewan"
+            app:layout_constraintBottom_toBottomOf="@id/tv_struktur_hewan"
+            app:layout_constraintStart_toStartOf="@id/tv_struktur_hewan"
+            app:layout_constraintEnd_toEndOf="@id/tv_struktur_hewan"/>
+
+        <TextView
+            android:id="@+id/tv_struktur_hewan"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="@dimen/padding_16"
+            android:text="BAGIAN2 PADA TUBUH HEWAN"
+            android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/LineGrassStyle"
+            android:id="@+id/line_grass_cat"
+            android:background="@drawable/line_grass"
+            app:layout_constraintEnd_toEndOf="@+id/tv_cat"
+            app:layout_constraintStart_toStartOf="@+id/tv_cat"
+            app:layout_constraintTop_toTopOf="@+id/tv_cat" />
+
+        <TextView
+            android:id="@+id/tv_cat"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_32"
+            android:text="@string/text_cat"
+            android:textAlignment="center"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_struktur_hewan" />
+
+        <TextView
+            android:id="@+id/tv_desc_cat"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:justificationMode="inter_word"
+            android:text="@string/desc_cat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cat" />
+
+        <ImageView
+            android:id="@+id/img_struktur_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/img_kucing"
+            app:layout_constraintEnd_toEndOf="@+id/tv_desc_cat"
+            app:layout_constraintStart_toStartOf="@+id/tv_desc_cat"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc_cat" />
+
+        <View
+            style="@style/LineGrassStyle"
+            android:id="@+id/line_grass_bird"
+            android:background="@drawable/line_grass"
+            app:layout_constraintEnd_toEndOf="@+id/tv_bird"
+            app:layout_constraintStart_toStartOf="@+id/tv_bird"
+            app:layout_constraintTop_toTopOf="@+id/tv_bird" />
+
+        <TextView
+            android:id="@+id/tv_bird"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_32"
+            android:text="@string/text_bird"
+            android:textAlignment="center"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_struktur_cat" />
+
+        <ImageView
+            android:id="@+id/img_struktur_bird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/img_burung"
+            app:layout_constraintEnd_toEndOf="@+id/tv_bird"
+            app:layout_constraintStart_toStartOf="@+id/tv_bird"
+            app:layout_constraintTop_toBottomOf="@id/tv_bird" />
+
+        <View
+            style="@style/LineGrassStyle"
+            android:id="@+id/line_grass_fish"
+            android:background="@drawable/line_grass"
+            app:layout_constraintEnd_toEndOf="@+id/tv_fish"
+            app:layout_constraintStart_toStartOf="@+id/tv_fish"
+            app:layout_constraintTop_toTopOf="@+id/tv_fish" />
+
+        <TextView
+            android:id="@+id/tv_fish"
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_32"
+            android:text="@string/text_fish"
+            android:textAlignment="center"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_struktur_bird" />
+
+        <TextView
+            android:id="@+id/tv_desc_fish"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:justificationMode="inter_word"
+            android:text="@string/desc_fish"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_fish" />
+
+        <ImageView
+            android:id="@+id/img_struktur_fish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:src="@drawable/img_ikan"
+            app:layout_constraintEnd_toEndOf="@+id/tv_desc_fish"
+            app:layout_constraintStart_toStartOf="@+id/tv_desc_fish"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc_fish" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

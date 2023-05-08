@@ -13,6 +13,7 @@ object DataQuiz {
             listOf(
                 Question(
                     text = "Rancangan berikut yang sesuai dengan diagram atau peta konsep tentang persamaan dan perbedaan antara kucing dan burung adalah!",
+                    points = 10,
                     answerKey = 2,
                     options = ArrayList<Option>(
                         listOf(
@@ -26,6 +27,7 @@ object DataQuiz {
                 ),
                 Question(
                     text = "Amati Kedua gambar berikut ini kemudian bandingkan ciri-ciri kedua hewan tersebut!",
+                    points = 10,
                     answerKey = 1,
                     options = ArrayList<Option>(
                         listOf(
@@ -45,6 +47,7 @@ object DataQuiz {
                 ),
                 Question(
                     text = "Perhatikan gambar diatas. Mengapa daun seledri berubah warna? Hubungkan dengan fungsi batang pada tumbuhan!",
+                    points = 10,
                     answerKey = 1,
                     options = ArrayList<Option>(
                         listOf(
@@ -63,6 +66,7 @@ object DataQuiz {
                 ),
                 Question(
                     text = "Apa yang akan terjadi jika kita melakukan perilaku seperti gambar diatas?    ",
+                    points = 10,
                     answerKey = 1,
                     options = ArrayList<Option>(
                         listOf(
@@ -87,6 +91,7 @@ object DataQuiz {
                             "Ikan merupakan hewan yang hidup di air yang dibagian tubuhnya terdapat sisik untuk melindungi tubuhnya. Ikan bisa dijadikan sebagai pangan dalam kehidupan sehari-hari.\n" +
                             "Sapi adalah hewan yang di darat yang memiliki kulit berbulu halus yang dapat dimanfaatkan sebagai bahan dasar pembuat tas\n" +
                             "Dari teks di atas hewan sangat bermanfaat bagi manusia, mengapa hewan memunyai menfaat yang besar bagi manusia? \n",
+                    points = 10,
                     answerKey = 2,
                     options = ArrayList<Option>(
                         listOf(
@@ -135,6 +140,7 @@ object DataQuiz {
                             "8)\tTidak ada sampah berserakan\n" +
                             "Klasifikasikan pernyataan diatas yang termasuk lingkungan yang terawatt dengan baik…\n",
                     answerKey = 2,
+                    points = 10,
                     options = ArrayList<Option>(
                         listOf(
                            Option(image = null,1,"A.\t1-3-4-7"),
@@ -152,6 +158,7 @@ object DataQuiz {
                             "3)\tDaerah perkotaan lebih…………dari pada daerah pedesaan\n" +
                             "4)\tManusia membutuhkan lingkungan sehat untuk……..\n",
                     answerKey = 1,
+                    points = 10,
                     options = ArrayList<Option>(
                         listOf(
                             Option(image = null,1,"A.\tPolusi – Kulit – gersang - tumbuh sehat  "),

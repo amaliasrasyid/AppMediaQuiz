@@ -175,8 +175,9 @@ class QuizFragment : Fragment(),View.OnClickListener {
 
     private fun checkAnswer(selectedAnswer: Int,isText :Boolean = false, isImage: Boolean = false) {
         score = if(selectedAnswer == currentAnswerKey) {
-            val point = listQuizQ.get(currentAnswerKey).points
-            score + point
+            val selectedQ = listQuizQ.get(indexQuizQ)
+            val point = selectedQ.points
+            score + point!!
         }else{
             score
         }

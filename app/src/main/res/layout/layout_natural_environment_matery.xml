@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,352 +10,65 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/modal_title"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/modal_title"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/textView6" />
+        <LinearLayout
+            android:id="@+id/container_matery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView6"
-            style="@style/PrimaryTextStyle"
+            <include
+                android:id="@+id/layout_first"
+                layout="@layout/envm_first" />
+
+            <include
+                android:id="@+id/layout_healthy"
+                android:visibility="gone"
+                layout="@layout/envm_healthy"/>
+            <include
+                android:id="@+id/layout_unhealthy"
+                android:visibility="gone"
+                layout="@layout/envm_unhealthy"/>
+            <include
+                android:id="@+id/layout_protecting_environment"
+                android:visibility="gone"
+                layout="@layout/envm_protecting_environment"/>
+            <include
+                android:id="@+id/layout__keep_natural_balance"
+                android:visibility="gone"
+                layout="@layout/envm_keep_natural_balance"/>
+            <include
+                android:id="@+id/layout_env_damage"
+                android:visibility="gone"
+                layout="@layout/envm_env_damage"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_prev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:padding="@dimen/padding_16"
-            android:text="MARI MENGENAL LINGKUNGAN"
-            android:textColor="@color/secondaryTextColor"
-            android:textSize="@dimen/font_size_28"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/intro1"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:text="@string/intro_natural_env_matery1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/modal_title" />
-
-        <TextView
-            android:id="@+id/intro2"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:text="@string/intro_natural_env_matery2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/intro1"/>
-
-        <View
-            android:id="@+id/border_healthy_env"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_healthy_env"
-            app:layout_constraintBottom_toBottomOf="@id/tv_healthy_env"
-            app:layout_constraintStart_toStartOf="@id/tv_healthy_env"
-            app:layout_constraintEnd_toEndOf="@id/tv_healthy_env"/>
-
-        <TextView
-            android:id="@+id/tv_healthy_env"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="@dimen/padding_16"
-            android:text="LINGKUNGAN YANG SEHAT"
-            android:textAlignment="center"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/intro2" />
-
-        <TextView
-            android:id="@+id/desc_healthy_env"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:text="@string/desc_healthy_env"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_healthy_env"/>
-
-        <View
-            android:id="@+id/border_unhealthy_env"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_unhealthy_env"
-            app:layout_constraintBottom_toBottomOf="@id/tv_unhealthy_env"
-            app:layout_constraintStart_toStartOf="@id/tv_unhealthy_env"
-            app:layout_constraintEnd_toEndOf="@id/tv_unhealthy_env"/>
-
-        <TextView
-            android:id="@+id/tv_unhealthy_env"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="@dimen/padding_16"
-            android:text="LINGKUNGAN YANG TIDAK SEHAT"
-            android:textAlignment="center"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/desc_healthy_env" />
-
-        <TextView
-            android:id="@+id/desc_unhealthy_env"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16"
-            android:text="@string/desc_unhealthy_env"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_unhealthy_env"/>
-
-        <View
-            android:id="@+id/border_keep_natural_env"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_keep_natural_env"
-            app:layout_constraintBottom_toBottomOf="@id/tv_keep_natural_env"
-            app:layout_constraintStart_toStartOf="@id/tv_keep_natural_env"
-            app:layout_constraintEnd_toEndOf="@id/tv_keep_natural_env"/>
-
-        <TextView
-            android:id="@+id/tv_keep_natural_env"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="@dimen/padding_16"
-            android:text="CARA MEMELIHARA LINGKUNGAN"
-            android:textAlignment="center"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/desc_unhealthy_env" />
-
-        <ImageView
-            android:id="@+id/img_healthy_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_16"
-            android:layout_marginTop="@dimen/margin_32"
-            android:src="@drawable/img_rumah_sehat"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:background="@null"
+            android:visibility="invisible"
+            android:src="@drawable/ic_prev"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_env" />
+            app:layout_constraintTop_toBottomOf="@+id/container_matery" />
 
-        <TextView
-            android:id="@+id/tv_desc_img_healthy_home"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Menciptakan Rumah yang sehat"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@+id/img_healthy_home"
-            app:layout_constraintStart_toStartOf="@+id/img_healthy_home"
-            app:layout_constraintTop_toBottomOf="@id/img_healthy_home" />
-
-        <ImageView
-            android:id="@+id/img_tree_onroad"
+        <ImageButton
+            android:id="@+id/btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_pohon_onroad"
-            app:layout_constraintEnd_toStartOf="@+id/img_throwing_garbage"
-            app:layout_constraintStart_toEndOf="@+id/img_healthy_home"
-            app:layout_constraintTop_toBottomOf="@+id/tv_desc_img_healthy_home" />
-
-        <TextView
-            android:id="@+id/tv_desc_img_tree_onroad"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Menanam pohon pelindung ditepi jalan"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@+id/img_tree_onroad"
-            app:layout_constraintStart_toStartOf="@+id/img_tree_onroad"
-            app:layout_constraintTop_toBottomOf="@id/img_tree_onroad" />
-
-
-        <ImageView
-            android:id="@+id/img_throwing_garbage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_32"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/img_throw_garbage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.84"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_env" />
-
-        <TextView
-            android:id="@+id/tv_desc_img_throw_garbage"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Membuang sampah pada tempatnya"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@id/img_throwing_garbage"
-            app:layout_constraintStart_toStartOf="@id/img_throwing_garbage"
-            app:layout_constraintTop_toBottomOf="@id/img_throwing_garbage" />
-
-        <View
-            android:id="@+id/border_keep_natural_balance"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_keep_natural_balance"
-            app:layout_constraintBottom_toBottomOf="@id/tv_keep_natural_balance"
-            app:layout_constraintStart_toStartOf="@id/tv_keep_natural_balance"
-            app:layout_constraintEnd_toEndOf="@id/tv_keep_natural_balance"/>
-
-        <TextView
-            android:id="@+id/tv_keep_natural_balance"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="@dimen/padding_16"
-            android:text="CARA MEMELIHARA KESEIMBANGAN ALAM"
-            android:textAlignment="center"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_tree_onroad" />
-
-        <ImageView
-            android:id="@+id/img_preserving_forest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_16"
-            android:layout_marginTop="@dimen/margin_32"
-            android:src="@drawable/img_preserve_forest"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.16"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_balance" />
-
-        <TextView
-            android:id="@+id/tv_desc_img_preserving_forest"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Menjaga kelestarian hutan"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@+id/img_preserving_forest"
-            app:layout_constraintStart_toStartOf="@+id/img_preserving_forest"
-            app:layout_constraintTop_toBottomOf="@id/img_preserving_forest" />
-
-        <ImageView
-            android:id="@+id/img_treat_waste"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_treat_waste"
-            app:layout_constraintEnd_toStartOf="@+id/img_recycling"
-            app:layout_constraintStart_toEndOf="@+id/img_preserving_forest"
-            app:layout_constraintTop_toBottomOf="@+id/tv_desc_img_preserving_forest" />
-
-        <TextView
-            android:id="@+id/tv_desc_img_treat_waste"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Mengolah limbah sebelum dibuang"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@+id/img_treat_waste"
-            app:layout_constraintStart_toStartOf="@+id/img_treat_waste"
-            app:layout_constraintTop_toBottomOf="@id/img_treat_waste" />
-
-
-        <ImageView
-            android:id="@+id/img_recycling"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_32"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/img_recyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.84"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tv_keep_natural_balance" />
-
-        <TextView
-            android:id="@+id/tv_desc_img_recycling"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Membuang sampah pada tempatnya"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@id/img_recycling"
-            app:layout_constraintStart_toStartOf="@id/img_recycling"
-            app:layout_constraintTop_toBottomOf="@id/img_recycling" />
-
-        <View
-            android:id="@+id/border_env_damage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_image"
-            app:layout_constraintTop_toTopOf="@id/tv_env_damage"
-            app:layout_constraintBottom_toBottomOf="@id/tv_env_damage"
-            app:layout_constraintStart_toStartOf="@id/tv_env_damage"
-            app:layout_constraintEnd_toEndOf="@id/tv_env_damage"/>
-
-        <TextView
-            android:id="@+id/tv_env_damage"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="64dp"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="@dimen/padding_16"
-            android:text="KERUSAKAN LINGKUNGAN"
-            android:textAlignment="center"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_treat_waste" />
-
-        <ImageView
-            android:id="@+id/img_env_damage_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_32"
-            android:src="@drawable/img_tabel_env_damage"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:background="@null"
+            android:src="@drawable/ic_next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_env_damage" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/container_matery" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -362,7 +76,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

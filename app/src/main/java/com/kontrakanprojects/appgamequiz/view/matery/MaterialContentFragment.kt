@@ -47,9 +47,10 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
         super.onViewCreated(view, savedInstanceState)
 
         mediaPlayer = MediaPlayer()
+        layoutType = args.mType
         with(binding) {
             btnExit.setOnClickListener { findNavController().navigateUp() }
-            when (args.mType) {
+            when (layoutType) {
                 MaterialType.ANIMAL -> {
                     //hide others and show animals material layout
                     val layout = layoutAnimal.root
@@ -59,6 +60,42 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
                     otherLayout1.visibility = View.GONE
                     otherLayout2.visibility = View.GONE
 
+                    with(layoutAnimal){
+                        btnNext.setOnClickListener{
+                            isPrev = false
+                            hideCurrentMatery()
+                            indexMatery++
+                            Timber.d("index Matery: ${indexMatery}")
+
+                            showNextMatery()
+                            Timber.d("Clicked Next")
+                            //Show or Hide Button Prev-Next
+                            if(indexMatery == 1){
+                                showPrevNextButtons(false,true,)
+                            }else if(indexMatery < 3){
+                                showPrevNextButtons(true,true,)
+                            }else if(indexMatery >= 3 ){
+                                showPrevNextButtons(true,false,)
+                            }
+                        }
+                        btnPrev.setOnClickListener {
+                            isPrev = true
+                            indexMatery--
+                            hideCurrentMatery()
+                            Timber.d("index Matery: ${indexMatery}")
+
+                            showNextMatery()
+                            //Show or Hide Button Prev-Next
+                            if(indexMatery == 1){
+                                showPrevNextButtons(false,true)
+                            }else if(indexMatery < 3){
+                                showPrevNextButtons()
+                            }else if(indexMatery >= 3 ){
+                                showPrevNextButtons(true,false)
+                            }
+                            Timber.d("Clicked Prev")
+                        }
+                    }
                     prepareOnTouchImage()
                     audioRawMain = requireContext().resources.openRawResourceFd(R.raw.audio_materi_hewan)
                 }
@@ -71,6 +108,42 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
                     otherLayout2.visibility = View.GONE
 
                     audioRawMain = requireContext().resources.openRawResourceFd(R.raw.audio_materi_lingkungan)
+                    with(layoutEnvironment){
+                        btnNext.setOnClickListener{
+                            isPrev = false
+                            hideCurrentMatery()
+                            indexMatery++
+                            Timber.d("index Matery: ${indexMatery}")
+
+                            showNextMatery()
+                            Timber.d("Clicked Next")
+                            //Show or Hide Button Prev-Next
+                            if(indexMatery == 1){
+                                showPrevNextButtons(false,true,)
+                            }else if(indexMatery < 6){
+                                showPrevNextButtons(true,true,)
+                            }else if(indexMatery >= 6 ){
+                                showPrevNextButtons(true,false,)
+                            }
+                        }
+                        btnPrev.setOnClickListener {
+                            isPrev = true
+                            indexMatery--
+                            hideCurrentMatery()
+                            Timber.d("index Matery: ${indexMatery}")
+
+                            showNextMatery()
+                            //Show or Hide Button Prev-Next
+                            if(indexMatery == 1){
+                                showPrevNextButtons(false,true)
+                            }else if(indexMatery < 6){
+                                showPrevNextButtons()
+                            }else if(indexMatery >= 6 ){
+                                showPrevNextButtons(true,false)
+                            }
+                            Timber.d("Clicked Prev")
+                        }
+                    }
                 }
                 else -> {
                     //DEFAULT IS THE PLANT LAYOUT
@@ -127,108 +200,241 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun showNextMatery() {
-        with(binding.layoutPlant){
-           when(indexMatery){
-               1 -> layoutFirst.root.visibility= View.VISIBLE
-               2 -> layoutAkar.root.visibility= View.VISIBLE
-               3 -> layoutBatang.root.visibility= View.VISIBLE
-               4 -> layoutBunga.root.visibility= View.VISIBLE
-               5 -> layoutDaun.root.visibility= View.VISIBLE
-               6 -> layoutBiji.root.visibility= View.VISIBLE
-               7 -> layoutBuah.root.visibility= View.VISIBLE
-               8 -> layoutPengamatan.root.visibility= View.VISIBLE
-               9 -> layoutRagamTumbuhan.root.visibility= View.VISIBLE
-           }
+        when(layoutType){
+            MaterialType.ANIMAL -> {
+                with(binding.layoutAnimal){
+                    when(indexMatery){
+                        1 -> layoutFirst.root.visibility= View.VISIBLE
+                        2 -> layoutStrukturTubuh.root.visibility= View.VISIBLE
+                        3 -> layoutHabitat.root.visibility= View.VISIBLE
+                    }
+                }
+            }
+            MaterialType.ENVIRONMENT -> {
+                with(binding.layoutEnvironment){
+                    when(indexMatery){
+                        1 -> layoutFirst.root.visibility= View.VISIBLE
+                        2 -> layoutHealthy.root.visibility= View.VISIBLE
+                        3 -> layoutUnhealthy.root.visibility= View.VISIBLE
+                        4 -> layoutProtectingEnvironment.root.visibility= View.VISIBLE
+                        5 -> layoutKeepNaturalBalance.root.visibility= View.VISIBLE
+                        6 -> layoutEnvDamage.root.visibility= View.VISIBLE
+                    }
+                }
+            }
+            else -> {
+                with(binding.layoutPlant){
+                    when(indexMatery){
+                        1 -> layoutFirst.root.visibility= View.VISIBLE
+                        2 -> layoutAkar.root.visibility= View.VISIBLE
+                        3 -> layoutBatang.root.visibility= View.VISIBLE
+                        4 -> layoutBunga.root.visibility= View.VISIBLE
+                        5 -> layoutDaun.root.visibility= View.VISIBLE
+                        6 -> layoutBiji.root.visibility= View.VISIBLE
+                        7 -> layoutBuah.root.visibility= View.VISIBLE
+                        8 -> layoutPengamatan.root.visibility= View.VISIBLE
+                        9 -> layoutRagamTumbuhan.root.visibility= View.VISIBLE
+                    }
+                }
+            }
         }
     }
 
     private fun hideCurrentMatery() {
-        with(binding.layoutPlant){
-            when(indexMatery){
-                1 -> {
-                    if(isPrev){
-                        layoutAkar.root.visibility = View.GONE
-                    }else{
-                        layoutFirst.root.visibility = View.GONE
+        when(layoutType){
+            MaterialType.ANIMAL -> {
+                with(binding.layoutAnimal){
+                    when(indexMatery){
+                        1 -> {
+                            if(isPrev){
+                                layoutStrukturTubuh.root.visibility = View.GONE
+                            }else{
+                                layoutFirst.root.visibility = View.GONE
+                            }
+                        }
+                        2 -> {
+                            if(isPrev){
+                                layoutHabitat.root.visibility = View.GONE
+                            }else{
+                                layoutStrukturTubuh.root.visibility = View.GONE
+                            }
+                        }
+                        3 ->  layoutHabitat.root.visibility = View.GONE
                     }
                 }
-                2 -> {
-                    if(isPrev){
-                        layoutBatang.root.visibility = View.GONE
-                    }else{
-                        layoutAkar.root.visibility = View.GONE
-                    }
-                }
-                3 -> {
-                    if(isPrev){
-                        layoutBunga.root.visibility = View.GONE
-                    }else{
-                        layoutBatang.root.visibility = View.GONE
-                    }
-                }
-                4 -> {
-                    if(isPrev){
-                        layoutDaun.root.visibility = View.GONE
-                    }else{
-                        layoutBunga.root.visibility = View.GONE
-                    }
-                }
-                5 -> {
-                    if(isPrev){
-                        layoutBiji.root.visibility= View.GONE
-                    }else{
-                        layoutDaun.root.visibility = View.GONE
-                    }
+            }
+            MaterialType.ENVIRONMENT -> {
+                with(binding.layoutEnvironment){
+                    when(indexMatery){
+                        1 -> {
+                            if(isPrev){
+                                layoutHealthy.root.visibility = View.GONE
+                            }else{
+                                layoutFirst.root.visibility = View.GONE
+                            }
+                        }
+                        2 -> {
+                            if(isPrev){
+                                layoutUnhealthy.root.visibility = View.GONE
+                            }else{
+                                layoutHealthy.root.visibility = View.GONE
+                            }
+                        }
+                        3 -> {
+                            if(isPrev){
+                                layoutProtectingEnvironment.root.visibility = View.GONE
+                            }else{
+                                layoutUnhealthy.root.visibility = View.GONE
+                            }
+                        }
+                        4 -> {
+                            if(isPrev){
+                                layoutKeepNaturalBalance.root.visibility = View.GONE
+                            }else{
+                                layoutProtectingEnvironment.root.visibility = View.GONE
+                            }
+                        }
+                        5 -> {
+                            if(isPrev){
+                                layoutEnvDamage.root.visibility= View.GONE
+                            }else{
+                                layoutKeepNaturalBalance.root.visibility = View.GONE
+                            }
 
-                }
-                6 -> {
-                    if(isPrev){
-                        layoutBuah.root.visibility = View.GONE
-                    }else{
-                        layoutBiji.root.visibility = View.GONE
+                        }
+                        6 -> layoutEnvDamage.root.visibility= View.GONE
                     }
                 }
-                7 -> {
-                    if(isPrev){
-                        layoutPengamatan.root.visibility = View.GONE
-                    }else{
-                        layoutBuah.root.visibility = View.GONE
+            }
+            else -> {
+                with(binding.layoutPlant){
+                    when(indexMatery){
+                        1 -> {
+                            if(isPrev){
+                                layoutAkar.root.visibility = View.GONE
+                            }else{
+                                layoutFirst.root.visibility = View.GONE
+                            }
+                        }
+                        2 -> {
+                            if(isPrev){
+                                layoutBatang.root.visibility = View.GONE
+                            }else{
+                                layoutAkar.root.visibility = View.GONE
+                            }
+                        }
+                        3 -> {
+                            if(isPrev){
+                                layoutBunga.root.visibility = View.GONE
+                            }else{
+                                layoutBatang.root.visibility = View.GONE
+                            }
+                        }
+                        4 -> {
+                            if(isPrev){
+                                layoutDaun.root.visibility = View.GONE
+                            }else{
+                                layoutBunga.root.visibility = View.GONE
+                            }
+                        }
+                        5 -> {
+                            if(isPrev){
+                                layoutBiji.root.visibility= View.GONE
+                            }else{
+                                layoutDaun.root.visibility = View.GONE
+                            }
+
+                        }
+                        6 -> {
+                            if(isPrev){
+                                layoutBuah.root.visibility = View.GONE
+                            }else{
+                                layoutBiji.root.visibility = View.GONE
+                            }
+                        }
+                        7 -> {
+                            if(isPrev){
+                                layoutPengamatan.root.visibility = View.GONE
+                            }else{
+                                layoutBuah.root.visibility = View.GONE
+                            }
+                        }
+                        8 -> {
+                            if(isPrev){
+                                layoutRagamTumbuhan.root.visibility = View.GONE
+                            }else{
+                                layoutPengamatan.root.visibility = View.GONE
+                            }
+                        }
+                        9 -> layoutRagamTumbuhan.root.visibility = View.GONE
                     }
                 }
-                8 -> {
-                    if(isPrev){
-                        layoutRagamTumbuhan.root.visibility = View.GONE
-                    }else{
-                        layoutPengamatan.root.visibility = View.GONE
-                    }
-                }
-                9 -> layoutRagamTumbuhan.root.visibility = View.GONE
             }
         }
-
     }
 
     protected fun showPrevNextButtons(statusPrev: Boolean = TRUE, statusNext: Boolean = TRUE){
-        with(binding.layoutPlant){
-            when{
-                statusPrev == FALSE && statusNext == TRUE -> {
-                    btnPrev.visibility= View.INVISIBLE
-                    btnNext.visibility= View.VISIBLE
+
+        when(layoutType){
+            MaterialType.ANIMAL ->{
+                with(binding.layoutAnimal){
+                    when{
+                        statusPrev == FALSE && statusNext == TRUE -> {
+                            btnPrev.visibility= View.INVISIBLE
+                            btnNext.visibility= View.VISIBLE
+                        }
+                        statusPrev == TRUE && statusNext == FALSE -> {
+                            btnPrev.visibility= View.VISIBLE
+                            btnNext.visibility= View.INVISIBLE
+                        }
+                        else -> {
+                            btnPrev.visibility= View.VISIBLE
+                            btnNext.visibility= View.VISIBLE
+                        }
+                    }
                 }
-                statusPrev == TRUE && statusNext == FALSE -> {
-                    btnPrev.visibility= View.VISIBLE
-                    btnNext.visibility= View.INVISIBLE
+            }
+            MaterialType.ENVIRONMENT -> {
+                with(binding.layoutEnvironment){
+                    when{
+                        statusPrev == FALSE && statusNext == TRUE -> {
+                            btnPrev.visibility= View.INVISIBLE
+                            btnNext.visibility= View.VISIBLE
+                        }
+                        statusPrev == TRUE && statusNext == FALSE -> {
+                            btnPrev.visibility= View.VISIBLE
+                            btnNext.visibility= View.INVISIBLE
+                        }
+                        else -> {
+                            btnPrev.visibility= View.VISIBLE
+                            btnNext.visibility= View.VISIBLE
+                        }
+                    }
                 }
-                else -> {
-                    btnPrev.visibility= View.VISIBLE
-                    btnNext.visibility= View.VISIBLE
+            }
+            else -> {
+                with(binding.layoutPlant){
+                    when{
+                        statusPrev == FALSE && statusNext == TRUE -> {
+                            btnPrev.visibility= View.INVISIBLE
+                            btnNext.visibility= View.VISIBLE
+                        }
+                        statusPrev == TRUE && statusNext == FALSE -> {
+                            btnPrev.visibility= View.VISIBLE
+                            btnNext.visibility= View.INVISIBLE
+                        }
+                        else -> {
+                            btnPrev.visibility= View.VISIBLE
+                            btnNext.visibility= View.VISIBLE
+                        }
+                    }
                 }
             }
         }
     }
 
     private fun prepareOnTouchImage() {
-        with(binding.layoutAnimal) {
+        with(binding.layoutAnimal.layoutHabitat) {
             imgTiger.setOnTouchListener(this@MaterialContentFragment)
             imgOrangutan.setOnTouchListener(this@MaterialContentFragment)
             imgElephant.setOnTouchListener(this@MaterialContentFragment)
@@ -245,14 +451,6 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
             imgCow.setOnTouchListener(this@MaterialContentFragment)
             imgRabbit.setOnTouchListener(this@MaterialContentFragment)
         }
-        with(binding.layoutPlant){
-//            tvSubAkar.setOnTouchListener(this@MaterialContentFragment)
-//            tvSubDaun.setOnTouchListener(this@MaterialContentFragment)
-//            tvSubBatang.setOnTouchListener(this@MaterialContentFragment)
-//            tvSubBuah.setOnTouchListener(this@MaterialContentFragment)
-//            tvSubBiji.setOnTouchListener(this@MaterialContentFragment)
-//            tvSubBunga.setOnTouchListener(this@MaterialContentFragment)
-        }
     }
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
@@ -260,9 +458,8 @@ class MaterialContentFragment : Fragment(), View.OnTouchListener {
 
         //PREPARE AUDIO n RESET IF AUDIO HAS BEEN SET
         if(audioRaw != null) mediaPlayer.reset()
-        with(binding.layoutAnimal) {
+        with(binding.layoutAnimal.layoutHabitat) {
             when (view) {
-
                 imgTiger -> audioRaw = requireContext().resources.openRawResourceFd(R.raw.harimau)
                 imgOrangutan -> audioRaw = requireContext().resources.openRawResourceFd(R.raw.orang_utan)
                 imgElephant -> audioRaw = requireContext().resources.openRawResourceFd(R.raw.gajah)

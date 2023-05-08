@@ -33,7 +33,6 @@ class MainFragment : Fragment(),View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val role = UserPreference(requireContext()).getUser().role
         with(binding) {
             if(role == TEACHER){
